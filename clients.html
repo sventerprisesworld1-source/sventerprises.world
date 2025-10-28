@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients - SV Enterprises</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- Swiper Slider CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* home page header */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+  
+
+    /* HEADER */
+    .main-header {
+      background: #ffffff;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 100px;
+    }
+
+    .navbar a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .navbar a.active,
+    .navbar a:hover {
+      color: #0077cc;
+    }
+
+
+    .navbar {
+  border: 2px solid #d9d9d9; /* Light grey outline */
+  border-radius: 6px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+
+
+  <!-- ✅ Responsive Header (logo left, hamburger right) -->
+<header class="main-header responsive-header" role="banner">
+  <div class="container header-wrapper">
+    <!-- Left: logo + brand -->
+    <a href="index.html" class="brand-wrap" aria-label="SV Enterprises Home">
+      <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
+      <span class="brand-name">SV Enterprises</span>
+    </a>
+
+    <!-- Right: hamburger -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <!-- Nav -->
+    <nav id="siteNav" class="navbar" role="navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="clients.html" class="active">Clients</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<style>
+/* ============ Responsive Header Add-ons ============ */
+.responsive-header .brand-wrap {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.responsive-header .brand-logo { height: 56px; width: auto; display: block; }
+.responsive-header .brand-name {
+  font-weight: 800; font-size: 18px; color: #0a2b4d; letter-spacing: .2px;
+}
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  appearance: none; background: #fff; border: 1px solid #d9d9d9; border-radius: 8px;
+  padding: 10px; display: inline-flex; flex-direction: column; gap: 4px;
+  cursor: pointer; line-height: 0;
+}
+.nav-toggle-bar { width: 22px; height: 2px; background: #0a2b4d; display: block; border-radius: 2px; }
+
+/* Mobile nav panel behavior */
+@media (max-width: 992px) {
+  /* keep header layout tidy */
+  .responsive-header .header-wrapper { gap: 12px; }
+
+  /* use dropdown panel instead of inline bar */
+  .responsive-header .navbar {
+    position: absolute; right: 4%; top: calc(100% + 8px);
+    background: #fff; border: 1px solid #dfe5ea; border-radius: 10px;
+    padding: 10px; display: none; /* hidden by default */
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    width: min(92vw, 360px); z-index: 1001;
+  }
+  /* remove the inline outline on mobile panel */
+  .responsive-header .navbar { border-width: 1px !important; }
+  .responsive-header .navbar a {
+    display: block; padding: 10px 12px; margin: 0; border-radius: 8px; color: #333;
+  }
+  .responsive-header .navbar a:hover { background: #f5f7fa; color: #0077cc; }
+  .responsive-header .navbar[data-open="true"] { display: block; }
+
+  /* brand sizing on small screens */
+  .responsive-header .brand-logo { height: 48px; }
+  .responsive-header .brand-name { font-size: 16px; }
+
+  /* show hamburger on mobile */
+  .nav-toggle { display: inline-flex; }
+}
+
+/* Desktop: keep your existing inline bar (with your border style) and hide hamburger */
+@media (min-width: 993px) {
+  .responsive-header .navbar { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-toggle { display: none; }
+}
+</style>
+
+
+
+
+
+<script>
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('siteNav');
+
+    function closeNav() {
+      nav?.setAttribute('data-open', 'false');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+    function openNav() {
+      nav?.setAttribute('data-open', 'true');
+      toggle?.setAttribute('aria-expanded', 'true');
+    }
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = nav.getAttribute('data-open') === 'true';
+      isOpen ? closeNav() : openNav();
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
+    });
+
+    // Close after clicking a link (mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeNav());
+    });
+
+    // Reset on resize to desktop
+    const mq = window.matchMedia('(min-width: 993px)');
+    mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
+  })();
+</script>
+
+
+
+
+
+
+
+
+<!-- CLIENTS HERO SECTION -->
+<section class="clients-hero">
+  <div class="clients-container">
+    <h1 class="clients-title">Clients We Serve with Quality</h1>
+  </div>
+</section>
+
+<style>
+.clients-hero {
+  background: #ffffff; /* Pure White */
+  text-align: center;
+  padding: 80px Auto;
+}
+
+.clients-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.clients-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #0a2b4d;
+  margin-bottom: Auto;
+}
+</style>
+
+
+
+<!-- CLIENT LOGOS SECTION -->
+<section class="clients-logos-section">
+  <div class="clients-container">
+    <h2 class="clients-logos-title">Trusted by Leading Companies</h2>
+    <p class="clients-logos-subtitle">
+      Our clients come from engineering, industrial and manufacturing sectors across India.
+    </p>
+
+    <div class="clients-logos-grid">
+
+      <!-- Logo Cards -->
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+      <div class="client-logo-card"></div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+.clients-logos-section {
+  background: #ffffff;
+  padding: 20px 20px;
+}
+
+.clients-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clients-logos-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0a2b4d;
+  margin-bottom: 10px;
+}
+
+.clients-logos-subtitle {
+  font-size: 16px;
+  color: #5c6f80;
+  margin-bottom: 35px;
+}
+
+.clients-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.client-logo-card {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.client-logo-card:hover {
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+  background: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .clients-logos-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .clients-logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .clients-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+<!-- ================= PROJECT HIGHLIGHTS SECTION ================= -->
+<section class="project-section">
+  <div class="project-container">
+    <h2 class="project-title">Project Highlights</h2>
+    <p class="project-subtitle">Delivering industrial solutions with precision, reliability and on-time execution.</p>
+
+    <div class="swiper projectSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- SLIDE 1 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1581093806807-4e27b48ff24e?w=1200" alt="Automation Control Panel Installation">
+          <div class="project-info">
+            <h3>Control Panel Installation</h3>
+            <p>Complete MCC & PLC panel integration with field wiring and commissioning.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1581090700227-1c8d2d33d3de?w=1200" alt="Fabrication of Support Structures">
+          <div class="project-info">
+            <h3>Fabrication Works</h3>
+            <p>Custom metal frameworks and equipment mounting structures.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200" alt="Industrial Assembly Line">
+          <div class="project-info">
+            <h3>Assembly Line Setup</h3>
+            <p>Material handling, conveyor setup, safety guarding installation.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1581091215367-59ab6c6a1b7b?w=1200" alt="Industrial Safety Upgrades">
+          <div class="project-info">
+            <h3>Safety System Upgrade</h3>
+            <p>Emergency stop units, relay interlocking, safety audits.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=1200" alt="Process Automation Project">
+          <div class="project-info">
+            <h3>Automation Upgrade</h3>
+            <p>PLC migration with HMI and VFD retrofit for legacy machines.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 6 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1617038220319-276d3c9793f2?w=1200" alt="Warehouse Supply Project">
+          <div class="project-info">
+            <h3>Industrial Supply</h3>
+            <p>PAN India procurement for production spares and components.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 7 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1526401485004-46910ecc8e51?w=1200" alt="Pneumatic piping project">
+          <div class="project-info">
+            <h3>Pneumatic Piping</h3>
+            <p>Compressed air line installation and leakage audit.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 8 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=1200" alt="Steel fabrication project">
+          <div class="project-info">
+            <h3>Steel Fabrication</h3>
+            <p>Structural and sheet metal fabrication with quality control.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 9 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200" alt="Industrial testing and commissioning">
+          <div class="project-info">
+            <h3>Testing & Commissioning</h3>
+            <p>Electrical testing, calibration, and site commissioning services.</p>
+          </div>
+        </div>
+
+        <!-- SLIDE 10 -->
+        <div class="swiper-slide project-card">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200" alt="Electrical panel assembly">
+          <div class="project-info">
+            <h3>Panel Assembly</h3>
+            <p>Distribution, control & automation panel wiring and assembly.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- Arrows -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+var swiper = new Swiper(".projectSwiper", {
+  slidesPerView: 3,
+  spaceBetween: 25,
+  loop: true,
+  autoplay: { delay: 3000, disableOnInteraction: false },
+  pagination: { el: ".swiper-pagination", clickable: true },
+  navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+  breakpoints: {
+    1024: { slidesPerView: 3 },
+    768: { slidesPerView: 2 },
+    500: { slidesPerView: 1 }
+  }
+});
+</script>
+
+<style>
+.project-section { background: #fff; padding: 70px 20px; }
+.project-container { max-width: 1200px; margin: auto; text-align: center; }
+.project-title { font-size: 32px; font-weight: 800; color: #0a2b4d; }
+.project-subtitle { color: #53616f; margin-bottom: 35px; }
+
+.project-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.project-info { padding: 15px; text-align: left; }
+.project-info h3 { font-size: 18px; color: #0a2b4d; margin: 0 0 6px; }
+.project-info p { color: #5c6f80; font-size: 14px; margin: 0; }
+</style>
+
+
+
+
+
+
+
+
+<!-- ================= WHY CLIENTS CHOOSE US ================= -->
+<section class="why-choose-clients">
+  <div class="why-container">
+    <h2 class="why-title">Why Clients Choose Us</h2>
+    <p class="why-subtitle">We deliver value with engineering expertise, quality commitment and reliable service</p>
+
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-number">01</div>
+        <h3>Trusted Industrial Expertise</h3>
+        <p>Years of experience in procurement, fabrication and engineering execution for industrial clients.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-number">02</div>
+        <h3>Genuine Quality Supply</h3>
+        <p>Brand-certified industrial products with warranty and documentation support for every order.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-number">03</div>
+        <h3>Project Reliability</h3>
+        <p>On-time material delivery, technical compliance and execution discipline for every project.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-number">04</div>
+        <h3>Strong Vendor Network</h3>
+        <p>Pan-India sourcing network with competitive pricing and fast response to requirements.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-number">05</div>
+        <h3>Technical Support</h3>
+        <p>Engineering guidance for selecting components, panels, tools and fabrication solutions.</p>
+      </div>
+
+      <div class="why-item">
+        <div class="why-number">06</div>
+        <h3>Long-Term Partnerships</h3>
+        <p>We focus on reliability, transparency and consistent business support to build trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* WHY CLIENTS CHOOSE US */
+.why-choose-clients {
+  background: #f4f5f7;
+  padding: 70px 20px;
+}
+
+.why-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.why-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0a2b4d;
+  margin-bottom: 10px;
+}
+
+.why-subtitle {
+  color: #5b6775;
+  margin-bottom: 45px;
+  font-size: 16px;
+}
+
+.why-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.why-item {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 22px;
+  border: 1px solid #d7dee5;
+  text-align: left;
+  position: relative;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.why-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.why-number {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 30px;
+  font-weight: 800;
+  opacity: 0.12;
+  color: #000;
+}
+
+.why-item h3 {
+  color: #0a2b4d;
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.why-item p {
+  color: #5c6f80;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .why-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .why-list { grid-template-columns: 1fr; }
+}
+</style>
+
+
+
+<!-- =========================
+     CLIENTS – TECHNICAL FAQ
+     ========================= -->
+<section id="clients-faq" class="faq-section" aria-labelledby="clientsFaqTitle">
+  <div class="faq-container">
+    <h2 id="clientsFaqTitle" class="faq-title">Client FAQs</h2>
+    <p class="faq-subtitle">
+      Technical and commercial clarifications for procurement, compliance and delivery.
+    </p>
+
+    <div class="faq-stack" role="tablist" aria-label="Clients FAQ">
+
+      <!-- Q1 -->
+      <article class="faq-item">
+        <button class="faq-question" role="tab" aria-expanded="false" aria-controls="cfq-panel-1" id="cfq-btn-1">
+          What documentation do you provide with each supply?
+        </button>
+        <div class="faq-answer" id="cfq-panel-1" role="region" aria-labelledby="cfq-btn-1">
+          <p>
+            Standard pack includes Invoice, Delivery Challan, Packing List and OEM warranty (where applicable).
+            On request, we provide MTC / CoC, test reports, calibration certificates, and brand authorization letters.
+            Lot/batch details and serial numbers are recorded for traceability.
+          </p>
+        </div>
+      </article>
+
+      <!-- Q2 -->
+      <article class="faq-item">
+        <button class="faq-question" role="tab" aria-expanded="false" aria-controls="cfq-panel-2" id="cfq-btn-2">
+          How do you ensure genuine parts and vendor qualification?
+        </button>
+        <div class="faq-answer" id="cfq-panel-2" role="region" aria-labelledby="cfq-btn-2">
+          <p>
+            We source only from OEMs and authorized distributors. Vendor onboarding includes GST & PAN verification,
+            authorization letters, past performance checks, and sample QA. For critical items, we enable
+            make-by-make approval and batch-wise traceability.
+          </p>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="faq-item">
+        <button class="faq-question" role="tab" aria-expanded="false" aria-controls="cfq-panel-3" id="cfq-btn-3">
+          What are the typical lead times and can you expedite?
+        </button>
+        <div class="faq-answer" id="cfq-panel-3" role="region" aria-labelledby="cfq-btn-3">
+          <p>
+            Stocked items: 1–4 days dispatch. Indented/OEM items: 1–3 weeks depending on make and MOQ.
+            We offer expediting based on priority, with partial shipments and project kitting to protect critical paths.
+          </p>
+        </div>
+      </article>
+
+      <!-- Q4 -->
+      <article class="faq-item">
+        <button class="faq-question" role="tab" aria-expanded="false" aria-controls="cfq-panel-4" id="cfq-btn-4">
+          Do you work under NDA and handle confidential drawings?
+        </button>
+        <div class="faq-answer" id="cfq-panel-4" role="region" aria-labelledby="cfq-btn-4">
+          <p>
+            Yes. We execute bilateral NDAs and follow role-based access for drawings/BOMs.
+            Controlled file sharing, watermarking, and limited vendor disclosure are enforced for IP-sensitive projects.
+          </p>
+        </div>
+      </article>
+
+      <!-- Q5 -->
+      <article class="faq-item">
+        <button class="faq-question" role="tab" aria-expanded="false" aria-controls="cfq-panel-5" id="cfq-btn-5">
+          What are your payment terms and invoicing options?
+        </button>
+        <div class="faq-answer" id="cfq-panel-5" role="region" aria-labelledby="cfq-btn-5">
+          <p>
+            Standard terms: Advance / milestone-based for projects, or net 15–30 for approved accounts.
+            GST-compliant e-invoices, HSN/SAC classification, and eWay bills are provided. PO-based billing with
+            GRN matching supported.
+          </p>
+        </div>
+      </article>
+
+      <!-- Q6 -->
+      <article class="faq-item">
+        <button class="faq-question" role="tab" aria-expanded="false" aria-controls="cfq-panel-6" id="cfq-btn-6">
+          What QA/inspection controls do you follow?
+        </button>
+        <div class="faq-answer" id="cfq-panel-6" role="region" aria-labelledby="cfq-btn-6">
+          <p>
+            Incoming inspection, make/model verification, visual checks, and conformance to PO/spec sheets.
+            For fabrication, we support WPS/PQR, in-process checks, and stage-wise inspection. FAT and third-party
+            inspection can be arranged.
+          </p>
+        </div>
+      </article>
+
+      <!-- Q7 -->
+      <article class="faq-item">
+        <button class="faq-question" role="tab" aria-expanded="false" aria-controls="cfq-panel-7" id="cfq-btn-7">
+          How do you manage packing, labeling, and logistics?
+        </button>
+        <div class="faq-answer" id="cfq-panel-7" role="region" aria-labelledby="cfq-btn-7">
+          <p>
+            Site-ready packing with moisture protection, shock-safe crates for sensitive equipment, and
+            kitting by WBS/area. Each pack is labeled with item code, description, qty, and PO reference.
+            PAN-India delivery via partnered carriers.
+          </p>
+        </div>
+      </article>
+
+      <!-- Q8 -->
+      <article class="faq-item">
+        <button class="faq-question" role="tab" aria-expanded="false" aria-controls="cfq-panel-8" id="cfq-btn-8">
+          What is your after-sales and replacement process?
+        </button>
+        <div class="faq-answer" id="cfq-panel-8" role="region" aria-labelledby="cfq-btn-8">
+          <p>
+            We provide DOA support, RMA coordination with OEMs, and warranty claim assistance.
+            SLA-based response with advance replacements for critical failures where feasible.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* ===== CLIENTS FAQ (same theme & layout) ===== */
+.faq-section {
+  background: linear-gradient(180deg, #f4f7fa 0%, #e8edf2 100%);
+  padding: 80px 20px;
+  color: #1a2430;
+}
+
+.faq-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+
+.faq-title {
+  font-size: 2.2rem;
+  color: #0a2b4d;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.faq-subtitle {
+  font-size: 1rem;
+  color: #5b6876;
+  margin: 0 0 32px;
+}
+
+.faq-stack { display: grid; gap: 14px; text-align: left; }
+
+/* Card */
+.faq-item {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(10, 43, 77, 0.08);
+  border: 1px solid #d9e3ec;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.faq-item:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(10,43,77,0.14); }
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: #ffffff;
+  border: none;
+  padding: 18px 20px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0a2b4d;
+  cursor: pointer;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background .2s ease;
+}
+.faq-question:hover { background: #f4f8fb; }
+
+.faq-answer {
+  height: 0;
+  overflow: hidden;
+  background: #fafcfd;
+  transition: height .35s ease;
+}
+.faq-answer p {
+  padding: 16px 20px 18px;
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .faq-title { font-size: 1.9rem; }
+}
+</style>
+
+<script>
+/* Minimal JS: one-open-at-a-time accordion (smooth) */
+(function () {
+  const items = document.querySelectorAll('#clients-faq .faq-item');
+  if (!items.length) return;
+
+  function closeItem(item) {
+    const btn = item.querySelector('.faq-question');
+    const panel = item.querySelector('.faq-answer');
+    if (!btn || !panel) return;
+    btn.setAttribute('aria-expanded', 'false');
+    panel.style.height = panel.scrollHeight + 'px';
+    panel.getBoundingClientRect(); // force reflow
+    panel.style.height = '0px';
+    item.classList.remove('active');
+  }
+
+  function openItem(item) {
+    const btn = item.querySelector('.faq-question');
+    const panel = item.querySelector('.faq-answer');
+    if (!btn || !panel) return;
+    btn.setAttribute('aria-expanded', 'true');
+    panel.style.height = panel.scrollHeight + 'px';
+    item.classList.add('active');
+    panel.addEventListener('transitionend', function onEnd(e){
+      if (e.propertyName !== 'height') return;
+      panel.style.height = 'auto';
+      panel.removeEventListener('transitionend', onEnd);
+    });
+  }
+
+  items.forEach((item) => {
+    const btn = item.querySelector('.faq-question');
+    const panel = item.querySelector('.faq-answer');
+
+    // IDs for a11y if missing
+    if (!btn.id) btn.id = 'faq-btn-' + Math.random().toString(36).slice(2);
+    if (!panel.id) panel.id = 'faq-panel-' + Math.random().toString(36).slice(2);
+    btn.setAttribute('aria-controls', panel.id);
+    panel.setAttribute('aria-labelledby', btn.id);
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      // Close all others
+      items.forEach(i => { if (i !== item) closeItem(i); });
+      // Toggle current
+      if (isOpen) closeItem(item); else openItem(item);
+    });
+
+    // Keyboard navigation
+    btn.addEventListener('keydown', (e) => {
+      const buttons = Array.from(document.querySelectorAll('#clients-faq .faq-question'));
+      const i = buttons.indexOf(btn);
+      if (e.key === 'ArrowDown') { e.preventDefault(); (buttons[i+1] || buttons[0]).focus(); }
+      if (e.key === 'ArrowUp')   { e.preventDefault(); (buttons[i-1] || buttons[buttons.length-1]).focus(); }
+      if (e.key === 'Home')      { e.preventDefault(); buttons[0].focus(); }
+      if (e.key === 'End')       { e.preventDefault(); buttons[buttons.length-1].focus(); }
+    });
+  });
+
+  // Optional: close all when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#clients-faq .faq-item')) {
+      items.forEach(closeItem);
+    }
+  });
+})();
+</script>
+
+
+
+
+
+<!-- ✅ FOOTER SECTION - METALLIC SILVER THEME -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-grid">
+
+      <!-- About -->
+      <div class="footer-about">
+        <h3>SV Enterprises</h3>
+        <p>
+          SV Enterprises is a trusted provider of industrial procurement, fabrication works,
+          welding consumables, safety equipment, tools, and engineering solutions.
+          Based in Sullurpeta, Andhra Pradesh – delivering reliable services with quality commitment.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-services">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Industrial Procurement</li>
+          <li>Fabrication Works</li>
+          <li>Painting Services</li>
+          <li>Welding Consumables</li>
+          <li>Custom Material Supply</li>
+          <li>Mechanical Assemblies</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <p><a href="https://maps.google.com/?q=Sullurpeta,Andhra+Pradesh" target="_blank" rel="noopener">📍 Sullurpeta, Andhra Pradesh, India</a></p>
+        <p><a href="tel:+917989261342">📞 +91 79892 61342</a></p>
+        <p><a href="mailto:info@sventerprises.world">✉️ info@sventerprises.world</a></p>
+
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.7-2.2 3.9-2.2 4.2 0 5 2.8 5 6.4V24h-4v-7.5c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V24h-4V8z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 12A10 10 0 1 0 12 22v-7H9v-3h3v-2c0-3 2-4 4-4h2v3h-1c-1 0-1 .5-1 1v2h3l-1 3h-2v7a10 10 0 0 0 7-10z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.6 0 3 1.4 3 3v10c0 1.6-1.4 3-3 3H7c-1.6 0-3-1.4-3-3V7c0-1.6 1.4-3 3-3h10zm-5 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5 0-5-.3-7.5-.2-1.7-1.6-3-3.3-3.2C15.7 1 12.8 1 10 1S4.3 1 2.6 1.3C.9 1.5-.5 2.8-.7 4.5 0 7 0 9.5 0 12s0 5 .3 7.5c.2 1.7 1.6 3 3.3 3.2 1.7.3 4.6.3 7.4.3s5.7 0 7.4-.3c1.7-.2 3.1-1.5 3.3-3.2.3-2.5.3-5 .3-7.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 SV Enterprises. All Rights Reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: linear-gradient(135deg, #4e5459, #2f3438);
+  color: #ffffff;
+  padding: 50px 0;
+  margin-top: 50px;
+  border-top: 2px solid #8f9aa3;
+}
+.footer-container { max-width: 1200px; margin: auto; width: 90%; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 30px; }
+.footer h3, .footer h4 { margin-bottom: 15px; color: #ffffff; }
+.footer p { font-size: .95rem; color: #d3d8dc; line-height: 1.6; }
+.footer a { text-decoration: none; color: #d3d8dc; transition: .3s; }
+.footer a:hover { color: #00c3ff; }
+.footer-links ul, .footer-services ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li, .footer-services li { margin-bottom: 8px; }
+.footer-social { margin-top: 10px; display: flex; gap: 12px; }
+.social-icon svg { width: 24px; height: 24px; fill: #ffffff; transition: .3s; }
+.social-icon:hover svg { fill: #00c3ff; }
+.footer-bottom { text-align: center; border-top: 1px solid #6b7378; margin-top: 30px; padding-top: 15px; font-size: .9rem; color: #b5bcc1; }
+.footer-bottom a { color: #00c3ff; }
+</style>
+
+
+
+
+
+
+<!-- ================== FLOATING CONTACT + QUOTE (RIGHT) — IMAGE ICONS ================== -->
+<!-- Quick buttons -->
+<div class="sv-fabs" aria-label="Quick contact">
+  <!-- WhatsApp -->
+  <a class="sv-fab sv-fab-wa" href="https://wa.me/917989261342" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="sv-icon">
+      <img src="assets/icons/whatsapp.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">WhatsApp</span>
+  </a>
+
+  <!-- Call -->
+  <a class="sv-fab sv-fab-call" href="tel:+917989261342" aria-label="Call">
+    <span class="sv-icon">
+      <img src="assets/icons/phone.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Call</span>
+  </a>
+
+  <!-- Mail -->
+  <a class="sv-fab sv-fab-mail" href="mailto:info@sventerprises.world" aria-label="Email">
+    <span class="sv-icon">
+      <img src="assets/icons/mail.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Email</span>
+  </a>
+
+  <!-- Quote (opens modal) -->
+  <button class="sv-fab sv-fab-quote" type="button" aria-haspopup="dialog" aria-controls="svQuoteModal" aria-label="Request a Quote">
+    <span class="sv-icon">
+      <img src="assets/icons/quote.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Get Quote</span>
+  </button>
+</div>
+
+<!-- Quote Modal -->
+<div id="svQuoteModal" class="sv-modal" role="dialog" aria-modal="true" aria-labelledby="svQuoteTitle" aria-hidden="true">
+  <div class="sv-modal__backdrop" data-close></div>
+  <div class="sv-modal__panel" role="document">
+    <button class="sv-modal__close" type="button" aria-label="Close" data-close>×</button>
+    <h3 id="svQuoteTitle">Request a Quote</h3>
+
+    <!-- Hidden iframe submits to Apps Script without CORS issues -->
+    <iframe name="svHiddenFrame" class="sv-hidden-iframe" title="hidden"></iframe>
+
+    <!-- Replace action with your Apps Script Web App URL -->
+    <form id="svQuoteForm" action="YOUR_APPS_SCRIPT_WEB_APP_URL" method="POST" target="svHiddenFrame" novalidate>
+      <div class="sv-form-grid">
+        <label class="sv-field">
+          <span>Full Name *</span>
+          <input name="name" type="text" required placeholder="Your name">
+        </label>
+        <label class="sv-field">
+          <span>Email *</span>
+          <input name="email" type="email" required placeholder="name@company.com">
+        </label>
+        <label class="sv-field">
+          <span>Phone *</span>
+          <input name="phone" type="tel" required placeholder="+91 XXXXX XXXXX">
+        </label>
+        <label class="sv-field">
+          <span>Company</span>
+          <input name="company" type="text" placeholder="Company / Organization">
+        </label>
+        <label class="sv-field sv-full">
+          <span>Subject *</span>
+          <input name="subject" type="text" required placeholder="What is this about?">
+        </label>
+        <label class="sv-field sv-full">
+          <span>Requirement Details *</span>
+          <textarea name="message" required placeholder="BOM, drawings links, brand preferences, qty, delivery location, timelines, etc."></textarea>
+        </label>
+        <label class="sv-field sv-full">
+          <span>Attachment Link (optional)</span>
+          <input name="fileurl" type="url" placeholder="https://drive/link-to-drawing.pdf">
+        </label>
+
+        <!-- Honeypot -->
+        <input class="sv-hp" type="text" name="_gotcha" autocomplete="off">
+      </div>
+
+      <div class="sv-actions">
+        <button class="sv-btn-primary" type="submit">Send Quote</button>
+        <button class="sv-btn-secondary" type="button" data-close>Cancel</button>
+      </div>
+
+      <p id="svFormNote" class="sv-note">We’ll reply within one business day. By submitting, you accept our Terms & Privacy.</p>
+      <div id="svSuccess" class="sv-success" role="status" aria-live="polite">Thanks! Your request was sent.</div>
+    </form>
+  </div>
+</div>
+<!-- ================== /FLOATING CONTACT + QUOTE ================== -->
+
+
+<script>
+  (function(){
+    const modal = document.getElementById('svQuoteModal');
+    const openBtn = document.querySelector('.sv-fab-quote');
+    const closeEls = modal.querySelectorAll('[data-close], .sv-modal__backdrop');
+    const form = document.getElementById('svQuoteForm');
+    const success = document.getElementById('svSuccess');
+    const note = document.getElementById('svFormNote');
+    let submitted = false;
+
+    // Open/Close modal
+    openBtn?.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden','false');
+      setTimeout(()=> { form.querySelector('input[name="name"]')?.focus(); }, 50);
+    });
+    closeEls.forEach(el => el.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden','true');
+      success.style.display = 'none';
+    }));
+    document.addEventListener('keydown',(e)=>{
+      if(e.key === 'Escape') modal.setAttribute('aria-hidden','true');
+    });
+
+    // Validation helpers
+    function mark(el, ok){ el.classList.toggle('sv-error', !ok); }
+    function emailOK(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    // Submit to Apps Script (via hidden iframe)
+    form.addEventListener('submit', (e)=>{
+      const need = ['name','email','phone','subject','message'];
+      let ok = true;
+      need.forEach(n=>{
+        const el = form.elements[n];
+        const good = !!el.value.trim() && (n!=='email' || emailOK(el.value.trim()));
+        mark(el, good);
+        ok = ok && good;
+      });
+      if(form.elements['_gotcha'].value){ e.preventDefault(); return; } // bot trap
+      if(!ok){ e.preventDefault(); return; }
+      submitted = true;
+      note.textContent = 'Sending…';
+    });
+
+    // Success after iframe load
+    const iframe = document.getElementsByName('svHiddenFrame')[0];
+    iframe.addEventListener('load', ()=>{
+      if(!submitted) return;
+      submitted = false;
+      note.textContent = 'We’ll reply within one business day. By submitting, you accept our Terms & Privacy.';
+      form.reset();
+      success.style.display = 'block';
+    });
+  })();
+</script>
+
+
+
+
+<style>
+:root{
+  --ink:#0a2b4d; --brand:#0077cc; --bg:#fff; --border:#dfe5ea; --soft:#f5f7fa;
+}
+
+/* ========= Floating Buttons ========= */
+.sv-fabs{
+  position:fixed; right:clamp(8px,2vw,16px); bottom:clamp(80px,8vh,120px);
+  display:flex; flex-direction:column; gap:10px; z-index:1100;
+}
+.sv-fab{
+  width:48px; height:48px; border-radius:999px; background:#ffffff;
+  border:1px solid var(--border); box-shadow:0 8px 18px rgba(0,0,0,.12);
+  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+  position:relative; padding:0;
+}
+.sv-fab .sv-icon{
+  width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center;
+}
+.sv-fab .sv-icon img{
+  width:100%; height:100%; object-fit:contain; display:block;
+  /* Optional: make dark icons match brand with a filter. Remove if not needed. */
+  /* filter: saturate(1.1) contrast(1.05); */
+}
+
+/* WhatsApp special bg (optional) */
+.sv-fab-wa{ background:#e9fff2; border-color:#b9efcf; }
+
+.sv-fab .sv-tip{
+  position:absolute; right:110%; top:50%; transform:translateY(-50%);
+  background:#111; color:#fff; font-size:12px; padding:4px 8px; border-radius:6px;
+  white-space:nowrap; opacity:0; pointer-events:none; transition:.2s; box-shadow:0 6px 18px rgba(0,0,0,.2);
+}
+.sv-fab:hover .sv-tip{ opacity:1; }
+
+/* Smaller on phones */
+@media (max-width:520px){
+  .sv-fab{ width:44px; height:44px; }
+  .sv-fab .sv-icon{ width:22px; height:22px; }
+}
+
+/* ========= Modal ========= */
+.sv-modal[aria-hidden="true"]{ display:none; }
+.sv-modal{ position:fixed; inset:0; z-index:1200; }
+.sv-modal__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
+.sv-modal__panel{
+  position:absolute; right:clamp(8px,2vw,16px); bottom:clamp(100px,10vh,140px);
+  width:min(560px,92vw); max-height:min(80vh,720px); overflow:auto;
+  background:#fff; border:1px solid var(--border); border-radius:14px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25); padding:18px 18px 16px;
+}
+.sv-modal__close{
+  position:absolute; top:10px; right:10px; width:32px; height:32px; border-radius:8px;
+  background:#fff; border:1px solid var(--border); cursor:pointer; font-size:18px; line-height:1;
+}
+.sv-modal h3{ margin:4px 6px 8px; color:var(--ink); font-size:20px; }
+
+/* ========= Form ========= */
+.sv-form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:8px 0 6px; }
+.sv-field{ display:flex; flex-direction:column; gap:6px; }
+.sv-full{ grid-column:1 / -1; }
+.sv-field span{ font-weight:600; color:#234; font-size:14px; }
+.sv-field input, .sv-field textarea{
+  padding:12px; border:1px solid var(--border); border-radius:10px; font-family:inherit; font-size:14px; outline:none; background:#fff;
+}
+.sv-field textarea{ min-height:120px; resize:vertical; }
+.sv-actions{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+.sv-btn-primary{
+  background:var(--ink); color:#fff; padding:10px 18px; border-radius:8px; border:none; font-weight:700; cursor:pointer;
+}
+.sv-btn-secondary{
+  background:#fff; color:var(--ink); padding:10px 18px; border:2px solid var(--ink); border-radius:8px; font-weight:700; cursor:pointer;
+}
+.sv-note{ color:#6b7f90; font-size:12px; margin:8px 2px 0; }
+.sv-success{ display:none; margin-top:8px; padding:10px; border:1px solid #b5e4c8; background:#e9f8ef; color:#1e6b3f; border-radius:8px; }
+.sv-error{ border-color:#e46a6a !important; }
+.sv-hidden-iframe{ display:none; }
+
+/* Modal responsive */
+@media (max-width:720px){
+  .sv-modal__panel{
+    left:clamp(8px,2vw,16px); right:clamp(8px,2vw,16px);
+    bottom:auto; top:12%; width:auto; max-height:76vh;
+  }
+}
+
+/* Optional: lift stack above any sticky footer */
+.footer { z-index: 1; position: relative; }
+</style>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - SV Enterprises</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- Swiper Slider CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ✅ Responsive Header (logo left, hamburger right) -->
+  <header class="main-header responsive-header" role="banner">
+    <div class="container header-wrapper">
+      <!-- Left: logo + brand -->
+      <a href="index.html" class="brand-wrap" aria-label="SV Enterprises Home">
+        <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
+        <span class="brand-name">SV Enterprises</span>
+      </a>
+
+      <!-- Right: hamburger -->
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <!-- Nav -->
+      <nav id="siteNav" class="navbar" role="navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="clients.html">Clients</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <style>
+  /* ============ Responsive Header Add-ons ============ */
+  .responsive-header .brand-wrap {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+  }
+  .responsive-header .brand-logo { height: 56px; width: auto; display: block; }
+  .responsive-header .brand-name {
+    font-weight: 800; font-size: 18px; color: #0a2b4d; letter-spacing: .2px;
+  }
+
+  /* Hamburger button (hidden on desktop) */
+  .nav-toggle {
+    appearance: none; background: #fff; border: 1px solid #d9d9d9; border-radius: 8px;
+    padding: 10px; display: inline-flex; flex-direction: column; gap: 4px;
+    cursor: pointer; line-height: 0;
+  }
+  .nav-toggle-bar { width: 22px; height: 2px; background: #0a2b4d; display: block; border-radius: 2px; }
+
+  /* Mobile nav panel behavior */
+  @media (max-width: 992px) {
+    .responsive-header .header-wrapper { gap: 12px; }
+    .responsive-header .navbar {
+      position: absolute; right: 4%; top: calc(100% + 8px);
+      background: #fff; border: 1px solid #dfe5ea; border-radius: 10px;
+      padding: 10px; display: none; /* hidden by default */
+      box-shadow: 0 12px 28px rgba(0,0,0,.12);
+      width: min(92vw, 360px); z-index: 1001;
+    }
+    .responsive-header .navbar { border-width: 1px !important; }
+    .responsive-header .navbar a {
+      display: block; padding: 10px 12px; margin: 0; border-radius: 8px; color: #333;
+    }
+    .responsive-header .navbar a:hover { background: #f5f7fa; color: #0077cc; }
+    .responsive-header .navbar[data-open="true"] { display: block; }
+    .responsive-header .brand-logo { height: 48px; }
+    .responsive-header .brand-name { font-size: 16px; }
+    .nav-toggle { display: inline-flex; }
+  }
+
+  /* Desktop: keep your existing inline bar (with your border style) and hide hamburger */
+  @media (min-width: 993px) {
+    .responsive-header .navbar { display: inline-flex; align-items: center; gap: 12px; }
+    .nav-toggle { display: none; }
+  }
+  </style>
+
+  <script>
+    (function () {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('siteNav');
+
+      function closeNav() {
+        nav?.setAttribute('data-open', 'false');
+        toggle?.setAttribute('aria-expanded', 'false');
+      }
+      function openNav() {
+        nav?.setAttribute('data-open', 'true');
+        toggle?.setAttribute('aria-expanded', 'true');
+      }
+
+      toggle?.addEventListener('click', () => {
+        const isOpen = nav.getAttribute('data-open') === 'true';
+        isOpen ? closeNav() : openNav();
+      });
+
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeNav();
+      });
+
+      // Close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
+      });
+
+      // Close after clicking a link (mobile)
+      nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => closeNav());
+      });
+
+      // Reset on resize to desktop
+      const mq = window.matchMedia('(min-width: 993px)');
+      mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
+    })();
+  </script>
+
+  <style>
+    /* home page header */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* HEADER */
+    .main-header {
+      background: #ffffff;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 100px;
+    }
+
+    .navbar a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .navbar a.active,
+    .navbar a:hover {
+      color: #0077cc;
+    }
+
+    .navbar {
+      border: 2px solid #d9d9d9; /* Light grey outline */
+      border-radius: 6px;
+      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* HERO SLIDER */
+    .hero-slider img {
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 20%;
+      left: 5%;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 10px black;
+    }
+  </style>
+
+  <!-- Full-stretch, card-style video slider -->
+  <section class="edge-pad">
+    <div class="video-slider-card">
+      <div class="slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/contactvideos/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/contactvideos/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/contactvideos/video3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="slide">
+        <video autoplay muted loop playsinline>
+          <source src="assets/contactvideos/video4.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  /* Full-bleed padding so rounded corners show nicely against the page bg */
+  .edge-pad {
+    padding-inline: clamp(12px, 4vw, 32px);
+    padding-top: 20px;
+    padding-bottom: Auto;
+  }
+
+  /* Card-style, full-stretch slider */
+  .video-slider-card {
+    width: 100%;                 /* full stretch */
+    aspect-ratio: 16 / 9;        /* responsive height */
+    max-height: 76vh;            /* avoid too tall on big screens */
+    border-radius: 18px;         /* round edges */
+    overflow: hidden;            /* clip video to the rounded corners */
+    position: relative;
+    background: #000;            /* prevents flashes */
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+  }
+
+  /* Slides stack on top of each other and fade in/out */
+  .video-slider-card .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    animation: vsFade 30s infinite; /* 4 slides x 2.5s = 10s total loop */
+  }
+
+  /* Offsets so each slide shows for 2.5s */
+  .video-slider-card .slide:nth-child(1) { animation-delay: 0s; }
+  .video-slider-card .slide:nth-child(2) { animation-delay: 5s; }
+  .video-slider-card .slide:nth-child(3) { animation-delay: 10s; }
+  .video-slider-card .slide:nth-child(4) { animation-delay: 15s; }
+
+  @keyframes vsFade {
+    0%, 100% { opacity: 0; }
+    5%, 25%  { opacity: 1; }  /* visible for ~2s */
+    30%      { opacity: 0; }  /* transition out */
+  }
+
+  /* Make videos fill the card cleanly */
+  .video-slider-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Accessibility: respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .video-slider-card .slide { animation: none; opacity: 1; }
+  }
+  </style>
+
+  <!-- ✅ CONTACT OVERVIEW SECTION (same layout as About overview) -->
+  <section class="about-overview">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="assets/images/contact-illustration.jpg" alt="Contact SV Enterprises">
+      </div>
+      <div class="about-content">
+        <h2>Get in Touch</h2>
+        <p>
+          Reach out for procurement quotes, fabrication support, welding consumables, safety equipment and
+          project-based material supply. We typically respond within one business day.
+        </p>
+        <p>
+          Share your BOM/drawings, brand preferences, delivery location and timelines to help us quote faster.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  /* ✅ ABOUT PAGE – COMPANY OVERVIEW STYLE (reused) */
+  .about-overview {
+    padding: 50px 0;
+    background: #ffffff;
+  }
+
+  .about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .about-content {
+    flex: 1;
+  }
+
+  .about-content h2 {
+    font-size: 28px;
+    color: #1a2a3a;
+    margin-bottom: 15px;
+  }
+
+  .about-content p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 900px) {
+    .about-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  </style>
+
+  <!-- ✅ CONTACT CARDS (Info + Form) styled to match site cards -->
+  <section class="why-choose-section">
+    <div class="why-container">
+      <h2 class="why-title">Contact SV Enterprises</h2>
+      <p class="why-subtitle">We’re here to help with procurement, fabrication and on-site support.</p>
+
+      <div class="contact-grid">
+        <!-- Info Card -->
+        <div class="why-card">
+          <div class="why-icon">📞</div>
+          <h3>Contact Details</h3>
+          <p><strong>Phone:</strong> <a href="tel:+917989261342">+91 79892 61342</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@sventerprises.world">info@sventerprises.world</a></p>
+          <p><strong>Address:</strong> <a href="https://maps.google.com/?q=Sullurpeta,Andhra+Pradesh" target="_blank" rel="noopener">Sullurpeta, Andhra Pradesh, India</a></p>
+          <p class="mini-note">Mon–Sat: 9:30 AM – 6:30 PM · Sun: Closed</p>
+        </div>
+
+        <!-- Quick Notes -->
+        <div class="why-card">
+          <div class="why-icon">📄</div>
+          <h3>Quote Faster</h3>
+          <p>Attach BOM/drawings, brand preferences, delivery location and timeline. We’ll call if clarification is needed.</p>
+          <p>We can provide MTC/warranty where applicable.</p>
+        </div>
+
+        <!-- Map Embed -->
+        <div class="why-card map-card">
+          <div class="why-icon">📍</div>
+          <h3>Location</h3>
+          <div class="map-wrap">
+            <iframe title="SV Enterprises location"
+              src="https://www.google.com/maps?q=Sullurpeta,+Andhra+Pradesh&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Card (full width under grid) -->
+      <div class="why-card contact-form-card">
+        <div class="why-icon">✉️</div>
+        <h3>Send a Message / Request a Quote</h3>
+
+        <form id="contactForm" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span>Full Name *</span>
+              <input type="text" id="name" name="name" required placeholder="Your name">
+            </label>
+            <label class="field">
+              <span>Email *</span>
+              <input type="email" id="email" name="email" required placeholder="name@company.com">
+            </label>
+            <label class="field">
+              <span>Phone *</span>
+              <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+            </label>
+            <label class="field">
+              <span>Company</span>
+              <input type="text" id="company" name="company" placeholder="Company / Organization">
+            </label>
+            <label class="field full">
+              <span>Subject *</span>
+              <input type="text" id="subject" name="subject" required placeholder="What is this about?">
+            </label>
+            <label class="field full">
+              <span>Message *</span>
+              <textarea id="message" name="message" required placeholder="Describe your requirement, quantities, brands, delivery location, timelines, etc."></textarea>
+              <small class="helper">Attach links to drawings/BOMs if any.</small>
+            </label>
+
+            <!-- Honeypot -->
+            <div class="hidden">
+              <label>Leave this field empty</label>
+              <input type="text" id="_gotcha" name="_gotcha">
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="cta-btn-primary" type="submit">Send Message</button>
+            <button class="cta-btn-secondary" type="reset">Clear</button>
+          </div>
+          <div id="successMsg" class="success-msg" role="status" aria-live="polite">Thank you! Your message has been sent.</div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+  /* Reuse base “why-choose-section” spacing and card look */
+  .why-choose-section {
+    background: #f8f9fa;
+    padding: 70px 0;
+    border-top: 1px solid #d1d9e0;
+    border-bottom: 1px solid #d1d9e0;
+    text-align: center;
+  }
+  .why-container { width: min(1200px, 92%); margin: auto; }
+  .why-title { font-size: 32px; font-weight: 800; color: #0a2b4d; margin-bottom: 10px; }
+  .why-subtitle { color: #5c6f80; font-size: 16px; margin-bottom: 35px; }
+  .why-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px;
+  }
+  .why-card {
+    background: white;
+    border: 1px solid #dfe5ea;
+    border-radius: 10px;
+    padding: 25px;
+    transition: 0.3s ease;
+    text-align: left;
+  }
+  .why-card:hover { transform: translateY(-5px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1); }
+  .why-icon { font-size: 36px; margin-bottom: 10px; }
+  .why-card h3 { font-size: 18px; color: #0a2b4d; margin-bottom: 8px; }
+  .why-card p { color: #66778a; font-size: 14px; line-height: 1.6; }
+  .mini-note { color:#4a5a67; font-size:13px; margin-top:6px; }
+  .map-card .map-wrap { margin-top: 8px; border-radius: 12px; overflow: hidden; }
+  .map-card iframe { display:block; width:100%; height:240px; border:0; }
+
+  /* Form card */
+  .contact-form-card { margin-top: 18px; }
+  .form-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; margin-top:10px; }
+  .field { display:flex; flex-direction:column; gap:6px; }
+  .field.full { grid-column: 1 / -1; }
+  .field span { font-weight:600; color:#234; }
+  input, textarea {
+    padding:12px; border:1px solid #dfe5ea; border-radius:10px; font-family:inherit; font-size:14px; outline:none;
+  }
+  textarea { min-height:140px; resize:vertical; }
+  .hidden { display:none !important; }
+  .helper { color:#6b7f90; font-size:12px; }
+  .actions { display:flex; gap:10px; align-items:center; margin-top:12px; }
+  .cta-btn-primary {
+    background:#0a2b4d; color:#fff; padding:12px 22px; border-radius:8px; text-decoration:none; font-weight:700; border:none; cursor:pointer;
+  }
+  .cta-btn-secondary {
+    background:#ffffff; border:2px solid #0a2b4d; padding:12px 22px; border-radius:8px; text-decoration:none; font-weight:700; color:#0a2b4d; cursor:pointer;
+  }
+  .cta-btn-primary:hover{ background:#154572; }
+  .cta-btn-secondary:hover{ background:#0a2b4d; color:#fff; }
+  .success-msg{ margin-top:10px; padding:10px; border:1px solid #b5e4c8; background:#e9f8ef; color:#1e6b3f; border-radius:8px; display:none; }
+
+  @media (max-width: 992px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .map-card iframe { height:220px; }
+  }
+  </style>
+
+  <!-- ✅ CERTIFICATIONS & COMPLIANCE -->
+  <section class="certifications">
+    <div class="cert-container">
+      <h2>Certifications & Compliance</h2>
+      <p class="cert-subtitle">Committed to quality, safety, and industry compliance</p>
+
+      <div class="cert-grid">
+        <div class="cert-card">
+          <img src="assets/icons/iso-quality.png" alt="ISO Quality Standard">
+          <h4>ISO Standard Practice</h4>
+          <p>Follows standard sourcing & documentation procedures</p>
+        </div>
+
+        <div class="cert-card">
+          <img src="assets/icons/safety.png" alt="Safety Compliance">
+          <h4>Safety Compliant</h4>
+          <p>Material & fabrication follow industrial safety guidelines</p>
+        </div>
+
+        <div class="cert-card">
+          <img src="assets/icons/genuinematerials.png" alt="Genuine Materials">
+          <h4>Genuine Materials</h4>
+          <p>Supplies only original & tested industrial products</p>
+        </div>
+
+        <div class="cert-card">
+          <img src="assets/icons/qualitycheck.png" alt="Quality Assurance">
+          <h4>Quality Assurance</h4>
+          <p>Vendor QC checks with inspection documentation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  /* ✅ Certifications Section Styling */
+  .certifications {
+    background: #ffffff;
+    padding: 70px 0;
+    text-align: center;
+    border-top: 1px solid #d9e3ec;
+    border-bottom: 1px solid #d9e3ec;
+  }
+
+  .cert-container {
+    width: min(1200px, 92%);
+    margin: auto;
+  }
+
+  .certifications h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #1a2a3a;
+    margin-bottom: 10px;
+  }
+
+  .cert-subtitle {
+    color: #5c6f80;
+    margin-bottom: 32px;
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+
+  .cert-card {
+    background: #f8fafc;
+    border: 1px solid #d9e3ec;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+  }
+
+  .cert-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+  }
+
+  .cert-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 12px;
+  }
+
+  .cert-card h4 {
+    font-size: 1rem;
+    color: #0a2b4d;
+    margin-bottom: 4px;
+  }
+
+  .cert-card p {
+    font-size: 0.9rem;
+    color: #5c6f80;
+  }
+
+  @media (max-width: 992px) {
+    .cert-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .cert-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  </style>
+
+  <!-- =============== CALL TO ACTION (Centered Card) =============== -->
+  <section class="cta-centered-section">
+    <div class="cta-card">
+      <h2>Ready to Partner with SV Enterprises?</h2>
+      <p>From industrial procurement to fabrication and site support — we deliver trusted engineering solutions across India.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="cta-btn-primary">Contact Us</a>
+        <a href="services.html" class="cta-btn-secondary">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  /* ======= CTA Centered Section ======= */
+  .cta-centered-section {
+    background: #f4f6f8;
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .cta-card {
+    max-width: 750px;
+    margin: auto;
+    background: #ffffff;
+    padding: 40px 35px;
+    border-radius: 12px;
+    border: 1px solid #cfd8df; /* metallic border */
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12); /* soft shadow */
+    border-top: 4px solid #c0c8d0; /* metallic strip */
+  }
+
+  .cta-card h2 {
+    margin-top: 0;
+    font-size: 28px;
+    font-weight: 800;
+    color: #0a2b4d;
+  }
+
+  .cta-card p {
+    color: #4a5a67;
+    margin: 10px 0 22px;
+    font-size: 1rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  /* Primary Button */
+  .cta-btn-primary {
+    background: #0a2b4d;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s ease;
+  }
+
+  .cta-btn-primary:hover {
+    background: #154572;
+  }
+
+  /* Secondary Button */
+  .cta-btn-secondary {
+    background: #ffffff;
+    border: 2px solid #0a2b4d;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    color: #0a2b4d;
+    transition: 0.3s ease;
+  }
+
+  .cta-btn-secondary:hover {
+    background: #0a2b4d;
+    color: #ffffff;
+  }
+
+  @media (max-width: 600px) {
+    .cta-card {
+      padding: 30px 20px;
+    }
+    .cta-card h2 {
+      font-size: 24px;
+    }
+  }
+  </style>
+
+  <!-- ✅ FOOTER SECTION - METALLIC SILVER THEME -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- About -->
+        <div class="footer-about">
+          <h3>SV Enterprises</h3>
+          <p>
+            SV Enterprises is a trusted provider of industrial procurement, fabrication works,
+            welding consumables, safety equipment, tools, and engineering solutions.
+            Based in Sullurpeta, Andhra Pradesh – delivering reliable services with quality commitment.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="clients.html">Clients</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-services">
+          <h4>Our Services</h4>
+          <ul>
+            <li>Industrial Procurement</li>
+            <li>Fabrication Works</li>
+            <li>Painting Services</li>
+            <li>Welding Consumables</li>
+            <li>Custom Material Supply</li>
+            <li>Mechanical Assemblies</li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-contact">
+          <h4>Contact Info</h4>
+          <p><a href="https://maps.google.com/?q=Sullurpeta,Andhra+Pradesh" target="_blank" rel="noopener">📍 Sullurpeta, Andhra Pradesh, India</a></p>
+          <p><a href="tel:+917989261342">📞 +91 79892 61342</a></p>
+          <p><a href="mailto:info@sventerprises.world">✉️ info@sventerprises.world</a></p>
+
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn" class="social-icon">
+              <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.7-2.2 3.9-2.2 4.2 0 5 2.8 5 6.4V24h-4v-7.5c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V24h-4V8z"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" class="social-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 12A10 10 0 1 0 12 22v-7H9v-3h3v-2c0-3 2-4 4-4h2v3h-1c-1 0-1 .5-1 1v2h3l-1 3h-2v7a10 10 0 0 0 7-10z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-icon">
+              <svg viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.6 0 3 1.4 3 3v10c0 1.6-1.4 3-3 3H7c-1.6 0-3-1.4-3-3V7c0-1.6 1.4-3 3-3h10zm-5 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-icon">
+              <svg viewBox="0 0 24 24"><path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5 0-5-.3-7.5-.2-1.7-1.6-3-3.3-3.2C15.7 1 12.8 1 10 1S4.3 1 2.6 1.3C.9 1.5-.5 2.8-.7 4.5 0 7 0 9.5 0 12s0 5 .3 7.5c.2 1.7 1.6 3 3.3 3.2 1.7.3 4.6.3 7.4.3s5.7 0 7.4-.3c1.7-.2 3.1-1.5 3.3-3.2.3-2.5.3-5 .3-7.5z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 SV Enterprises. All Rights Reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+  .footer {
+    background: linear-gradient(135deg, #4e5459, #2f3438);
+    color: #ffffff;
+    padding: 50px 0;
+    margin-top: 50px;
+    border-top: 2px solid #8f9aa3;
+  }
+  .footer-container { max-width: 1200px; margin: auto; width: 90%; }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 30px; }
+  .footer h3, .footer h4 { margin-bottom: 15px; color: #ffffff; }
+  .footer p { font-size: .95rem; color: #d3d8dc; line-height: 1.6; }
+  .footer a { text-decoration: none; color: #d3d8dc; transition: .3s; }
+  .footer a:hover { color: #00c3ff; }
+  .footer-links ul, .footer-services ul { list-style: none; padding: 0; margin: 0; }
+  .footer-links li, .footer-services li { margin-bottom: 8px; }
+  .footer-social { margin-top: 10px; display: flex; gap: 12px; }
+  .social-icon svg { width: 24px; height: 24px; fill: #ffffff; transition: .3s; }
+  .social-icon:hover svg { fill: #00c3ff; }
+  .footer-bottom { text-align: center; border-top: 1px solid #6b7378; margin-top: 30px; padding-top: 15px; font-size: .9rem; color: #b5bcc1; }
+  .footer-bottom a { color: #00c3ff; }
+  </style>
+
+  <!-- Inline form handler (no external links added) -->
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+
+    function validateEmail(email){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+
+    form?.addEventListener('submit', function(e){
+      e.preventDefault();
+      successMsg.style.display = 'none';
+      const required = ['name','email','phone','subject','message'];
+      let ok = true;
+      required.forEach(id=>{
+        const el = document.getElementById(id);
+        el.style.borderColor = '#dfe5ea';
+        if(!el.value.trim() || (id==='email' && !validateEmail(el.value.trim()))){
+          el.style.borderColor = '#e46a6a'; ok = false;
+        }
+      });
+      if(document.getElementById('_gotcha').value){ ok = false; } // bot
+
+      if(!ok) return;
+
+      // Simulate success; replace with real endpoint if needed
+      form.reset();
+      successMsg.style.display = 'block';
+      successMsg.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  </script>
+
+
+
+
+<!-- ================== FLOATING CONTACT + QUOTE (RIGHT) — IMAGE ICONS ================== -->
+<!-- Quick buttons -->
+<div class="sv-fabs" aria-label="Quick contact">
+  <!-- WhatsApp -->
+  <a class="sv-fab sv-fab-wa" href="https://wa.me/917989261342" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="sv-icon">
+      <img src="assets/icons/whatsapp.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">WhatsApp</span>
+  </a>
+
+  <!-- Call -->
+  <a class="sv-fab sv-fab-call" href="tel:+917989261342" aria-label="Call">
+    <span class="sv-icon">
+      <img src="assets/icons/phone.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Call</span>
+  </a>
+
+  <!-- Mail -->
+  <a class="sv-fab sv-fab-mail" href="mailto:info@sventerprises.world" aria-label="Email">
+    <span class="sv-icon">
+      <img src="assets/icons/mail.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Email</span>
+  </a>
+
+  <!-- Quote (opens modal) -->
+  <button class="sv-fab sv-fab-quote" type="button" aria-haspopup="dialog" aria-controls="svQuoteModal" aria-label="Request a Quote">
+    <span class="sv-icon">
+      <img src="assets/icons/quote.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Get Quote</span>
+  </button>
+</div>
+
+<!-- Quote Modal -->
+<div id="svQuoteModal" class="sv-modal" role="dialog" aria-modal="true" aria-labelledby="svQuoteTitle" aria-hidden="true">
+  <div class="sv-modal__backdrop" data-close></div>
+  <div class="sv-modal__panel" role="document">
+    <button class="sv-modal__close" type="button" aria-label="Close" data-close>×</button>
+    <h3 id="svQuoteTitle">Request a Quote</h3>
+
+    <!-- Hidden iframe submits to Apps Script without CORS issues -->
+    <iframe name="svHiddenFrame" class="sv-hidden-iframe" title="hidden"></iframe>
+
+    <!-- Replace action with your Apps Script Web App URL -->
+    <form id="svQuoteForm" action="YOUR_APPS_SCRIPT_WEB_APP_URL" method="POST" target="svHiddenFrame" novalidate>
+      <div class="sv-form-grid">
+        <label class="sv-field">
+          <span>Full Name *</span>
+          <input name="name" type="text" required placeholder="Your name">
+        </label>
+        <label class="sv-field">
+          <span>Email *</span>
+          <input name="email" type="email" required placeholder="name@company.com">
+        </label>
+        <label class="sv-field">
+          <span>Phone *</span>
+          <input name="phone" type="tel" required placeholder="+91 XXXXX XXXXX">
+        </label>
+        <label class="sv-field">
+          <span>Company</span>
+          <input name="company" type="text" placeholder="Company / Organization">
+        </label>
+        <label class="sv-field sv-full">
+          <span>Subject *</span>
+          <input name="subject" type="text" required placeholder="What is this about?">
+        </label>
+        <label class="sv-field sv-full">
+          <span>Requirement Details *</span>
+          <textarea name="message" required placeholder="BOM, drawings links, brand preferences, qty, delivery location, timelines, etc."></textarea>
+        </label>
+        <label class="sv-field sv-full">
+          <span>Attachment Link (optional)</span>
+          <input name="fileurl" type="url" placeholder="https://drive/link-to-drawing.pdf">
+        </label>
+
+        <!-- Honeypot -->
+        <input class="sv-hp" type="text" name="_gotcha" autocomplete="off">
+      </div>
+
+      <div class="sv-actions">
+        <button class="sv-btn-primary" type="submit">Send Quote</button>
+        <button class="sv-btn-secondary" type="button" data-close>Cancel</button>
+      </div>
+
+      <p id="svFormNote" class="sv-note">We’ll reply within one business day. By submitting, you accept our Terms & Privacy.</p>
+      <div id="svSuccess" class="sv-success" role="status" aria-live="polite">Thanks! Your request was sent.</div>
+    </form>
+  </div>
+</div>
+<!-- ================== /FLOATING CONTACT + QUOTE ================== -->
+
+
+<script>
+  (function(){
+    const modal = document.getElementById('svQuoteModal');
+    const openBtn = document.querySelector('.sv-fab-quote');
+    const closeEls = modal.querySelectorAll('[data-close], .sv-modal__backdrop');
+    const form = document.getElementById('svQuoteForm');
+    const success = document.getElementById('svSuccess');
+    const note = document.getElementById('svFormNote');
+    let submitted = false;
+
+    // Open/Close modal
+    openBtn?.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden','false');
+      setTimeout(()=> { form.querySelector('input[name="name"]')?.focus(); }, 50);
+    });
+    closeEls.forEach(el => el.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden','true');
+      success.style.display = 'none';
+    }));
+    document.addEventListener('keydown',(e)=>{
+      if(e.key === 'Escape') modal.setAttribute('aria-hidden','true');
+    });
+
+    // Validation helpers
+    function mark(el, ok){ el.classList.toggle('sv-error', !ok); }
+    function emailOK(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    // Submit to Apps Script (via hidden iframe)
+    form.addEventListener('submit', (e)=>{
+      const need = ['name','email','phone','subject','message'];
+      let ok = true;
+      need.forEach(n=>{
+        const el = form.elements[n];
+        const good = !!el.value.trim() && (n!=='email' || emailOK(el.value.trim()));
+        mark(el, good);
+        ok = ok && good;
+      });
+      if(form.elements['_gotcha'].value){ e.preventDefault(); return; } // bot trap
+      if(!ok){ e.preventDefault(); return; }
+      submitted = true;
+      note.textContent = 'Sending…';
+    });
+
+    // Success after iframe load
+    const iframe = document.getElementsByName('svHiddenFrame')[0];
+    iframe.addEventListener('load', ()=>{
+      if(!submitted) return;
+      submitted = false;
+      note.textContent = 'We’ll reply within one business day. By submitting, you accept our Terms & Privacy.';
+      form.reset();
+      success.style.display = 'block';
+    });
+  })();
+</script>
+
+
+
+
+<style>
+:root{
+  --ink:#0a2b4d; --brand:#0077cc; --bg:#fff; --border:#dfe5ea; --soft:#f5f7fa;
+}
+
+/* ========= Floating Buttons ========= */
+.sv-fabs{
+  position:fixed; right:clamp(8px,2vw,16px); bottom:clamp(80px,8vh,120px);
+  display:flex; flex-direction:column; gap:10px; z-index:1100;
+}
+.sv-fab{
+  width:48px; height:48px; border-radius:999px; background:#ffffff;
+  border:1px solid var(--border); box-shadow:0 8px 18px rgba(0,0,0,.12);
+  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+  position:relative; padding:0;
+}
+.sv-fab .sv-icon{
+  width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center;
+}
+.sv-fab .sv-icon img{
+  width:100%; height:100%; object-fit:contain; display:block;
+  /* Optional: make dark icons match brand with a filter. Remove if not needed. */
+  /* filter: saturate(1.1) contrast(1.05); */
+}
+
+/* WhatsApp special bg (optional) */
+.sv-fab-wa{ background:#e9fff2; border-color:#b9efcf; }
+
+.sv-fab .sv-tip{
+  position:absolute; right:110%; top:50%; transform:translateY(-50%);
+  background:#111; color:#fff; font-size:12px; padding:4px 8px; border-radius:6px;
+  white-space:nowrap; opacity:0; pointer-events:none; transition:.2s; box-shadow:0 6px 18px rgba(0,0,0,.2);
+}
+.sv-fab:hover .sv-tip{ opacity:1; }
+
+/* Smaller on phones */
+@media (max-width:520px){
+  .sv-fab{ width:44px; height:44px; }
+  .sv-fab .sv-icon{ width:22px; height:22px; }
+}
+
+/* ========= Modal ========= */
+.sv-modal[aria-hidden="true"]{ display:none; }
+.sv-modal{ position:fixed; inset:0; z-index:1200; }
+.sv-modal__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
+.sv-modal__panel{
+  position:absolute; right:clamp(8px,2vw,16px); bottom:clamp(100px,10vh,140px);
+  width:min(560px,92vw); max-height:min(80vh,720px); overflow:auto;
+  background:#fff; border:1px solid var(--border); border-radius:14px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25); padding:18px 18px 16px;
+}
+.sv-modal__close{
+  position:absolute; top:10px; right:10px; width:32px; height:32px; border-radius:8px;
+  background:#fff; border:1px solid var(--border); cursor:pointer; font-size:18px; line-height:1;
+}
+.sv-modal h3{ margin:4px 6px 8px; color:var(--ink); font-size:20px; }
+
+/* ========= Form ========= */
+.sv-form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:8px 0 6px; }
+.sv-field{ display:flex; flex-direction:column; gap:6px; }
+.sv-full{ grid-column:1 / -1; }
+.sv-field span{ font-weight:600; color:#234; font-size:14px; }
+.sv-field input, .sv-field textarea{
+  padding:12px; border:1px solid var(--border); border-radius:10px; font-family:inherit; font-size:14px; outline:none; background:#fff;
+}
+.sv-field textarea{ min-height:120px; resize:vertical; }
+.sv-actions{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+.sv-btn-primary{
+  background:var(--ink); color:#fff; padding:10px 18px; border-radius:8px; border:none; font-weight:700; cursor:pointer;
+}
+.sv-btn-secondary{
+  background:#fff; color:var(--ink); padding:10px 18px; border:2px solid var(--ink); border-radius:8px; font-weight:700; cursor:pointer;
+}
+.sv-note{ color:#6b7f90; font-size:12px; margin:8px 2px 0; }
+.sv-success{ display:none; margin-top:8px; padding:10px; border:1px solid #b5e4c8; background:#e9f8ef; color:#1e6b3f; border-radius:8px; }
+.sv-error{ border-color:#e46a6a !important; }
+.sv-hidden-iframe{ display:none; }
+
+/* Modal responsive */
+@media (max-width:720px){
+  .sv-modal__panel{
+    left:clamp(8px,2vw,16px); right:clamp(8px,2vw,16px);
+    bottom:auto; top:12%; width:auto; max-height:76vh;
+  }
+}
+
+/* Optional: lift stack above any sticky footer */
+.footer { z-index: 1; position: relative; }
+</style>
+
+
+
+
+
+
+</body>
+</html>

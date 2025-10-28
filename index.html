@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - SV Enterprises</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- Swiper Slider CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* home page header */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+  
+
+    /* HEADER */
+    .main-header {
+      background: #ffffff;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 100px;
+    }
+
+    .navbar a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .navbar a.active,
+    .navbar a:hover {
+      color: #0077cc;
+    }
+
+
+    .navbar {
+  border: 2px solid #d9d9d9; /* Light grey outline */
+  border-radius: 6px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+
+
+
+
+  <!-- ✅ Responsive Header (logo left, hamburger right) -->
+<header class="main-header responsive-header" role="banner">
+  <div class="container header-wrapper">
+    <!-- Left: logo + brand -->
+    <a href="index.html" class="brand-wrap" aria-label="SV Enterprises Home">
+      <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
+      <span class="brand-name">SV Enterprises</span>
+    </a>
+
+    <!-- Right: hamburger -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <!-- Nav -->
+    <nav id="siteNav" class="navbar" role="navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="clients.html">Clients</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<style>
+/* ============ Responsive Header Add-ons ============ */
+.responsive-header .brand-wrap {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.responsive-header .brand-logo { height: 56px; width: auto; display: block; }
+.responsive-header .brand-name {
+  font-weight: 800; font-size: 18px; color: #0a2b4d; letter-spacing: .2px;
+}
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  appearance: none; background: #fff; border: 1px solid #d9d9d9; border-radius: 8px;
+  padding: 10px; display: inline-flex; flex-direction: column; gap: 4px;
+  cursor: pointer; line-height: 0;
+}
+.nav-toggle-bar { width: 22px; height: 2px; background: #0a2b4d; display: block; border-radius: 2px; }
+
+/* Mobile nav panel behavior */
+@media (max-width: 992px) {
+  /* keep header layout tidy */
+  .responsive-header .header-wrapper { gap: 12px; }
+
+  /* use dropdown panel instead of inline bar */
+  .responsive-header .navbar {
+    position: absolute; right: 4%; top: calc(100% + 8px);
+    background: #fff; border: 1px solid #dfe5ea; border-radius: 10px;
+    padding: 10px; display: none; /* hidden by default */
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    width: min(92vw, 360px); z-index: 1001;
+  }
+  /* remove the inline outline on mobile panel */
+  .responsive-header .navbar { border-width: 1px !important; }
+  .responsive-header .navbar a {
+    display: block; padding: 10px 12px; margin: 0; border-radius: 8px; color: #333;
+  }
+  .responsive-header .navbar a:hover { background: #f5f7fa; color: #0077cc; }
+  .responsive-header .navbar[data-open="true"] { display: block; }
+
+  /* brand sizing on small screens */
+  .responsive-header .brand-logo { height: 48px; }
+  .responsive-header .brand-name { font-size: 16px; }
+
+  /* show hamburger on mobile */
+  .nav-toggle { display: inline-flex; }
+}
+
+/* Desktop: keep your existing inline bar (with your border style) and hide hamburger */
+@media (min-width: 993px) {
+  .responsive-header .navbar { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-toggle { display: none; }
+}
+</style>
+
+
+
+
+
+<script>
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('siteNav');
+
+    function closeNav() {
+      nav?.setAttribute('data-open', 'false');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+    function openNav() {
+      nav?.setAttribute('data-open', 'true');
+      toggle?.setAttribute('aria-expanded', 'true');
+    }
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = nav.getAttribute('data-open') === 'true';
+      isOpen ? closeNav() : openNav();
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
+    });
+
+    // Close after clicking a link (mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeNav());
+    });
+
+    // Reset on resize to desktop
+    const mq = window.matchMedia('(min-width: 993px)');
+    mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+<section class="edge-pad">
+  <div class="video-slider-card image-slider-card">
+    <div class="slide">
+      <img src="assets/images/slide1.jpg" alt="Slide 1">
+    </div>
+    <div class="slide">
+      <img src="assets/images/slide2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+      <img src="assets/images/slide3.jpg" alt="Slide 3">
+    </div>
+    <div class="slide">
+      <img src="assets/images/slide4.jpg" alt="Slide 4">
+    </div>
+    <div class="slide">
+      <img src="assets/images/slide5.jpg" alt="Slide 5">
+    </div>
+    <div class="slide">
+      <img src="assets/images/slide6.jpg" alt="Slide 6">
+    </div>
+    <div class="slide">
+      <img src="assets/images/slide7.jpg" alt="Slide 7">
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+/* Full-bleed padding so rounded corners show nicely */
+.edge-pad {
+  padding-inline: clamp(12px, 4vw, 32px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.edge-pad {
+  background: #ffffff; /* Make slider area white */
+  padding-inline: clamp(12px, 4vw, 32px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+/* Card-style full-width slider */
+.video-slider-card {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 76vh;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background: #dbd4d4;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+/* Slides stack on top of each other and fade */
+.video-slider-card .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: vsFade 12s infinite;
+}
+
+.video-slider-card .slide:nth-child(1) { animation-delay: 0s; }
+.video-slider-card .slide:nth-child(2) { animation-delay: 4s; }
+.video-slider-card .slide:nth-child(3) { animation-delay: 8s; }
+
+@keyframes vsFade {
+  0%,100% { opacity: 0; }
+  5%,30% { opacity: 1; }
+  35% { opacity: 0; }
+}
+
+/* Image style exactly like video version */
+.image-slider-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .video-slider-card .slide { animation: none; opacity: 1; }
+}
+
+
+  </style>
+
+
+
+
+
+<!-- =============== ABOUT SECTION (Combined Clean Version) =============== -->
+<section class="about-section">
+  <div class="about-container">
+
+    <!-- Title & Subtitle -->
+    <div class="about-header">
+      <h2>About Us</h2>
+      <p>Delivering reliable industrial solutions with trust, quality and service excellence.</p>
+    </div>
+
+    <!-- Content Layout -->
+    <div class="about-content">
+      <div class="about-image">
+        <img src="assets/images/company.jpg" alt="SV Enterprises Industrial Services">
+      </div>
+      <div class="about-text">
+        <h3>Delivering Industrial Procurement & Fabrication Solutions</h3>
+        <p>
+          SV Enterprises is a professional industrial supply and fabrication service provider based in
+          <strong>Sullurpeta, Andhra Pradesh</strong>. We offer industrial material procurement, custom fabrication,
+          welding consumables, installation support, safety equipment, and mechanical components.
+        </p>
+        <p>
+          With high-quality vendor networks and reliable sourcing channels, we deliver genuine materials
+          with <strong>assured quality, competitive pricing, and fast delivery</strong> across India.
+          We support manufacturing, automation, energy, and construction industries with full operational support.
+        </p>
+        <a href="about.html" class="about-btn">Learn More</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.about-section {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.about-container {
+  width: min(1200px, 92%);
+  margin: auto;
+  text-align: center;
+}
+
+.about-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a2a3a;
+}
+
+.about-header p {
+  color: #4b5b6a;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  color: #004080;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.about-btn {
+  display: inline-block;
+  background: #0077cc;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about-btn:hover {
+  background: #005fa3;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-text {
+    text-align: center;
+  }
+}
+</style>
+
+
+
+
+
+<!-- ✅ SERVICES (White • 3 video cards) -->
+<section class="sv-services">
+  <div class="sv-container">
+    <header class="sv-services-head">
+      <h2>Our Services</h2>
+      <p>Reliable industrial services with professional support.</p>
+      <a href="services.html" class="sv-btn-primary">View All Services</a>
+    </header>
+
+    <div class="sv-services-grid">
+      <!-- Card 1 -->
+      <article class="sv-service-card">
+        <div class="sv-service-media">
+          <video
+            src="https://cdn.coverr.co/videos/coverr-industrial-cargo-crane-4541/1080p.mp4"
+            autoplay muted loop playsinline preload="metadata">
+          </video>
+        </div>
+        <div class="sv-service-body">
+          <h3>Industrial Procurement</h3>
+          <p>Genuine components and materials from trusted brands with on-time delivery.</p>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="sv-service-card">
+        <div class="sv-service-media">
+          <video
+            src="https://cdn.coverr.co/videos/coverr-welding-workers-in-a-factory-8405/1080p.mp4"
+            autoplay muted loop playsinline preload="metadata">
+          </video>
+        </div>
+        <div class="sv-service-body">
+          <h3>Fabrication Works</h3>
+          <p>Custom metal fabrication, frames, brackets, and production-ready assemblies.</p>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="sv-service-card">
+        <div class="sv-service-media">
+          <video
+            src="https://cdn.coverr.co/videos/coverr-steel-workers-in-a-fabrication-workshop-7412/1080p.mp4"
+            autoplay muted loop playsinline preload="metadata">
+          </video>
+        </div>
+        <div class="sv-service-body">
+          <h3>Welding Services</h3>
+          <p>MIG / TIG / ARC welding with qualified operators and robust QA checks.</p>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="sv-service-card">
+        <div class="sv-service-media">
+          <video
+            src="https://cdn.coverr.co/videos/coverr-industrial-paint-job-3784/1080p.mp4"
+            autoplay muted loop playsinline preload="metadata">
+          </video>
+        </div>
+        <div class="sv-service-body">
+          <h3>Painting & Coating</h3>
+          <p>Industrial-grade surface finishing, corrosion protection, and epoxy coating.</p>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="sv-service-card">
+        <div class="sv-service-media">
+          <video
+            src="https://cdn.coverr.co/videos/coverr-factory-machinery-7116/1080p.mp4"
+            autoplay muted loop playsinline preload="metadata">
+          </video>
+        </div>
+        <div class="sv-service-body">
+          <h3>Tools & Hardware Supply</h3>
+          <p>Large stock of industrial tools, power tools, fasteners, and workshop essentials.</p>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="sv-service-card">
+        <div class="sv-service-media">
+          <video
+            src="https://cdn.coverr.co/videos/coverr-industrial-assembly-line-1272/1080p.mp4"
+            autoplay muted loop playsinline preload="metadata">
+          </video>
+        </div>
+        <div class="sv-service-body">
+          <h3>Mechanical Assemblies</h3>
+          <p>Assembly of custom mechanical components with precision and reliability.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<style>
+/* ===========================
+   SERVICES (White • 3 videos)
+   =========================== */
+.sv-container {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+
+.sv-services {
+  background: #ffffff;
+  padding: 64px 0 72px;
+}
+
+.sv-services-head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.sv-services-head h2 {
+  margin: 0 0 6px;
+  font-size: clamp(22px, 2.2vw, 34px);
+  color: #0a2b4d;
+  font-weight: 800;
+}
+
+.sv-services-head p {
+  margin: 0 auto;
+  color: #66778a;
+  max-width: 720px;
+  font-size: 1rem;
+}
+
+.sv-btn-primary {
+  background: #0a2b4d;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.sv-btn-primary:hover {
+  background: #135ea5;
+  box-shadow: 0 4px 12px rgba(10, 43, 77, 0.3);
+}
+
+.sv-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.sv-service-card {
+  background: #ffffff;
+  border: 1px solid #e8eef4;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(10,43,77,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.sv-service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 38px rgba(10,43,77,.12);
+}
+
+.sv-service-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #f2f6fa;
+}
+
+.sv-service-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #e8eef4;
+}
+
+.sv-service-body {
+  padding: 16px 16px 18px;
+}
+
+.sv-service-body h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: #103b66;
+  font-weight: 700;
+}
+
+.sv-service-body p {
+  margin: 0;
+  color: #617387;
+  line-height: 1.6;
+  font-size: .97rem;
+}
+
+@media (max-width: 1024px) {
+  .sv-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sv-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+
+
+
+<!-- =============== PRODUCTS SECTION HEADER =============== -->
+<section class="products-section">
+  <div class="products-container">
+    <h2 class="products-title">Our Products</h2>
+    <p class="products-subtitle">
+      We supply industrial-grade components and engineering materials across India
+    </p>
+    <a href="products.html" class="products-btn">View All Products</a>
+  </div>
+</section>
+
+<style>
+/* ================= PRODUCTS HEADER STYLE ================= */
+.products-section {
+  background: linear-gradient(to bottom, #f1f5f9, #dfe7ee);
+  padding: 80px 0;
+  text-align: center;
+  border-top: 2px solid #c0c8d0;
+  border-bottom: 2px solid #c0c8d0;
+}
+
+.products-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a2a3a;
+}
+
+.products-subtitle {
+  color: #4b5b6a;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.products-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #1f2d3d;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.products-btn:hover {
+  background: #2e4258;
+}
+</style>
+
+
+
+<!-- ✅ image circular slider -->
+<section class="banner">
+  <!-- IMPORTANT: Set --quantity to the total number of items -->
+  <div class="slider" style="--quantity: 12">
+    <!-- Each item: set --position from 1..12; update image paths -->
+    <div class="item" style="--position: 1"><img src="assets/productimages/switchgear.jpg"   alt="Switchgear"></div>
+    <div class="item" style="--position: 2"><img src="assets/productimages/automation.jpg"   alt="Automation (PLC/HMI/VFD)"></div>
+    <div class="item" style="--position: 3"><img src="assets/productimages/pneumatics.jpg"   alt="Pneumatics"></div>
+    <div class="item" style="--position: 4"><img src="assets/productimages/motors.jpg"       alt="Motors & Drives"></div>
+    <div class="item" style="--position: 5"><img src="assets/productimages/sensors.jpg"      alt="Sensors & Relays"></div>
+    <div class="item" style="--position: 6"><img src="assets/productimages/tools.jpg"        alt="Tools & Machinery"></div>
+    <div class="item" style="--position: 7"><img src="assets/productimages/welding.jpg"      alt="Welding"></div>
+    <div class="item" style="--position: 8"><img src="assets/productimages/safety.jpg"       alt="Safety & PPE"></div>
+    <div class="item" style="--position: 9"><img src="assets/productimages/cables.jpg"       alt="Wiring & Cables"></div>
+    <div class="item" style="--position:10"><img src="assets/productimages/panels.jpg"       alt="Panels & Enclosures"></div>
+    <div class="item" style="--position:11"><img src="assets/productimages/instruments.jpg"  alt="Measuring Instruments"></div>
+    <div class="item" style="--position:12"><img src="assets/productimages/bearings.jpg"     alt="Bearings & Power Transmission"></div>
+  </div>
+
+  <div class="content">
+    <!-- Foreground model/illustration layer (optional) -->
+    <div class="model"></div>
+  </div>
+</section>
+
+<style>
+/* ===== Imports MUST be at top ===== */
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+/* ===== Global reset + background ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+body {
+  background: #2f353d;
+  background-image:
+    radial-gradient(circle at center, #1e2633 0%, #0d1117 60%),
+    url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  background-size: cover;
+  color: white;
+}
+
+/* ===== Banner wrapper ===== */
+.banner {
+  width: 100%;
+  height: 110vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Rotating Slider ===== */
+.banner .slider {
+  position: absolute;
+  width: 160px;
+  height: 200px;
+  top: 18%;
+  left: calc(50% - 80px);
+  transform-style: preserve-3d;
+  transform: perspective(1200px);
+  animation: autoRun 45s linear infinite;
+  z-index: 2;
+}
+
+.banner .slider .item {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  border: 2px solid #352626;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease;
+  transform:
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(420px);
+}
+
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.banner .slider .item::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #4f5153;
+  transform: translateZ(-15px);
+  border-radius: 10px;
+  filter: brightness(0.6);
+}
+
+.banner .slider .item.active {
+  transform:
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(480px) scale(1.15);
+  z-index: 10;
+}
+
+/* ===== Animation ===== */
+@keyframes autoRun {
+  from { transform: perspective(1000px) rotateX(-16deg) rotateY(0deg); }
+  to   { transform: perspective(1000px) rotateX(-16deg) rotateY(360deg); }
+}
+
+/* ===== Overlay model ===== */
+.banner .content .model {
+  background-image:url(assets/productimages/model.png);
+  width:100%;
+  height:120vh;
+  position:absolute;
+  bottom:0; left:0;
+  background-size:auto 130%;
+  background-repeat:no-repeat;
+  background-position:top center;
+  z-index:1;
+  pointer-events:none;
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width:1023px){
+  .banner .slider {
+    width:160px; height:200px; left:calc(50% - 80px);
+  }
+  .banner .slider .item {
+    transform:
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(300px);
+  }
+}
+
+@media screen and (max-width:767px){
+  .banner .slider {
+    width:100px; height:150px; left:calc(50% - 50px);
+  }
+  .banner .slider .item {
+    transform:
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(180px);
+  }
+}
+</style>
+
+
+
+<!-- =============== CLIENTS SECTION (PROFESSIONAL VERSION) =============== -->
+<section class="clients-section">
+  <div class="clients-container">
+    <h2 class="clients-title">Our Clients</h2>
+    <p class="clients-subtitle">
+      Trusted by leading industries, manufacturers and EPC companies across India
+    </p>
+    <a href="clients.html" class="clients-btn">View All Clients</a>
+
+    <!-- ✅ Slider -->
+    <div class="client-slider">
+      <button class="client-prev" aria-label="Previous">&#10094;</button>
+
+      <div class="client-track-wrapper">
+        <div class="client-track">
+          <!-- 12 Client Logos -->
+          <div class="client-logo"><img src="assets/clientsimages/client01.jpg" alt="Client 1"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client02.png" alt="Client 2"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client03.png" alt="Client 3"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client04.png" alt="Client 4"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client05.png" alt="Client 5"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client06.png" alt="Client 6"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client07.png" alt="Client 7"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client08.png" alt="Client 8"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client09.png" alt="Client 9"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client10.png" alt="Client 10"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client11.png" alt="Client 11"></div>
+          <div class="client-logo"><img src="assets/clientsimages/client12.png" alt="Client 12"></div>
+        </div>
+      </div>
+
+      <button class="client-next" aria-label="Next">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ STYLES -->
+<style>
+/* ================= CLIENTS SLIDER STYLING ================= */
+.clients-section {
+  background: linear-gradient(to bottom, #d9e2ec, #b8c5d3);
+  padding: 80px 0;
+  text-align: center;
+  border-top: 2px solid #94a3b8;
+  border-bottom: 2px solid #94a3b8;
+}
+
+.clients-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a2a3a;
+}
+
+.clients-subtitle {
+  color: #4b5b6a;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.clients-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #1f2d3d;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.clients-btn:hover {
+  background: #2e4258;
+}
+
+/* Slider */
+.client-slider {
+  margin-top: 35px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.client-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.client-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 40px;
+  animation: clientAutoScroll 80s linear infinite;
+}
+
+@keyframes clientAutoScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Each logo */
+.client-logo {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.client-logo img {
+  width: 200px;
+  height: auto;
+  opacity: 0.9;
+  transition: 0.3s ease-in-out;
+  filter: grayscale(0);
+}
+
+.client-logo img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  filter: drop-shadow(0px 0px 8px rgba(0,255,255,0.6));
+}
+
+/* Arrows */
+.client-prev,
+.client-next {
+  position: absolute;
+  top: 40%;
+  background: #1f2d3d;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  border-radius: 50%;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.client-prev:hover,
+.client-next:hover {
+  background: #314961;
+}
+
+.client-prev { left: 10px; }
+.client-next { right: 10px; }
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .client-logo img { width: 160px; }
+  .client-track { gap: 30px; }
+}
+@media (max-width: 768px) {
+  .client-logo img { width: 130px; }
+  .clients-title { font-size: 26px; }
+}
+</style>
+
+<!-- ✅ SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".client-track");
+  const prevBtn = document.querySelector(".client-prev");
+  const nextBtn = document.querySelector(".client-next");
+  const dotsContainer = document.querySelector(".client-dots");
+  const safeDotsContainer = dotsContainer || document.createElement('div');
+  let isPaused = false;
+
+  // Clone logos for infinite loop
+  const clone = track.innerHTML;
+  track.innerHTML += clone;
+
+  // Create dots (safe even if no .client-dots exists on page)
+  const logos = track.querySelectorAll(".client-logo");
+  const logosCount = logos.length / 2; // original set
+  for (let i = 0; i < logosCount; i++) {
+    const dot = document.createElement("span");
+    safeDotsContainer.appendChild(dot);
+  }
+  const dots = safeDotsContainer.querySelectorAll("span");
+  if (dots.length) dots[0].classList.add("active");
+
+  let index = 0;
+  function updateDots() {
+    if (!dots.length) return;
+    dots.forEach((d, i) => d.classList.toggle("active", i === index % logosCount));
+  }
+
+  // Manual navigation
+  prevBtn.addEventListener("click", () => {
+  track.style.animation = "none"; // ✅ Stop auto-animation
+  index = (index - 1 + logosCount) % logosCount;
+  track.style.transition = "transform 0.5s ease-in-out";
+  track.style.transform = `translateX(-${index * 260}px)`;
+  updateDots();
+});
+
+
+nextBtn.addEventListener("click", () => {
+  track.style.animation = "none"; // ✅ Stop auto-animation
+  index = (index + 1) % logosCount;
+  track.style.transition = "transform 0.5s ease-in-out";
+  track.style.transform = `translateX(-${index * 260}px)`;
+  updateDots();
+});
+
+
+  // Pause on hover
+  track.addEventListener("mouseover", () => { isPaused = true; track.style.animationPlayState = "paused"; });
+  track.addEventListener("mouseout", () => { isPaused = false; track.style.animationPlayState = "running"; });
+});
+</script>
+
+<!-- Viewport height helper for older mobile browsers -->
+<script>
+(function(){
+  function setVH(){
+    var vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', vh + 'px');
+  }
+  setVH();
+  window.addEventListener('resize', setVH, { passive: true });
+  window.addEventListener('orientationchange', setVH);
+})();
+</script>
+
+
+
+
+
+<!-- =========================== BLOGS — Steel Industrial =========================== -->
+<section id="blogs" class="blogs-section">
+  <div class="blogs-wrap">
+    <header class="blogs-head">
+      <h2>Insights & Updates</h2>
+      <p>Industrial procurement, fabrication and operations best-practices — from the shop floor to the board room.</p>
+      <a href="blogs.html" class="btn-steel">View All Blogs</a>
+    </header>
+
+    <div class="blogs-slider" aria-label="Blog carousel">
+      <button class="blogs-nav prev" aria-label="Previous">&#10094;</button>
+
+      <div class="blogs-viewport">
+        <ul class="blogs-track" id="blogsTrack">
+          <li class="blog-card">
+            <article>
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1581093806997-124204d9fa9d?q=80&w=1200&auto=format&fit=crop" alt="Switchgear safety upgrades" loading="lazy">
+                <span class="badge">Safety</span>
+              </div>
+              <div class="content">
+                <h3 class="title">Switchgear Safety Upgrades: What to Audit in 2025</h3>
+                <p class="excerpt">From arc-flash boundaries to breaker coordination — a practical checklist that reduces downtime and insurance risk.</p>
+                <a href="blog/switchgear-safety-upgrades.html" class="more">Read More →</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="blog-card">
+            <article>
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="PLC migration guide" loading="lazy">
+                <span class="badge">Automation</span>
+              </div>
+              <div class="content">
+                <h3 class="title">PLC Migration: Brownfield Strategy for Minimal Downtime</h3>
+                <p class="excerpt">How to phase VFD, HMI and PLC replacements while keeping production KPIs intact across shifts.</p>
+                <a href="blog/plc-migration-brownfield.html" class="more">Read More →</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="blog-card">
+            <article>
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Vendor qualification" loading="lazy">
+                <span class="badge">Procurement</span>
+              </div>
+              <div class="content">
+                <h3 class="title">Vendor Qualification: The 7 Signals of Reliable Supply</h3>
+                <p class="excerpt">Beyond the quote: QA documentation, lot-traceability, warranty norms and why MTBF matters.</p>
+                <a href="blog/vendor-qualification.html" class="more">Read More →</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="blog-card">
+            <article>
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop" alt="Coating systems" loading="lazy">
+                <span class="badge">Coatings</span>
+              </div>
+              <div class="content">
+                <h3 class="title">Choosing Industrial Coatings: Salt Spray vs Real Life</h3>
+                <p class="excerpt">Powder, epoxy or PU? Field conditions and prep quality drive 80% of coating performance.</p>
+                <a href="blog/industrial-coatings-selection.html" class="more">Read More →</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="blog-card">
+            <article>
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" alt="Pneumatics leaks" loading="lazy">
+                <span class="badge">Maintenance</span>
+              </div>
+              <div class="content">
+                <h3 class="title">Stopping Air Leaks: A 30-Day Plan for Pneumatics</h3>
+                <p class="excerpt">Quick wins with ultrasonic testing, push-fit audits and regulator settings that pay back in weeks.</p>
+                <a href="blog/pneumatics-air-leaks.html" class="more">Read More →</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="blog-card">
+            <article>
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1200&auto=format&fit=crop" alt="Project kitting" loading="lazy">
+                <span class="badge">Projects</span>
+              </div>
+              <div class="content">
+                <h3 class="title">Project Kitting: Site-Ready Packs That Cut Delays</h3>
+                <p class="excerpt">From BOM validation to labeling and pre-QA — kitting reduces rework and speeds commissioning.</p>
+                <a href="blog/project-kitting.html" class="more">Read More →</a>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+
+      <button class="blogs-nav next" aria-label="Next">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.blogs-section {
+  background: linear-gradient(180deg, #f2f6fa 0%, #e9eff5 100%);
+  border-top: 1px solid #d9e3ec;
+  border-bottom: 1px solid #d9e3ec;
+  padding: 64px 0 76px;
+}
+.blogs-wrap { width: min(1200px, 92%); margin: auto; }
+.blogs-head { text-align: center; margin-bottom: 20px; }
+.blogs-head h2 {
+  margin: 0 0 6px;
+  font-size: clamp(22px, 2.2vw, 34px);
+  color: #0a2b4d;
+  font-weight: 800;
+}
+.blogs-head p {
+  color: #5c6f80;
+  max-width: 780px;
+  margin: 0 auto 12px;
+}
+.btn-steel {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #e6edf3 0%, #d8e3ec 100%);
+  color: #0a2b4d;
+  border: 2px solid #9fb2c4;
+  border-bottom: 3px solid #7e92a5;
+  transition: 0.2s ease;
+}
+.btn-steel:hover { transform: translateY(-2px); }
+
+.blogs-slider { position: relative; margin-top: 18px; }
+.blogs-viewport { overflow: hidden; }
+.blogs-track {
+  display: flex;
+  gap: 18px;
+  transition: transform 0.48s cubic-bezier(.22,.61,.36,1);
+}
+.blog-card {
+  flex: 0 0 calc((100% - (2 * 18px)) / 3);
+  background: #fff;
+  border: 1px solid #d9e3ec;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(10,43,77,.08);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+}
+.blog-card:hover { box-shadow: 0 16px 42px rgba(10,43,77,.14); }
+.blog-card .thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+.blog-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.blog-card .badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: #0a2b4d;
+  color: #fff;
+  font-weight: 700;
+  font-size: .75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+.blog-card .content { padding: 14px 14px 16px; }
+.blog-card .title {
+  font-size: 1.05rem;
+  color: #10263a;
+  line-height: 1.35;
+  margin: 0 0 6px;
+}
+.blog-card .excerpt {
+  color: #5c6f80;
+  font-size: .95rem;
+  margin: 0 0 10px;
+}
+.blog-card .more {
+  text-decoration: none;
+  font-weight: 800;
+  color: #0a2b4d;
+  border-bottom: 2px solid #b9ccdb;
+  padding-bottom: 2px;
+}
+.blog-card .more:hover { color: #135ea5; border-color: #9fb2c4; }
+
+.blogs-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #b8c9d8;
+  background: #fff;
+  color: #0a2b4d;
+  font-size: 22px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 10; /* ✅ FIX: bring arrows to front */
+  transition: 0.3s ease;
+}
+
+.blogs-nav.prev {
+  left: 10px; /* ✅ FIX: moved slightly inside */
+}
+
+.blogs-nav.next {
+  right: 10px; /* ✅ FIX: moved slightly inside */
+}
+
+.blogs-nav:hover {
+  background: #f3f8fd;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* ✅ Better hover effect */
+}
+
+
+@media (max-width: 1024px) {
+  .blog-card { flex-basis: calc((100% - 18px) / 2); }
+}
+@media (max-width: 640px) {
+  .blog-card { flex-basis: 100%; }
+  .blogs-nav.prev { left: 4px; }
+  .blogs-nav.next { right: 4px; }
+}
+</style>
+
+
+
+<script>
+(function(){
+  const track = document.getElementById('blogsTrack');
+  if (!track) return;
+  const cards = Array.from(track.children);
+  const prevBtn = document.querySelector('.blogs-nav.prev');
+  const nextBtn = document.querySelector('.blogs-nav.next');
+  if (!cards.length || !prevBtn || !nextBtn) return;
+
+  let index = 0;
+  let perView = 3;
+  let cardGap = 18;
+  let cardWidth = 0;
+  let positions = [];
+
+  function measure(){
+    const w = window.innerWidth;
+    perView = w <= 640 ? 1 : w <= 1024 ? 2 : 3;
+    const rect = cards[0].getBoundingClientRect();
+    const gapStr = getComputedStyle(track).gap || '18px';
+    cardGap = parseFloat(gapStr);
+    cardWidth = rect.width + cardGap;
+    positions = cards.map((_, i) => i * cardWidth);
+    jumpTo(index);
+    updateActive();
+  }
+
+  function jumpTo(i){
+    index = Math.max(0, Math.min(i, cards.length - perView));
+    track.style.transform = `translateX(${-positions[index]}px)`;
+  }
+
+  function next(){
+    jumpTo(index < cards.length - perView ? index + 1 : 0);
+    updateActive();
+  }
+
+  function prev(){
+    jumpTo(index > 0 ? index - 1 : cards.length - perView);
+    updateActive();
+  }
+
+  function updateActive(){
+    cards.forEach(c => c.classList.remove('active'));
+    const middle = index + Math.floor(perView / 2);
+    if (cards[middle]) cards[middle].classList.add('active');
+  }
+
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+  window.addEventListener('resize', measure);
+  measure();
+})();
+</script>
+
+
+
+
+
+
+
+<!-- ===========================
+     CONTACT — Pro Form + Info + Map (Upgraded)
+     =========================== -->
+<section id="contact" class="contact-section" aria-labelledby="contactTitle">
+  <div class="contact-wrap">
+    <header class="contact-head">
+      <h2 id="contactTitle">Contact SV Enterprises</h2>
+      <p>Industrial Services • Sullurpeta, Andhra Pradesh</p>
+    </header>
+
+    <div class="contact-grid">
+      <!-- Left: Form -->
+      <div class="contact-form-card" role="form">
+        <form id="svContactForm" novalidate>
+          <!-- Honeypot (spam trap) -->
+          <input type="text" name="company" id="hp_company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Name<span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" aria-describedby="nameErr" maxlength="120" />
+              <small class="err" id="nameErr"></small>
+            </div>
+            <div class="form-field">
+              <label for="email">Email<span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required aria-required="true" aria-describedby="emailErr" inputmode="email" maxlength="160" />
+              <small class="err" id="emailErr"></small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="phone">Phone<span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 79892 61342" required aria-required="true" aria-describedby="phoneErr"
+                     inputmode="tel" maxlength="20" />
+              <small class="err" id="phoneErr"></small>
+            </div>
+            <div class="form-field">
+              <label for="subject">Subject<span aria-hidden="true">*</span></label>
+              <input type="text" id="subject" name="subject" placeholder="How can we help?" required aria-required="true" aria-describedby="subjectErr" maxlength="160" />
+              <small class="err" id="subjectErr"></small>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message<span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="5" placeholder="Describe your requirement…" required aria-required="true" aria-describedby="messageErr" maxlength="3000"></textarea>
+            <small class="err" id="messageErr"></small>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="contactSubmit" class="btn-steel-blue" aria-live="polite">
+              <span class="btn-label">Send Message</span>
+              <span class="btn-loading" aria-hidden="true">Sending…</span>
+            </button>
+
+            <a class="btn-wa" target="_blank" rel="noopener"
+               href="https://wa.me/917989261342?text=Hello%20SV%20Enterprises%2C%20I%27d%20like%20to%20discuss%20an%20industrial%20requirement."
+               aria-label="Chat on WhatsApp with SV Enterprises">
+              Chat on WhatsApp
+            </a>
+          </div>
+
+          <p id="formSuccess" class="form-success" role="status" aria-live="polite"></p>
+          <p id="formError" class="form-error" role="alert" aria-live="assertive"></p>
+        </form>
+      </div>
+
+      <!-- Right: Contact info + Map -->
+      <aside class="contact-info-card" aria-labelledby="getInTouchTitle">
+        <div class="info-block">
+          <h3 id="getInTouchTitle">Get in Touch</h3>
+          <ul class="info-list">
+            <li><strong>Email:</strong> <a href="mailto:info@sventerprises.world">info@sventerprises.world</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+917989261342">+91 79892 61342</a></li>
+            <li><strong>Location:</strong> Sullurpeta, Andhra Pradesh</li>
+          </ul>
+        </div>
+
+        <div class="map-block" aria-label="SV Enterprises Location">
+          <iframe
+            title="SV Enterprises Location"
+            width="100%" height="260" style="border:0; border-radius:12px"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Sullurpeta%2C%20Andhra%20Pradesh&output=embed">
+          </iframe>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Success / Error Modal -->
+<div id="contactModal" class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="contact-modal__dialog" role="document">
+    <h3 id="modalTitle">Message sent ✅</h3>
+    <p id="modalText">Thank you for contacting SV Enterprises. We’ll get back to you shortly.</p>
+    <button type="button" class="contact-modal__close" id="modalClose" aria-label="Close dialog">OK</button>
+  </div>
+</div>
+
+<style>
+/* ========== CONTACT (Form left • Info + Map right) ========== */
+.contact-section{
+  background:
+    radial-gradient(160% 120% at 50% -30%, rgba(20,34,48,.10), transparent 60%),
+    linear-gradient(180deg, #f2f6fa 0%, #e9eff5 100%);
+  border-top:1px solid #d9e3ec;
+  border-bottom:1px solid #d9e3ec;
+  padding:64px 0 76px;
+}
+.contact-wrap{ width:min(1200px,92%); margin-inline:auto }
+.contact-head{ text-align:center; margin-bottom:22px }
+.contact-head h2{
+  margin:0 0 6px; font-size:clamp(22px,2.2vw,34px); color:#0a2b4d; font-weight:800;
+}
+.contact-head p{ margin:0; color:#5c6f80 }
+
+/* Grid */
+.contact-grid{
+  display:grid; grid-template-columns: 1.15fr 0.85fr; gap:22px;
+}
+@media (max-width: 980px){
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+/* Cards */
+.contact-form-card, .contact-info-card{
+  background:#ffffff;
+  border:1px solid #d9e3ec;
+  border-radius:16px;
+  box-shadow:0 14px 36px rgba(10,43,77,.08);
+  padding:18px;
+}
+
+/* Form */
+.form-row{ display:grid; grid-template-columns: 1fr 1fr; gap:14px }
+@media (max-width: 640px){ .form-row{ grid-template-columns: 1fr } }
+
+.form-field{ display:flex; flex-direction:column; gap:6px }
+.form-field label{ font-weight:700; color:#0a2b4d; font-size:.95rem }
+.form-field input, .form-field textarea{
+  border:2px solid #c7d6e5; border-radius:12px; outline:none;
+  padding:12px 12px; font:inherit; color:#0a2b4d; background:#f4f8fb;
+  transition:border-color .15s ease, box-shadow .15s ease;
+  max-width: 100%;
+}
+.form-field input:focus, .form-field textarea:focus{
+  border-color:#9fb2c4; box-shadow:0 0 0 3px rgba(159,178,196,.25);
+}
+.form-field small.err{ color:#b00020; min-height:16px }
+
+/* Actions */
+.form-actions{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:6px }
+
+/* Steel Blue Button (B1) */
+.btn-steel-blue{
+  position:relative;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 18px; border-radius:12px; border:2px solid #9fb2c4; border-bottom:3px solid #7e92a5;
+  background:linear-gradient(180deg, #e6edf3 0%, #d8e3ec 100%);
+  color:#0a2b4d; font-weight:800; letter-spacing:.3px; cursor:pointer;
+  box-shadow:inset 0 1px 0 #fff, 0 10px 22px rgba(10,43,77,.12);
+  transition:transform .15s ease, filter .2s ease, box-shadow .2s ease;
+}
+.btn-steel-blue:hover{ transform:translateY(-2px); filter:brightness(1.02) }
+.btn-steel-blue[disabled]{ opacity:.65; cursor:not-allowed; transform:none }
+
+/* Loading label swap */
+.btn-steel-blue .btn-loading{ display:none }
+.btn-steel-blue.is-loading .btn-label{ display:none }
+.btn-steel-blue.is-loading .btn-loading{ display:inline }
+
+/* WhatsApp button */
+.btn-wa{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 16px; border-radius:12px; text-decoration:none; font-weight:800;
+  background:#25D366; color:#0a2b4d; border:2px solid #7ccf9a; border-bottom:3px solid #2fa85b;
+  box-shadow:0 10px 22px rgba(18,140,126,.25);
+  transition:transform .15s ease, filter .2s ease;
+}
+.btn-wa:hover{ transform:translateY(-2px); filter:brightness(1.05) }
+
+/* Info card */
+.info-block h3{ margin:4px 0 10px; color:#0a2b4d }
+.info-list{ list-style:none; padding:0; margin:0 0 14px }
+.info-list li{ margin:6px 0; color:#2a3a48 }
+.info-list a{ color:#135ea5; text-decoration:none }
+.info-list a:hover{ text-decoration:underline }
+
+/* Messages */
+.form-success{ color:#0a7f2e; font-weight:700; margin-top:6px }
+.form-error{ color:#b00020; font-weight:700; margin-top:6px }
+
+/* Map */
+.map-block{ margin-top:8px }
+
+/* Modal */
+.contact-modal{
+  position:fixed; inset:0; display:none; place-items:center;
+  background:rgba(0,0,0,.45); z-index:9999; padding:16px;
+}
+.contact-modal[aria-hidden="false"]{ display:grid; }
+.contact-modal__dialog{
+  background:#fff; color:#0a2b4d; border-radius:14px; padding:20px 18px;
+  width:min(440px, 96%); box-shadow:0 20px 44px rgba(10,43,77,.25);
+  text-align:center;
+}
+.contact-modal__dialog h3{ margin:0 0 6px }
+.contact-modal__dialog p{ margin:0 0 14px; color:#2a3a48 }
+.contact-modal__close{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border-radius:10px; border:2px solid #9fb2c4; border-bottom:3px solid #7e92a5;
+  background:linear-gradient(180deg, #e6edf3 0%, #d8e3ec 100%); font-weight:800; color:#0a2b4d; cursor:pointer;
+}
+</style>
+
+<script>
+(function(){
+  // 🔧 Replace with your deployed Apps Script "web app" (must allow Anyone with the link)
+  // Expected to return JSON: { "ok": true } on success
+  const SCRIPT_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL';
+
+  const form   = document.getElementById('svContactForm');
+  const submit = document.getElementById('contactSubmit');
+  const okMsg  = document.getElementById('formSuccess');
+  const errMsg = document.getElementById('formError');
+
+  const modal = document.getElementById('contactModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalText = document.getElementById('modalText');
+
+  if (!form) return;
+
+  // Helpers
+  const setLoading = (loading) => {
+    submit.classList.toggle('is-loading', loading);
+    submit.disabled = loading;
+  };
+
+  const setErr = (id, text) => {
+    const field = form.querySelector('#'+id);
+    const err = document.getElementById(id+'Err');
+    if (err) err.textContent = text || '';
+    if (field) field.setAttribute('aria-invalid', text ? 'true' : 'false');
+  };
+
+  const isValidEmail = (v) => /^\S+@\S+\.\S+$/.test(v);
+  const isValidPhone = (v) => {
+    const x = v.replace(/[^\d+]/g,'');
+    // India-first pattern, fallback to 7-15 digits
+    return /^(\+?91[-\s]?)?[6-9]\d{9}$/.test(x) || /^\+?\d{7,15}$/.test(x);
+  };
+
+  const openModal = (text) => {
+    modalText.textContent = text || 'Thank you for contacting SV Enterprises. We’ll get back to you shortly.';
+    modal.setAttribute('aria-hidden', 'false');
+    modalClose.focus();
+  };
+  const closeModal = () => {
+    modal.setAttribute('aria-hidden', 'true');
+  };
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal(); });
+
+  // Validation
+  function validate(){
+    let valid = true;
+    okMsg.textContent = ''; errMsg.textContent = '';
+    ['name','email','phone','subject','message'].forEach(id => setErr(id, ''));
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const subject = form.subject.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name){ setErr('name','Required'); valid=false; }
+    if (!isValidEmail(email)){ setErr('email','Enter a valid email'); valid=false; }
+    if (!isValidPhone(phone)){ setErr('phone','Enter a valid phone'); valid=false; }
+    if (!subject){ setErr('subject','Required'); valid=false; }
+    if (!message){ setErr('message','Required'); valid=false; }
+
+    // Honeypot
+    const hp = document.getElementById('hp_company')?.value;
+    if (hp && hp.length > 0) { valid = false; } // bot likely
+
+    return valid;
+  }
+
+  // Serialize form to FormData
+  const toFormData = () => {
+    const fd = new FormData(form);
+    fd.append('timestamp', new Date().toISOString());
+    return fd;
+  };
+
+  // Submit
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if (!validate()) return;
+
+    setLoading(true);
+    const fd = toFormData();
+
+    // Prefer CORS JSON; fallback to no-cors as opaque success
+    const controller = new AbortController();
+    const timeout = setTimeout(()=>controller.abort(), 15000); // 15s timeout
+
+    try{
+      const res = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: fd,
+        signal: controller.signal,
+        // If your Apps Script is set to "Anyone with the link", you can return JSON and omit 'mode'
+        // mode: 'cors'
+      });
+
+      clearTimeout(timeout);
+
+      // If opaque (no-cors) we can't read response; assume success.
+      if (res.type === 'opaque') {
+        okMsg.textContent = '✅ Message sent successfully.';
+        form.reset();
+        openModal('Your message has been sent successfully. We will get back to you shortly.');
+        setLoading(false);
+        return;
+      }
+
+      // If readable, expect JSON { ok: true }
+      let ok = false;
+      try {
+        const data = await res.json();
+        ok = !!data.ok;
+      } catch(_) {
+        ok = res.ok; // fallback
+      }
+
+      if (ok) {
+        okMsg.textContent = '✅ Message sent successfully.';
+        form.reset();
+        openModal('Your message has been sent successfully. We will get back to you shortly.');
+      } else {
+        throw new Error('Submission failed');
+      }
+
+    }catch(err){
+      console.error(err);
+      errMsg.textContent = '⚠️ Something went wrong. Please try again or email info@sventerprises.world';
+    }finally{
+      setTimeout(()=> setLoading(false), 600);
+    }
+  });
+})();
+</script>
+
+
+
+
+
+
+
+<!-- ==========================
+     FAQ SECTION (Accordion)
+     ========================== -->
+<section class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <p class="faq-subtitle">
+      Get answers about our services, delivery, and industrial expertise.
+    </p>
+
+    <div class="faq-list">
+
+      <!-- FAQ Item -->
+      <div class="faq-item">
+        <button class="faq-question">What industries do you serve?</button>
+        <div class="faq-answer">
+          We serve manufacturing, EPC, steel fabrication, construction, automation, power, and industrial sectors across India.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do you offer custom fabrication work?</button>
+        <div class="faq-answer">
+          Yes, we fabricate custom assemblies, structural frames, platforms, skids, and material supports based on client drawings.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Can you supply genuine industrial components?</button>
+        <div class="faq-answer">
+          Absolutely. We source from certified OEMs and authorized distributors ensuring brand authenticity and warranty.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do you provide delivery across India?</button>
+        <div class="faq-answer">
+          Yes, we deliver PAN India with logistics support to all major industrial zones and project sites.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How can I request a quote?</button>
+        <div class="faq-answer">
+          You can send your RFQ via our Contact page, email, or WhatsApp. We respond within 24 hours.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* ===== FAQ Styling ===== */
+.faq-section {
+  background: #f4f7fa;
+  padding: 60px 20px;
+}
+.faq-container {
+  max-width: 850px;
+  margin: auto;
+}
+.faq-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0a2b4d;
+}
+.faq-subtitle {
+  text-align: center;
+  color: #5b6876;
+  margin-bottom: 28px;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #d5dde5;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.faq-item.active {
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 16px;
+  font-size: 1rem;
+  color: #0a2b4d;
+  font-weight: 600;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.faq-question:hover {
+  background: #eef3f8;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 16px;
+  line-height: 1.6;
+  color: #4a5568;
+  transition: max-height .35s ease, padding .3s ease;
+}
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 14px 16px 16px;
+}
+</style>
+
+<script>
+const faqs = document.querySelectorAll('.faq-item');
+
+faqs.forEach(item => {
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    // Close other FAQs
+    faqs.forEach(faq => {
+      if (faq !== item) faq.classList.remove('active');
+    });
+    // Toggle current FAQ
+    item.classList.toggle('active');
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ✅ FOOTER SECTION - METALLIC SILVER THEME -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-grid">
+
+      <!-- About -->
+      <div class="footer-about">
+        <h3>SV Enterprises</h3>
+        <p>
+          SV Enterprises is a trusted provider of industrial procurement, fabrication works,
+          welding consumables, safety equipment, tools, and engineering solutions.
+          Based in Sullurpeta, Andhra Pradesh – delivering reliable services with quality commitment.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-services">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Industrial Procurement</li>
+          <li>Fabrication Works</li>
+          <li>Painting Services</li>
+          <li>Welding Consumables</li>
+          <li>Custom Material Supply</li>
+          <li>Mechanical Assemblies</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <p><a href="https://maps.google.com/?q=Sullurpeta,Andhra+Pradesh" target="_blank" rel="noopener">📍 Sullurpeta, Andhra Pradesh, India</a></p>
+        <p><a href="tel:+917989261342">📞 +91 79892 61342</a></p>
+        <p><a href="mailto:info@sventerprises.world">✉️ info@sventerprises.world</a></p>
+
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.7-2.2 3.9-2.2 4.2 0 5 2.8 5 6.4V24h-4v-7.5c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V24h-4V8z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 12A10 10 0 1 0 12 22v-7H9v-3h3v-2c0-3 2-4 4-4h2v3h-1c-1 0-1 .5-1 1v2h3l-1 3h-2v7a10 10 0 0 0 7-10z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.6 0 3 1.4 3 3v10c0 1.6-1.4 3-3 3H7c-1.6 0-3-1.4-3-3V7c0-1.6 1.4-3 3-3h10zm-5 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5 0-5-.3-7.5-.2-1.7-1.6-3-3.3-3.2C15.7 1 12.8 1 10 1S4.3 1 2.6 1.3C.9 1.5-.5 2.8-.7 4.5 0 7 0 9.5 0 12s0 5 .3 7.5c.2 1.7 1.6 3 3.3 3.2 1.7.3 4.6.3 7.4.3s5.7 0 7.4-.3c1.7-.2 3.1-1.5 3.3-3.2.3-2.5.3-5 .3-7.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 SV Enterprises. All Rights Reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: linear-gradient(135deg, #4e5459, #2f3438);
+  color: #ffffff;
+  padding: 50px 0;
+  margin-top: 50px;
+  border-top: 2px solid #8f9aa3;
+}
+.footer-container { max-width: 1200px; margin: auto; width: 90%; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 30px; }
+.footer h3, .footer h4 { margin-bottom: 15px; color: #ffffff; }
+.footer p { font-size: .95rem; color: #d3d8dc; line-height: 1.6; }
+.footer a { text-decoration: none; color: #d3d8dc; transition: .3s; }
+.footer a:hover { color: #00c3ff; }
+.footer-links ul, .footer-services ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li, .footer-services li { margin-bottom: 8px; }
+.footer-social { margin-top: 10px; display: flex; gap: 12px; }
+.social-icon svg { width: 24px; height: 24px; fill: #ffffff; transition: .3s; }
+.social-icon:hover svg { fill: #00c3ff; }
+.footer-bottom { text-align: center; border-top: 1px solid #6b7378; margin-top: 30px; padding-top: 15px; font-size: .9rem; color: #b5bcc1; }
+.footer-bottom a { color: #00c3ff; }
+</style>
+
+
+
+<!-- ================== FLOATING CONTACT + QUOTE (RIGHT) — IMAGE ICONS ================== -->
+<!-- Quick buttons -->
+<div class="sv-fabs" aria-label="Quick contact">
+  <!-- WhatsApp -->
+  <a class="sv-fab sv-fab-wa" href="https://wa.me/917989261342" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="sv-icon">
+      <img src="assets/icons/whatsapp.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">WhatsApp</span>
+  </a>
+
+  <!-- Call -->
+  <a class="sv-fab sv-fab-call" href="tel:+917989261342" aria-label="Call">
+    <span class="sv-icon">
+      <img src="assets/icons/phone.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Call</span>
+  </a>
+
+  <!-- Mail -->
+  <a class="sv-fab sv-fab-mail" href="mailto:info@sventerprises.world" aria-label="Email">
+    <span class="sv-icon">
+      <img src="assets/icons/mail.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Email</span>
+  </a>
+
+  <!-- Quote (opens modal) -->
+  <button class="sv-fab sv-fab-quote" type="button" aria-haspopup="dialog" aria-controls="svQuoteModal" aria-label="Request a Quote">
+    <span class="sv-icon">
+      <img src="assets/icons/quote.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Get Quote</span>
+  </button>
+</div>
+
+<!-- Quote Modal -->
+<div id="svQuoteModal" class="sv-modal" role="dialog" aria-modal="true" aria-labelledby="svQuoteTitle" aria-hidden="true">
+  <div class="sv-modal__backdrop" data-close></div>
+  <div class="sv-modal__panel" role="document">
+    <button class="sv-modal__close" type="button" aria-label="Close" data-close>×</button>
+    <h3 id="svQuoteTitle">Request a Quote</h3>
+
+    <!-- Hidden iframe submits to Apps Script without CORS issues -->
+    <iframe name="svHiddenFrame" class="sv-hidden-iframe" title="hidden"></iframe>
+
+    <!-- Replace action with your Apps Script Web App URL -->
+    <form id="svQuoteForm" action="YOUR_APPS_SCRIPT_WEB_APP_URL" method="POST" target="svHiddenFrame" novalidate>
+      <div class="sv-form-grid">
+        <label class="sv-field">
+          <span>Full Name *</span>
+          <input name="name" type="text" required placeholder="Your name">
+        </label>
+        <label class="sv-field">
+          <span>Email *</span>
+          <input name="email" type="email" required placeholder="name@company.com">
+        </label>
+        <label class="sv-field">
+          <span>Phone *</span>
+          <input name="phone" type="tel" required placeholder="+91 XXXXX XXXXX">
+        </label>
+        <label class="sv-field">
+          <span>Company</span>
+          <input name="company" type="text" placeholder="Company / Organization">
+        </label>
+        <label class="sv-field sv-full">
+          <span>Subject *</span>
+          <input name="subject" type="text" required placeholder="What is this about?">
+        </label>
+        <label class="sv-field sv-full">
+          <span>Requirement Details *</span>
+          <textarea name="message" required placeholder="BOM, drawings links, brand preferences, qty, delivery location, timelines, etc."></textarea>
+        </label>
+        <label class="sv-field sv-full">
+          <span>Attachment Link (optional)</span>
+          <input name="fileurl" type="url" placeholder="https://drive/link-to-drawing.pdf">
+        </label>
+
+        <!-- Honeypot -->
+        <input class="sv-hp" type="text" name="_gotcha" autocomplete="off">
+      </div>
+
+      <div class="sv-actions">
+        <button class="sv-btn-primary" type="submit">Send Quote</button>
+        <button class="sv-btn-secondary" type="button" data-close>Cancel</button>
+      </div>
+
+      <p id="svFormNote" class="sv-note">We’ll reply within one business day. By submitting, you accept our Terms & Privacy.</p>
+      <div id="svSuccess" class="sv-success" role="status" aria-live="polite">Thanks! Your request was sent.</div>
+    </form>
+  </div>
+</div>
+<!-- ================== /FLOATING CONTACT + QUOTE ================== -->
+
+
+<script>
+  (function(){
+    const modal = document.getElementById('svQuoteModal');
+    const openBtn = document.querySelector('.sv-fab-quote');
+    const closeEls = modal.querySelectorAll('[data-close], .sv-modal__backdrop');
+    const form = document.getElementById('svQuoteForm');
+    const success = document.getElementById('svSuccess');
+    const note = document.getElementById('svFormNote');
+    let submitted = false;
+
+    // Open/Close modal
+    openBtn?.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden','false');
+      setTimeout(()=> { form.querySelector('input[name="name"]')?.focus(); }, 50);
+    });
+    closeEls.forEach(el => el.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden','true');
+      success.style.display = 'none';
+    }));
+    document.addEventListener('keydown',(e)=>{
+      if(e.key === 'Escape') modal.setAttribute('aria-hidden','true');
+    });
+
+    // Validation helpers
+    function mark(el, ok){ el.classList.toggle('sv-error', !ok); }
+    function emailOK(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    // Submit to Apps Script (via hidden iframe)
+    form.addEventListener('submit', (e)=>{
+      const need = ['name','email','phone','subject','message'];
+      let ok = true;
+      need.forEach(n=>{
+        const el = form.elements[n];
+        const good = !!el.value.trim() && (n!=='email' || emailOK(el.value.trim()));
+        mark(el, good);
+        ok = ok && good;
+      });
+      if(form.elements['_gotcha'].value){ e.preventDefault(); return; } // bot trap
+      if(!ok){ e.preventDefault(); return; }
+      submitted = true;
+      note.textContent = 'Sending…';
+    });
+
+    // Success after iframe load
+    const iframe = document.getElementsByName('svHiddenFrame')[0];
+    iframe.addEventListener('load', ()=>{
+      if(!submitted) return;
+      submitted = false;
+      note.textContent = 'We’ll reply within one business day. By submitting, you accept our Terms & Privacy.';
+      form.reset();
+      success.style.display = 'block';
+    });
+  })();
+</script>
+
+
+
+
+<style>
+:root{
+  --ink:#0a2b4d; --brand:#0077cc; --bg:#fff; --border:#dfe5ea; --soft:#f5f7fa;
+}
+
+/* ========= Floating Buttons ========= */
+.sv-fabs{
+  position:fixed; right:clamp(8px,2vw,16px); bottom:clamp(80px,8vh,120px);
+  display:flex; flex-direction:column; gap:10px; z-index:1100;
+}
+.sv-fab{
+  width:48px; height:48px; border-radius:999px; background:#ffffff;
+  border:1px solid var(--border); box-shadow:0 8px 18px rgba(0,0,0,.12);
+  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+  position:relative; padding:0;
+}
+.sv-fab .sv-icon{
+  width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center;
+}
+.sv-fab .sv-icon img{
+  width:100%; height:100%; object-fit:contain; display:block;
+  /* Optional: make dark icons match brand with a filter. Remove if not needed. */
+  /* filter: saturate(1.1) contrast(1.05); */
+}
+
+/* WhatsApp special bg (optional) */
+.sv-fab-wa{ background:#e9fff2; border-color:#b9efcf; }
+
+.sv-fab .sv-tip{
+  position:absolute; right:110%; top:50%; transform:translateY(-50%);
+  background:#111; color:#fff; font-size:12px; padding:4px 8px; border-radius:6px;
+  white-space:nowrap; opacity:0; pointer-events:none; transition:.2s; box-shadow:0 6px 18px rgba(0,0,0,.2);
+}
+.sv-fab:hover .sv-tip{ opacity:1; }
+
+/* Smaller on phones */
+@media (max-width:520px){
+  .sv-fab{ width:44px; height:44px; }
+  .sv-fab .sv-icon{ width:22px; height:22px; }
+}
+
+/* ========= Modal ========= */
+.sv-modal[aria-hidden="true"]{ display:none; }
+.sv-modal{ position:fixed; inset:0; z-index:1200; }
+.sv-modal__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
+.sv-modal__panel{
+  position:absolute; right:clamp(8px,2vw,16px); bottom:clamp(100px,10vh,140px);
+  width:min(560px,92vw); max-height:min(80vh,720px); overflow:auto;
+  background:#fff; border:1px solid var(--border); border-radius:14px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25); padding:18px 18px 16px;
+}
+.sv-modal__close{
+  position:absolute; top:10px; right:10px; width:32px; height:32px; border-radius:8px;
+  background:#fff; border:1px solid var(--border); cursor:pointer; font-size:18px; line-height:1;
+}
+.sv-modal h3{ margin:4px 6px 8px; color:var(--ink); font-size:20px; }
+
+/* ========= Form ========= */
+.sv-form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:8px 0 6px; }
+.sv-field{ display:flex; flex-direction:column; gap:6px; }
+.sv-full{ grid-column:1 / -1; }
+.sv-field span{ font-weight:600; color:#234; font-size:14px; }
+.sv-field input, .sv-field textarea{
+  padding:12px; border:1px solid var(--border); border-radius:10px; font-family:inherit; font-size:14px; outline:none; background:#fff;
+}
+.sv-field textarea{ min-height:120px; resize:vertical; }
+.sv-actions{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+.sv-btn-primary{
+  background:var(--ink); color:#fff; padding:10px 18px; border-radius:8px; border:none; font-weight:700; cursor:pointer;
+}
+.sv-btn-secondary{
+  background:#fff; color:var(--ink); padding:10px 18px; border:2px solid var(--ink); border-radius:8px; font-weight:700; cursor:pointer;
+}
+.sv-note{ color:#6b7f90; font-size:12px; margin:8px 2px 0; }
+.sv-success{ display:none; margin-top:8px; padding:10px; border:1px solid #b5e4c8; background:#e9f8ef; color:#1e6b3f; border-radius:8px; }
+.sv-error{ border-color:#e46a6a !important; }
+.sv-hidden-iframe{ display:none; }
+
+/* Modal responsive */
+@media (max-width:720px){
+  .sv-modal__panel{
+    left:clamp(8px,2vw,16px); right:clamp(8px,2vw,16px);
+    bottom:auto; top:12%; width:auto; max-height:76vh;
+  }
+}
+
+/* Optional: lift stack above any sticky footer */
+.footer { z-index: 1; position: relative; }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

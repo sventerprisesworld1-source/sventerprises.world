@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - SV Enterprises</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- Swiper Slider CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ✅ Responsive Header (logo left, hamburger right) -->
+<header class="main-header responsive-header" role="banner">
+  <div class="container header-wrapper">
+    <!-- Left: logo + brand -->
+    <a href="index.html" class="brand-wrap" aria-label="SV Enterprises Home">
+      <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
+      <span class="brand-name">SV Enterprises</span>
+    </a>
+
+    <!-- Right: hamburger -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
+    <!-- Nav -->
+    <nav id="siteNav" class="navbar" role="navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="clients.html">Clients</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<style>
+/* ============ Responsive Header Add-ons ============ */
+.responsive-header .brand-wrap {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.responsive-header .brand-logo { height: 56px; width: auto; display: block; }
+.responsive-header .brand-name {
+  font-weight: 800; font-size: 18px; color: #0a2b4d; letter-spacing: .2px;
+}
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  appearance: none; background: #fff; border: 1px solid #d9d9d9; border-radius: 8px;
+  padding: 10px; display: inline-flex; flex-direction: column; gap: 4px;
+  cursor: pointer; line-height: 0;
+}
+.nav-toggle-bar { width: 22px; height: 2px; background: #0a2b4d; display: block; border-radius: 2px; }
+
+/* Mobile nav panel behavior */
+@media (max-width: 992px) {
+  /* keep header layout tidy */
+  .responsive-header .header-wrapper { gap: 12px; }
+
+  /* use dropdown panel instead of inline bar */
+  .responsive-header .navbar {
+    position: absolute; right: 4%; top: calc(100% + 8px);
+    background: #fff; border: 1px solid #dfe5ea; border-radius: 10px;
+    padding: 10px; display: none; /* hidden by default */
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    width: min(92vw, 360px); z-index: 1001;
+  }
+  /* remove the inline outline on mobile panel */
+  .responsive-header .navbar { border-width: 1px !important; }
+  .responsive-header .navbar a {
+    display: block; padding: 10px 12px; margin: 0; border-radius: 8px; color: #333;
+  }
+  .responsive-header .navbar a:hover { background: #f5f7fa; color: #0077cc; }
+  .responsive-header .navbar[data-open="true"] { display: block; }
+
+  /* brand sizing on small screens */
+  .responsive-header .brand-logo { height: 48px; }
+  .responsive-header .brand-name { font-size: 16px; }
+
+  /* show hamburger on mobile */
+  .nav-toggle { display: inline-flex; }
+}
+
+/* Desktop: keep your existing inline bar (with your border style) and hide hamburger */
+@media (min-width: 993px) {
+  .responsive-header .navbar { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-toggle { display: none; }
+}
+</style>
+
+
+
+
+
+<script>
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('siteNav');
+
+    function closeNav() {
+      nav?.setAttribute('data-open', 'false');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+    function openNav() {
+      nav?.setAttribute('data-open', 'true');
+      toggle?.setAttribute('aria-expanded', 'true');
+    }
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = nav.getAttribute('data-open') === 'true';
+      isOpen ? closeNav() : openNav();
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
+    });
+
+    // Close after clicking a link (mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeNav());
+    });
+
+    // Reset on resize to desktop
+    const mq = window.matchMedia('(min-width: 993px)');
+    mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
+  })();
+</script>
+
+
+
+
+<style>
+    /* home page header */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* HEADER */
+    .main-header {
+      background: #ffffff;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 100px;
+    }
+
+    .navbar a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .navbar a.active,
+    .navbar a:hover {
+      color: #0077cc;
+    }
+
+    .navbar {
+  border: 2px solid #d9d9d9; /* Light grey outline */
+  border-radius: 6px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+    
+
+    /* HERO SLIDER */
+    .hero-slider img {
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 20%;
+      left: 5%;
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 10px black;
+    }
+  </style>
+
+
+
+
+<!-- Full-stretch, card-style video slider -->
+<section class="edge-pad">
+  <div class="video-slider-card">
+    <div class="slide">
+      <video autoplay muted loop playsinline>
+        <source src="assets/aboutvideos/video1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="slide">
+      <video autoplay muted loop playsinline>
+        <source src="assets/aboutvideos/video2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="slide">
+      <video autoplay muted loop playsinline>
+        <source src="assets/aboutvideos/video3.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="slide">
+      <video autoplay muted loop playsinline>
+        <source src="assets/aboutvideos/video4.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+
+<style>
+/* Full-bleed padding so rounded corners show nicely against the page bg */
+.edge-pad {
+  padding-inline: clamp(12px, 4vw, 32px);
+  padding-top: 20px;
+  padding-bottom: Auto;
+}
+
+/* Card-style, full-stretch slider */
+.video-slider-card {
+  width: 100%;                 /* full stretch */
+  aspect-ratio: 16 / 9;        /* responsive height */
+  max-height: 76vh;            /* avoid too tall on big screens */
+  border-radius: 18px;         /* round edges */
+  overflow: hidden;            /* clip video to the rounded corners */
+  position: relative;
+  background: #000;            /* prevents flashes */
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+/* Slides stack on top of each other and fade in/out */
+.video-slider-card .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: vsFade 30s infinite; /* 4 slides x 2.5s = 10s total loop */
+}
+
+/* Offsets so each slide shows for 2.5s */
+.video-slider-card .slide:nth-child(1) { animation-delay: 0s; }
+.video-slider-card .slide:nth-child(2) { animation-delay: 5s; }
+.video-slider-card .slide:nth-child(3) { animation-delay: 10s; }
+.video-slider-card .slide:nth-child(4) { animation-delay: 15s; }
+
+@keyframes vsFade {
+  0%, 100% { opacity: 0; }
+  5%, 25%  { opacity: 1; }  /* visible for ~2s */
+  30%      { opacity: 0; }  /* transition out */
+}
+
+/* Make videos fill the card cleanly */
+.video-slider-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .video-slider-card .slide { animation: none; opacity: 1; }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ====== PAGE HEADING ====== -->
+<section class="services-page-head">
+  <div class="sv-container">
+    <h1>Our Professional Services</h1>
+    <p class="subtitle">Complete sourcing, fabrication and mechanical solutions</p>
+  </div>
+</section>
+
+<!-- ====== SERVICE SECTION (TEMPLATE) — 1. Industrial Procurement ====== -->
+<section class="service-section">
+  <div class="sv-container">
+    <div class="service-card">
+      
+      <!-- LEFT: Slider (40%) -->
+      <div class="service-media">
+        <div class="swiper svc-swiper">
+          <div class="swiper-wrapper">
+
+            <!-- Slide 1 (VIDEO) -->
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-industrial-cargo-crane-4541/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- Slide 2 (IMAGE) -->
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600&auto=format&fit=crop" alt="Industrial procurement warehouse">
+            </div>
+
+            <!-- Slide 3 (VIDEO) -->
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-factory-machinery-7116/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+
+          </div>
+
+          <!-- Arrows -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- Dots -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content (60%) -->
+      <div class="service-content">
+        <h2>Industrial Procurement</h2>
+        <p class="lead">
+          Genuine, on-time sourcing of automation, switchgear, safety, pneumatics, tools, and mechanical components from verified OEM networks.
+        </p>
+
+        <ul class="bullets">
+          <li>Pan-India vendor network with brand authenticity</li>
+          <li>RFQ to dispatch workflow with documentation</li>
+          <li>Project kitting & BOM validation to reduce delays</li>
+          <li>QA checks, warranty & compliance support</li>
+        </ul>
+
+        <p class="desc">
+          We align supply with your production schedules using reliable logistics, pre-QA checks, and site-ready packaging.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="service-section">
+  <div class="sv-container">
+    <div class="service-card">
+      <!-- LEFT: Slider -->
+      <div class="service-media">
+        <div class="swiper svc-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-welding-workers-in-a-factory-8405/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?q=80&w=1600&auto=format&fit=crop" alt="Steel fabrication workshop">
+            </div>
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-steel-workers-in-a-fabrication-workshop-7412/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div><div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="service-content">
+        <h2>Fabrication Works</h2>
+        <p class="lead">
+          Precision fabrication of frames, supports, skids and assemblies built to your drawings, tolerances and delivery schedules.
+        </p>
+        <ul class="bullets">
+          <li>Custom metal structures, jigs and fixtures</li>
+          <li>CNC profile cutting, bending and fit-up accuracy</li>
+          <li>Dimensional inspections and weld certifications</li>
+          <li>Surface preparation and finish-ready delivery</li>
+        </ul>
+        <p class="desc">
+          From prototyping to repeat batches, we align tooling, QA and logistics so your assemblies reach the line ready for installation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ====== SERVICE SECTION — 2. Welding Services ====== -->
+<section class="service-section">
+  <div class="sv-container">
+    <div class="service-card">
+
+      <!-- LEFT: Slider -->
+      <div class="service-media">
+        <div class="swiper svc-swiper">
+          <div class="swiper-wrapper">
+
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <img class="svc-media" src="#" alt="Industrial Welding Service">
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-arc-welding-4814/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <img class="svc-media" src="#" alt="MIG and TIG Welding">
+            </div>
+
+          </div>
+
+          <!-- Arrows -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- Dots -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="service-content">
+        <h2>Welding Services</h2>
+        <p class="lead">
+          Professional MIG, TIG & ARC welding for industrial structures, machinery frames, and precision components with strong workmanship standards.
+        </p>
+
+        <ul class="bullets">
+          <li>Structural & fabrication welding for MS / SS / Aluminum</li>
+          <li>Skilled welders with AWS/DIN standard practices</li>
+          <li>Fixture-based accuracy and distortion control</li>
+          <li>Optional NDT inspection (DPT, MPI, UT, RT)</li>
+        </ul>
+
+        <p class="desc">
+          Whether it's production welding or industrial repair, we follow WPS guidelines and ensure strong joint penetration, alignment, and zero-defect output.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="service-section">
+  <div class="sv-container">
+    <div class="service-card">
+      <!-- LEFT: Slider -->
+      <div class="service-media">
+        <div class="swiper svc-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-industrial-paint-job-3784/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop" alt="Powder coating and epoxy">
+            </div>
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1527248816309-627f6c3a0438?q=80&w=1600&auto=format&fit=crop" alt="Corrosion protection systems">
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div><div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="service-content">
+        <h2>Painting &amp; Coating</h2>
+        <p class="lead">
+          Industrial-grade surface prep and coatings—primer, epoxy, PU and powder—tailored to environment and service life.
+        </p>
+        <ul class="bullets">
+          <li>Surface prep (degreasing, blasting, sanding)</li>
+          <li>Coating system selection for site conditions</li>
+          <li>DFT checks and adhesion testing</li>
+          <li>Clean, consistent finish with curing control</li>
+        </ul>
+        <p class="desc">
+          We engineer coating systems for durability—balancing cost, application method and in-field performance.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="service-section">
+  <div class="sv-container">
+    <div class="service-card">
+      <!-- LEFT: Slider -->
+      <div class="service-media">
+        <div class="swiper svc-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1600&auto=format&fit=crop" alt="Industrial tools and hardware">
+            </div>
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-close-up-of-a-drill-press-boring-holes-in-a-metal-plate-7826/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1600&auto=format&fit=crop" alt="Power tools and fasteners">
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div><div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="service-content">
+        <h2>Tools &amp; Hardware Supply</h2>
+        <p class="lead">
+          Ready stock of hand tools, power tools, fasteners and workshop essentials—sourced from trusted OEMs and distributors.
+        </p>
+        <ul class="bullets">
+          <li>Power tools, cutting &amp; grinding consumables</li>
+          <li>Fasteners, anchors, clamps and fittings</li>
+          <li>Measuring &amp; layout instruments</li>
+          <li>Brand options to meet budget &amp; performance</li>
+        </ul>
+        <p class="desc">
+          We simplify tool procurement with quick quotes, verified brands and on-time dispatch across plants and sites.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="service-section">
+  <div class="sv-container">
+    <div class="service-card">
+      <!-- LEFT: Slider -->
+      <div class="service-media">
+        <div class="swiper svc-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-industrial-assembly-line-1272/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1534797278318-2862620f0bb3?q=80&w=1600&auto=format&fit=crop" alt="Precision mechanical assembly">
+            </div>
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" alt="Industrial assemblies and QA">
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div><div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="service-content">
+        <h2>Mechanical Assemblies</h2>
+        <p class="lead">
+          Assembly of custom mechanical kits and sub-systems with torque specs, fit checks and functional verification.
+        </p>
+        <ul class="bullets">
+          <li>BOM-based assembly and kitting</li>
+          <li>Tolerance control and fastener torqueing</li>
+          <li>Labeling, packing and documentation</li>
+          <li>Pilot runs, feedback and repeatability</li>
+        </ul>
+        <p class="desc">
+          We deliver assemblies that integrate faster at site—reducing idle time and improving commissioning throughput.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="service-section">
+  <div class="sv-container">
+    <div class="service-card">
+      <!-- LEFT: Slider -->
+      <div class="service-media">
+        <div class="swiper svc-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop" alt="Machinery and equipment">
+            </div>
+            <div class="swiper-slide">
+              <video class="svc-media" autoplay muted loop playsinline preload="metadata">
+                <source src="https://cdn.coverr.co/videos/coverr-factory-machinery-7116/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="swiper-slide">
+              <img class="svc-media" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop" alt="Maintenance and service support">
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div><div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="service-content">
+        <h2>Machinery Supply &amp; Maintenance</h2>
+        <p class="lead">
+          Sourcing and sustaining essential shop-floor machinery with installation guidance, spares and scheduled maintenance.
+        </p>
+        <ul class="bullets">
+          <li>Selection support for capacity, duty and footprint</li>
+          <li>Commissioning &amp; handover documentation</li>
+          <li>Preventive maintenance plans &amp; spares lists</li>
+          <li>On-call assistance to minimize downtime</li>
+        </ul>
+        <p class="desc">
+          We help you choose the right machines, keep them running reliably and extend life through parts and maintenance discipline.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- ====== STYLES ====== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<style>
+/* Container (matches your site) */
+.sv-container { width: min(1200px, 92%); margin-inline: auto; }
+
+/* Page heading */
+.services-page-head{
+  background: #f5f7fa; /* light grey */
+  padding: 40px 0 28px;
+  border-bottom: 1px solid #e6ecf2;
+  text-align: center;
+}
+.services-page-head h1{
+  margin: 0 0 6px;
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 800;
+  color: #0a2b4d;
+}
+.services-page-head .subtitle{
+  margin: 0;
+  color: #5c6f80;
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
+/* Section wrapper (light grey) */
+.service-section{
+  background: #f5f7fa;
+  padding: 28px 0;
+}
+
+/* Card (boxed, white) */
+.service-card{
+  background: #fff;
+  border: 1px solid #e6ecf2;
+  border-radius: 16px;
+  box-shadow: 0 14px 36px rgba(10,43,77,.06);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr; /* 40% slider / 60% text */
+  gap: 18px;
+}
+
+/* Media area */
+.service-media{
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+/* Swiper sizing inside media */
+.svc-swiper{ width: 100%; height: 100%; }
+.svc-media{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Swiper controls */
+.swiper-button-prev, .swiper-button-next{
+  color: #0a2b4d;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+}
+.swiper-pagination-bullet{ background: #a9b9c8; opacity: .9; }
+.swiper-pagination-bullet-active{ background: #0a2b4d; }
+
+/* Content area */
+.service-content h2{
+  margin: 4px 0 8px;
+  font-size: clamp(20px, 2.2vw, 28px);
+  color: #0a2b4d;
+  font-weight: 800;
+}
+.service-content .lead{
+  margin: 0 0 10px;
+  color: #2a3a48;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.bullets{
+  margin: 8px 0 12px 0;
+  padding-left: 18px; /* indent for dots */
+  color: #435364;
+}
+.bullets li{
+  margin: 6px 0;
+  list-style: disc;   /* ● clean bullets */
+  line-height: 1.6;
+}
+.service-content .desc{
+  margin: 0;
+  color: #546375;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .service-card{
+    grid-template-columns: 1fr; /* stack */
+  }
+  .service-media{ min-height: 220px; }
+}
+@media (max-width: 560px){
+  .service-card{ padding: 14px; border-radius: 14px; }
+  .service-media{ border-radius: 10px; }
+}
+</style>
+
+<!-- ====== SCRIPTS (Swiper) ====== -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // Init all service sliders on the page
+  document.querySelectorAll('.svc-swiper').forEach(function(el){
+    new Swiper(el, {
+      loop: true,
+      speed: 700,
+      autoplay: { delay: 3200, disableOnInteraction: false },
+      pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+      navigation: {
+        nextEl: el.querySelector('.swiper-button-next'),
+        prevEl: el.querySelector('.swiper-button-prev')
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ✅ FOOTER SECTION - METALLIC SILVER THEME -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-grid">
+
+      <!-- About -->
+      <div class="footer-about">
+        <h3>SV Enterprises</h3>
+        <p>
+          SV Enterprises is a trusted provider of industrial procurement, fabrication works,
+          welding consumables, safety equipment, tools, and engineering solutions.
+          Based in Sullurpeta, Andhra Pradesh – delivering reliable services with quality commitment.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-services">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Industrial Procurement</li>
+          <li>Fabrication Works</li>
+          <li>Painting Services</li>
+          <li>Welding Consumables</li>
+          <li>Custom Material Supply</li>
+          <li>Mechanical Assemblies</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <p><a href="https://maps.google.com/?q=Sullurpeta,Andhra+Pradesh" target="_blank" rel="noopener">📍 Sullurpeta, Andhra Pradesh, India</a></p>
+        <p><a href="tel:+917989261342">📞 +91 79892 61342</a></p>
+        <p><a href="mailto:info@sventerprises.world">✉️ info@sventerprises.world</a></p>
+
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.7-2.2 3.9-2.2 4.2 0 5 2.8 5 6.4V24h-4v-7.5c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 4V24h-4V8z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 12A10 10 0 1 0 12 22v-7H9v-3h3v-2c0-3 2-4 4-4h2v3h-1c-1 0-1 .5-1 1v2h3l-1 3h-2v7a10 10 0 0 0 7-10z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.6 0 3 1.4 3 3v10c0 1.6-1.4 3-3 3H7c-1.6 0-3-1.4-3-3V7c0-1.6 1.4-3 3-3h10zm-5 3c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.6 0 3 1.4 3 3s-1.4 3-3 3-3-1.4-3-3 1.4-3 3-3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="social-icon">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5 0-5-.3-7.5-.2-1.7-1.6-3-3.3-3.2C15.7 1 12.8 1 10 1S4.3 1 2.6 1.3C.9 1.5-.5 2.8-.7 4.5 0 7 0 9.5 0 12s0 5 .3 7.5c.2 1.7 1.6 3 3.3 3.2 1.7.3 4.6.3 7.4.3s5.7 0 7.4-.3c1.7-.2 3.1-1.5 3.3-3.2.3-2.5.3-5 .3-7.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 SV Enterprises. All Rights Reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background: linear-gradient(135deg, #4e5459, #2f3438);
+  color: #ffffff;
+  padding: 50px 0;
+  margin-top: 50px;
+  border-top: 2px solid #8f9aa3;
+}
+.footer-container { max-width: 1200px; margin: auto; width: 90%; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 30px; }
+.footer h3, .footer h4 { margin-bottom: 15px; color: #ffffff; }
+.footer p { font-size: .95rem; color: #d3d8dc; line-height: 1.6; }
+.footer a { text-decoration: none; color: #d3d8dc; transition: .3s; }
+.footer a:hover { color: #00c3ff; }
+.footer-links ul, .footer-services ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li, .footer-services li { margin-bottom: 8px; }
+.footer-social { margin-top: 10px; display: flex; gap: 12px; }
+.social-icon svg { width: 24px; height: 24px; fill: #ffffff; transition: .3s; }
+.social-icon:hover svg { fill: #00c3ff; }
+.footer-bottom { text-align: center; border-top: 1px solid #6b7378; margin-top: 30px; padding-top: 15px; font-size: .9rem; color: #b5bcc1; }
+.footer-bottom a { color: #00c3ff; }
+</style>
+
+
+
+<!-- ================== FLOATING CONTACT + QUOTE (RIGHT) — IMAGE ICONS ================== -->
+<!-- Quick buttons -->
+<div class="sv-fabs" aria-label="Quick contact">
+  <!-- WhatsApp -->
+  <a class="sv-fab sv-fab-wa" href="https://wa.me/917989261342" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="sv-icon">
+      <img src="assets/icons/whatsapp.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">WhatsApp</span>
+  </a>
+
+  <!-- Call -->
+  <a class="sv-fab sv-fab-call" href="tel:+917989261342" aria-label="Call">
+    <span class="sv-icon">
+      <img src="assets/icons/phone.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Call</span>
+  </a>
+
+  <!-- Mail -->
+  <a class="sv-fab sv-fab-mail" href="mailto:info@sventerprises.world" aria-label="Email">
+    <span class="sv-icon">
+      <img src="assets/icons/mail.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Email</span>
+  </a>
+
+  <!-- Quote (opens modal) -->
+  <button class="sv-fab sv-fab-quote" type="button" aria-haspopup="dialog" aria-controls="svQuoteModal" aria-label="Request a Quote">
+    <span class="sv-icon">
+      <img src="assets/icons/quote.png" alt="" width="24" height="24" />
+    </span>
+    <span class="sv-tip">Get Quote</span>
+  </button>
+</div>
+
+<!-- Quote Modal -->
+<div id="svQuoteModal" class="sv-modal" role="dialog" aria-modal="true" aria-labelledby="svQuoteTitle" aria-hidden="true">
+  <div class="sv-modal__backdrop" data-close></div>
+  <div class="sv-modal__panel" role="document">
+    <button class="sv-modal__close" type="button" aria-label="Close" data-close>×</button>
+    <h3 id="svQuoteTitle">Request a Quote</h3>
+
+    <!-- Hidden iframe submits to Apps Script without CORS issues -->
+    <iframe name="svHiddenFrame" class="sv-hidden-iframe" title="hidden"></iframe>
+
+    <!-- Replace action with your Apps Script Web App URL -->
+    <form id="svQuoteForm" action="YOUR_APPS_SCRIPT_WEB_APP_URL" method="POST" target="svHiddenFrame" novalidate>
+      <div class="sv-form-grid">
+        <label class="sv-field">
+          <span>Full Name *</span>
+          <input name="name" type="text" required placeholder="Your name">
+        </label>
+        <label class="sv-field">
+          <span>Email *</span>
+          <input name="email" type="email" required placeholder="name@company.com">
+        </label>
+        <label class="sv-field">
+          <span>Phone *</span>
+          <input name="phone" type="tel" required placeholder="+91 XXXXX XXXXX">
+        </label>
+        <label class="sv-field">
+          <span>Company</span>
+          <input name="company" type="text" placeholder="Company / Organization">
+        </label>
+        <label class="sv-field sv-full">
+          <span>Subject *</span>
+          <input name="subject" type="text" required placeholder="What is this about?">
+        </label>
+        <label class="sv-field sv-full">
+          <span>Requirement Details *</span>
+          <textarea name="message" required placeholder="BOM, drawings links, brand preferences, qty, delivery location, timelines, etc."></textarea>
+        </label>
+        <label class="sv-field sv-full">
+          <span>Attachment Link (optional)</span>
+          <input name="fileurl" type="url" placeholder="https://drive/link-to-drawing.pdf">
+        </label>
+
+        <!-- Honeypot -->
+        <input class="sv-hp" type="text" name="_gotcha" autocomplete="off">
+      </div>
+
+      <div class="sv-actions">
+        <button class="sv-btn-primary" type="submit">Send Quote</button>
+        <button class="sv-btn-secondary" type="button" data-close>Cancel</button>
+      </div>
+
+      <p id="svFormNote" class="sv-note">We’ll reply within one business day. By submitting, you accept our Terms & Privacy.</p>
+      <div id="svSuccess" class="sv-success" role="status" aria-live="polite">Thanks! Your request was sent.</div>
+    </form>
+  </div>
+</div>
+<!-- ================== /FLOATING CONTACT + QUOTE ================== -->
+
+
+<script>
+  (function(){
+    const modal = document.getElementById('svQuoteModal');
+    const openBtn = document.querySelector('.sv-fab-quote');
+    const closeEls = modal.querySelectorAll('[data-close], .sv-modal__backdrop');
+    const form = document.getElementById('svQuoteForm');
+    const success = document.getElementById('svSuccess');
+    const note = document.getElementById('svFormNote');
+    let submitted = false;
+
+    // Open/Close modal
+    openBtn?.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden','false');
+      setTimeout(()=> { form.querySelector('input[name="name"]')?.focus(); }, 50);
+    });
+    closeEls.forEach(el => el.addEventListener('click', () => {
+      modal.setAttribute('aria-hidden','true');
+      success.style.display = 'none';
+    }));
+    document.addEventListener('keydown',(e)=>{
+      if(e.key === 'Escape') modal.setAttribute('aria-hidden','true');
+    });
+
+    // Validation helpers
+    function mark(el, ok){ el.classList.toggle('sv-error', !ok); }
+    function emailOK(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    // Submit to Apps Script (via hidden iframe)
+    form.addEventListener('submit', (e)=>{
+      const need = ['name','email','phone','subject','message'];
+      let ok = true;
+      need.forEach(n=>{
+        const el = form.elements[n];
+        const good = !!el.value.trim() && (n!=='email' || emailOK(el.value.trim()));
+        mark(el, good);
+        ok = ok && good;
+      });
+      if(form.elements['_gotcha'].value){ e.preventDefault(); return; } // bot trap
+      if(!ok){ e.preventDefault(); return; }
+      submitted = true;
+      note.textContent = 'Sending…';
+    });
+
+    // Success after iframe load
+    const iframe = document.getElementsByName('svHiddenFrame')[0];
+    iframe.addEventListener('load', ()=>{
+      if(!submitted) return;
+      submitted = false;
+      note.textContent = 'We’ll reply within one business day. By submitting, you accept our Terms & Privacy.';
+      form.reset();
+      success.style.display = 'block';
+    });
+  })();
+</script>
+
+
+
+
+<style>
+:root{
+  --ink:#0a2b4d; --brand:#0077cc; --bg:#fff; --border:#dfe5ea; --soft:#f5f7fa;
+}
+
+/* ========= Floating Buttons ========= */
+.sv-fabs{
+  position:fixed; right:clamp(8px,2vw,16px); bottom:clamp(80px,8vh,120px);
+  display:flex; flex-direction:column; gap:10px; z-index:1100;
+}
+.sv-fab{
+  width:48px; height:48px; border-radius:999px; background:#ffffff;
+  border:1px solid var(--border); box-shadow:0 8px 18px rgba(0,0,0,.12);
+  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+  position:relative; padding:0;
+}
+.sv-fab .sv-icon{
+  width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center;
+}
+.sv-fab .sv-icon img{
+  width:100%; height:100%; object-fit:contain; display:block;
+  /* Optional: make dark icons match brand with a filter. Remove if not needed. */
+  /* filter: saturate(1.1) contrast(1.05); */
+}
+
+/* WhatsApp special bg (optional) */
+.sv-fab-wa{ background:#e9fff2; border-color:#b9efcf; }
+
+.sv-fab .sv-tip{
+  position:absolute; right:110%; top:50%; transform:translateY(-50%);
+  background:#111; color:#fff; font-size:12px; padding:4px 8px; border-radius:6px;
+  white-space:nowrap; opacity:0; pointer-events:none; transition:.2s; box-shadow:0 6px 18px rgba(0,0,0,.2);
+}
+.sv-fab:hover .sv-tip{ opacity:1; }
+
+/* Smaller on phones */
+@media (max-width:520px){
+  .sv-fab{ width:44px; height:44px; }
+  .sv-fab .sv-icon{ width:22px; height:22px; }
+}
+
+/* ========= Modal ========= */
+.sv-modal[aria-hidden="true"]{ display:none; }
+.sv-modal{ position:fixed; inset:0; z-index:1200; }
+.sv-modal__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
+.sv-modal__panel{
+  position:absolute; right:clamp(8px,2vw,16px); bottom:clamp(100px,10vh,140px);
+  width:min(560px,92vw); max-height:min(80vh,720px); overflow:auto;
+  background:#fff; border:1px solid var(--border); border-radius:14px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25); padding:18px 18px 16px;
+}
+.sv-modal__close{
+  position:absolute; top:10px; right:10px; width:32px; height:32px; border-radius:8px;
+  background:#fff; border:1px solid var(--border); cursor:pointer; font-size:18px; line-height:1;
+}
+.sv-modal h3{ margin:4px 6px 8px; color:var(--ink); font-size:20px; }
+
+/* ========= Form ========= */
+.sv-form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:8px 0 6px; }
+.sv-field{ display:flex; flex-direction:column; gap:6px; }
+.sv-full{ grid-column:1 / -1; }
+.sv-field span{ font-weight:600; color:#234; font-size:14px; }
+.sv-field input, .sv-field textarea{
+  padding:12px; border:1px solid var(--border); border-radius:10px; font-family:inherit; font-size:14px; outline:none; background:#fff;
+}
+.sv-field textarea{ min-height:120px; resize:vertical; }
+.sv-actions{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+.sv-btn-primary{
+  background:var(--ink); color:#fff; padding:10px 18px; border-radius:8px; border:none; font-weight:700; cursor:pointer;
+}
+.sv-btn-secondary{
+  background:#fff; color:var(--ink); padding:10px 18px; border:2px solid var(--ink); border-radius:8px; font-weight:700; cursor:pointer;
+}
+.sv-note{ color:#6b7f90; font-size:12px; margin:8px 2px 0; }
+.sv-success{ display:none; margin-top:8px; padding:10px; border:1px solid #b5e4c8; background:#e9f8ef; color:#1e6b3f; border-radius:8px; }
+.sv-error{ border-color:#e46a6a !important; }
+.sv-hidden-iframe{ display:none; }
+
+/* Modal responsive */
+@media (max-width:720px){
+  .sv-modal__panel{
+    left:clamp(8px,2vw,16px); right:clamp(8px,2vw,16px);
+    bottom:auto; top:12%; width:auto; max-height:76vh;
+  }
+}
+
+/* Optional: lift stack above any sticky footer */
+.footer { z-index: 1; position: relative; }
+</style>
+
+
+
+</body>
+
+</html>
+
