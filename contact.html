@@ -24,6 +24,11 @@
         <span class="brand-name">SV Enterprises</span>
       </a>
 
+      <div class="gst-box">
+  <span>GST: 37CQPPM2680F1ZQ</span>
+      </div>
+
+
       <!-- Right: hamburger -->
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
         <span class="nav-toggle-bar"></span>
@@ -197,6 +202,37 @@
       font-weight: 700;
       text-shadow: 2px 2px 10px black;
     }
+
+    /* ===== GST Number Styling ===== */
+.gst-box {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #0a2b4d;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 768px) {
+  .gst-box {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+}
+
+@media (min-width: 993px) {
+  .header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  .gst-box {
+    order: 2;
+  }
+}
+    
   </style>
 
   <!-- Full-stretch, card-style video slider -->
@@ -1079,3 +1115,4 @@
 
 </body>
 </html>
+
