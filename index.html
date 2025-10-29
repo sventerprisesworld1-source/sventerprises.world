@@ -2160,6 +2160,10 @@ SPSR Nellore, AP, India-524121</a></p>
 }
 
 /* ---------- Floating Buttons ---------- */
+
+
+
+  /* ---------- Floating Buttons ---------- */
 .sv-fabs{
   position:fixed; right:clamp(8px,2vw,16px); bottom:clamp(80px,8vh,120px);
   display:flex; flex-direction:column; gap:10px; z-index:1100;
@@ -2169,7 +2173,7 @@ SPSR Nellore, AP, India-524121</a></p>
   border:1px solid var(--border); box-shadow:var(--shadow);
   display:inline-flex; align-items:center; justify-content:center; cursor:pointer; position:relative; padding:0;
 }
-.sv-fab .sv-icon{ width:24px; height:24px; display:inline-grid; place-items:center; }
+.sv-fab .sv-icon{ width:32px; height:32px; display:inline-grid; place-items:center; }
 .sv-fab .sv-icon img{ width:100%; height:100%; object-fit:contain; display:block; }
 
 .sv-fab-wa{ background:#e9fff2; border-color:#b9efcf; }
@@ -2270,8 +2274,58 @@ SPSR Nellore, AP, India-524121</a></p>
   }
   .sv-form-grid{ grid-template-columns:1fr; }
 }
-</style>
 
+
+/* ===== Strong Highlight for Quote FAB ===== */
+.sv-fab-quote.is-highlight {
+  box-shadow:
+    0 0 12px rgba(0, 119, 204, 0.8),
+    0 0 30px rgba(0, 119, 204, 0.6),
+    0 0 45px rgba(0, 119, 204, 0.4);
+  animation: pulse-glow 1.6s infinite ease-in-out;
+  border: 2px solid #0077cc;
+}
+
+/* Outer ring */
+.sv-fab-quote.is-highlight::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 119, 204, 0.5);
+  animation: ring-pop 1.6s infinite ease-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 12px rgba(0, 119, 204, 0.9),
+      0 0 35px rgba(0, 119, 204, 0.6),
+      0 0 50px rgba(0, 119, 204, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow:
+      0 0 20px rgba(0, 119, 204, 1),
+      0 0 45px rgba(0, 119, 204, 0.8),
+      0 0 60px rgba(0, 119, 204, 0.6);
+  }
+}
+
+@keyframes ring-pop {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+  
 <script>
 /* ============================== FIXED LOGIC — File Accumulation Enabled ============================== */
 (function () {
@@ -2362,5 +2416,6 @@ SPSR Nellore, AP, India-524121</a></p>
 
   </body>
 </html>
+
 
 
