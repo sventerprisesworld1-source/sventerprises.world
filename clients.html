@@ -952,6 +952,7 @@ var swiper = new Swiper(".projectSwiper", {
 
 
 <!-- ✅ FOOTER SECTION - METALLIC SILVER THEME -->
+<!-- ✅ FOOTER SECTION - METALLIC SILVER THEME -->
 <footer class="footer" role="contentinfo">
   <div class="footer-container">
     <div class="footer-grid">
@@ -960,8 +961,7 @@ var swiper = new Swiper(".projectSwiper", {
       <div class="footer-about">
         <h3>SV Enterprises</h3>
         <p>
-          SV Enterprises is a trusted provider of industrial procurement, fabrication works,
-          welding consumables, safety equipment, tools, and engineering solutions.
+          SV Enterprises is a trusted provider of Industrial Engineering Equipment Spares and Multiple industrial solutions.
           Based in Sullurpeta, Andhra Pradesh – delivering reliable services with quality commitment.
         </p>
       </div>
@@ -984,20 +984,23 @@ var swiper = new Swiper(".projectSwiper", {
       <div class="footer-services">
         <h4>Our Services</h4>
         <ul>
-          <li>Industrial Procurement</li>
-          <li>Fabrication Works</li>
-          <li>Painting Services</li>
-          <li>Welding Consumables</li>
+          <li>Industrial Engineering Equipment Spares</li>
+          <li>MS and SS Fabrication Works</li>
+          <li>Plumbing Works</li>
+          <li>Structural & Building Paintings</li>
+          <li>Material Handling Equipment’s, Repairing & Services</li>
+          <li>Tools & Hardware Supply</li>
+          </li>HVAC Installation, Repair & Maintenance</li>
           <li>Custom Material Supply</li>
-          <li>Mechanical Assemblies</li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div class="footer-contact">
         <h4>Contact Info</h4>
-        <p><a href="https://maps.google.com/?q=Sullurpeta,Andhra+Pradesh" target="_blank" rel="noopener">📍 Sullurpeta, Andhra Pradesh, India</a></p>
-        <p><a href="tel:+917989261342">📞 +91 79892 61342</a></p>
+        <p><a href="https://maps.google.com/?q=Sullurpeta,Andhra+Pradesh" target="_blank" rel="noopener">📍 Door No 1-4-75, Kolla Mitta, Sullurupeta,
+SPSR Nellore, AP, India-524121</a></p>
+        <p><a href="tel:+918247206830">📞 +91 8247206830</a></p>
         <p><a href="mailto:info@sventerprises.world">✉️ info@sventerprises.world</a></p>
 
         <div class="footer-social">
@@ -1035,10 +1038,10 @@ var swiper = new Swiper(".projectSwiper", {
 .footer-container { max-width: 1200px; margin: auto; width: 90%; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 30px; }
 .footer h3, .footer h4 { margin-bottom: 15px; color: #ffffff; }
-.footer p { font-size: .95rem; color: #d3d8dc; line-height: 1.6; }
+.footer p { font-size: .85rem; color: #d3d8dc; line-height: 1.6; }
 .footer a { text-decoration: none; color: #d3d8dc; transition: .3s; }
 .footer a:hover { color: #00c3ff; }
-.footer-links ul, .footer-services ul { list-style: none; padding: 0; margin: 0; }
+.footer-links ul, .footer-services ul { list-style: none; padding: 0; margin: 0; font-size: .85rem;}
 .footer-links li, .footer-services li { margin-bottom: 8px; }
 .footer-social { margin-top: 10px; display: flex; gap: 12px; }
 .social-icon svg { width: 24px; height: 24px; fill: #ffffff; transition: .3s; }
@@ -1052,185 +1055,138 @@ var swiper = new Swiper(".projectSwiper", {
 
 
 
-<!-- ================== FLOATING CONTACT + QUOTE (RIGHT) — IMAGE ICONS ================== -->
-<!-- Quick buttons -->
+
+
+
+
+
+
+
+
+
+    
+
+<!-- ============================== FLOATING CONTACT + QUOTE (RIGHT) ============================== -->
+<!-- Component: Floating Buttons -->
 <div class="sv-fabs" aria-label="Quick contact">
   <!-- WhatsApp -->
-  <a class="sv-fab sv-fab-wa" href="https://wa.me/917989261342" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <span class="sv-icon">
-      <img src="assets/icons/whatsapp.png" alt="" width="24" height="24" />
-    </span>
+  <a class="sv-fab sv-fab-wa" href="https://wa.me/918247206830" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="sv-icon"><img src="assets/icons/whatsapp.png" alt="" width="24" height="24" /></span>
     <span class="sv-tip">WhatsApp</span>
   </a>
 
   <!-- Call -->
-  <a class="sv-fab sv-fab-call" href="tel:+917989261342" aria-label="Call">
-    <span class="sv-icon">
-      <img src="assets/icons/phone.png" alt="" width="24" height="24" />
-    </span>
+  <a class="sv-fab sv-fab-call" href="tel:+918247206830" aria-label="Call">
+    <span class="sv-icon"><img src="assets/icons/phone.png" alt="" width="24" height="24" /></span>
     <span class="sv-tip">Call</span>
   </a>
 
   <!-- Mail -->
   <a class="sv-fab sv-fab-mail" href="mailto:info@sventerprises.world" aria-label="Email">
-    <span class="sv-icon">
-      <img src="assets/icons/mail.png" alt="" width="24" height="24" />
-    </span>
+    <span class="sv-icon"><img src="assets/icons/mail.png" alt="" width="24" height="24" /></span>
     <span class="sv-tip">Email</span>
   </a>
 
   <!-- Quote (opens modal) -->
   <button class="sv-fab sv-fab-quote" type="button" aria-haspopup="dialog" aria-controls="svQuoteModal" aria-label="Request a Quote">
-    <span class="sv-icon">
-      <img src="assets/icons/quote.png" alt="" width="24" height="24" />
-    </span>
+    <span class="sv-icon"><img src="assets/icons/quote.png" alt="" width="24" height="24" /></span>
     <span class="sv-tip">Get Quote</span>
   </button>
 </div>
 
-<!-- Quote Modal -->
+<!-- Component: Quote Modal -->
 <div id="svQuoteModal" class="sv-modal" role="dialog" aria-modal="true" aria-labelledby="svQuoteTitle" aria-hidden="true">
   <div class="sv-modal__backdrop" data-close></div>
   <div class="sv-modal__panel" role="document">
     <button class="sv-modal__close" type="button" aria-label="Close" data-close>×</button>
     <h3 id="svQuoteTitle">Request a Quote</h3>
 
-    <!-- Hidden iframe submits to Apps Script without CORS issues -->
-    <iframe name="svHiddenFrame" class="sv-hidden-iframe" title="hidden"></iframe>
+    <!-- Hidden iframe target to bypass CORS for Apps Script -->
+    <iframe name="svHiddenFrame" class="sv-hidden-iframe" title="Submission target"></iframe>
 
-    <!-- Replace action with your Apps Script Web App URL -->
-    <form id="svQuoteForm" action="YOUR_APPS_SCRIPT_WEB_APP_URL" method="POST" target="svHiddenFrame" novalidate>
+    <!-- NOTE: Replace action with your deployed Apps Script Web App URL (exec) -->
+    <form id="svQuoteForm" action="YOUR_APPS_SCRIPT_WEB_APP_URL" method="POST" target="svHiddenFrame" enctype="multipart/form-data" novalidate>
+      <!-- Recipients (Apps Script reads these) -->
+      <input type="hidden" name="recipients" value="info@sventerprises.world,sventerprises689@gmail.com">
+      <input type="hidden" name="source" value="SV Enterprises Website">
+      <input type="hidden" name="page" value="Floating Get Quote Modal">
+
+      <!-- Honeypot -->
+      <input class="sv-hp" type="text" name="_gotcha" autocomplete="off" tabindex="-1" aria-hidden="true">
+
       <div class="sv-form-grid">
-        <label class="sv-field">
-          <span>Full Name *</span>
-          <input name="name" type="text" required placeholder="Your name">
-        </label>
-        <label class="sv-field">
-          <span>Email *</span>
-          <input name="email" type="email" required placeholder="name@company.com">
-        </label>
-        <label class="sv-field">
-          <span>Phone *</span>
-          <input name="phone" type="tel" required placeholder="+91 XXXXX XXXXX">
-        </label>
-        <label class="sv-field">
-          <span>Company</span>
-          <input name="company" type="text" placeholder="Company / Organization">
-        </label>
-        <label class="sv-field sv-full">
-          <span>Subject *</span>
-          <input name="subject" type="text" required placeholder="What is this about?">
-        </label>
-        <label class="sv-field sv-full">
-          <span>Requirement Details *</span>
-          <textarea name="message" required placeholder="BOM, drawings links, brand preferences, qty, delivery location, timelines, etc."></textarea>
-        </label>
-        <label class="sv-field sv-full">
-          <span>Attachment Link (optional)</span>
-          <input name="fileurl" type="url" placeholder="https://drive/link-to-drawing.pdf">
+        <label class="sv-field"><span>Full Name *</span>
+          <input name="name" type="text" required placeholder="Your name" maxlength="120">
         </label>
 
-        <!-- Honeypot -->
-        <input class="sv-hp" type="text" name="_gotcha" autocomplete="off">
+        <label class="sv-field"><span>Email *</span>
+          <input name="email" type="email" required placeholder="name@company.com" maxlength="160">
+        </label>
+
+        <label class="sv-field"><span>Phone *</span>
+          <input name="phone" type="tel" required placeholder="+91 XXXXX XXXXX" maxlength="20">
+        </label>
+
+        <label class="sv-field"><span>Company</span>
+          <input name="company" type="text" placeholder="Company / Organization" maxlength="160">
+        </label>
+
+        <label class="sv-field sv-full"><span>Subject *</span>
+          <input name="subject" type="text" required maxlength="160" value="Request for Quotation (RFQ) – SV Enterprises">
+        </label>
+
+        <label class="sv-field sv-full"><span>Requirement Details *</span>
+          <textarea name="message" required maxlength="3000" placeholder="BOM, drawings links, brand preferences, qty, delivery location, timelines, etc."></textarea>
+        </label>
+
+        <!-- Attachments -->
+        <div class="sv-field sv-full">
+          <span>Attachments (max 3) — PDF, JPG/PNG, DOC/DOCX, XLS/XLSX</span>
+          <input id="svFiles" name="files" type="file"
+                 accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,application/pdf,image/jpeg,image/png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                 multiple>
+          <small class="sv-help">Each ≤ 10MB, total ≤ 20MB, up to 3 files.</small>
+
+          <!-- Live file preview cards -->
+          <div id="svFileList" class="sv-file-list" aria-live="polite"></div>
+        </div>
       </div>
 
       <div class="sv-actions">
-        <button class="sv-btn-primary" type="submit">Send Quote</button>
+        <button class="sv-btn-primary" type="submit">
+          <span class="btn-label">Send Quote</span>
+          <span class="btn-loading" aria-hidden="true">Sending…</span>
+        </button>
         <button class="sv-btn-secondary" type="button" data-close>Cancel</button>
       </div>
 
-      <p id="svFormNote" class="sv-note">We’ll reply within one business day. By submitting, you accept our Terms & Privacy.</p>
+      <p id="svFormNote" class="sv-note">We’ll reply within one business day. By submitting, you accept our Terms &amp; Privacy.</p>
       <div id="svSuccess" class="sv-success" role="status" aria-live="polite">Thanks! Your request was sent.</div>
+      <div id="svError" class="sv-error" role="alert" aria-live="assertive"></div>
     </form>
   </div>
 </div>
-<!-- ================== /FLOATING CONTACT + QUOTE ================== -->
-
-
-<script>
-  (function(){
-    const modal = document.getElementById('svQuoteModal');
-    const openBtn = document.querySelector('.sv-fab-quote');
-    const closeEls = modal.querySelectorAll('[data-close], .sv-modal__backdrop');
-    const form = document.getElementById('svQuoteForm');
-    const success = document.getElementById('svSuccess');
-    const note = document.getElementById('svFormNote');
-    let submitted = false;
-
-    // Open/Close modal
-    openBtn?.addEventListener('click', () => {
-      modal.setAttribute('aria-hidden','false');
-      setTimeout(()=> { form.querySelector('input[name="name"]')?.focus(); }, 50);
-    });
-    closeEls.forEach(el => el.addEventListener('click', () => {
-      modal.setAttribute('aria-hidden','true');
-      success.style.display = 'none';
-    }));
-    document.addEventListener('keydown',(e)=>{
-      if(e.key === 'Escape') modal.setAttribute('aria-hidden','true');
-    });
-
-    // Validation helpers
-    function mark(el, ok){ el.classList.toggle('sv-error', !ok); }
-    function emailOK(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-
-    // Submit to Apps Script (via hidden iframe)
-    form.addEventListener('submit', (e)=>{
-      const need = ['name','email','phone','subject','message'];
-      let ok = true;
-      need.forEach(n=>{
-        const el = form.elements[n];
-        const good = !!el.value.trim() && (n!=='email' || emailOK(el.value.trim()));
-        mark(el, good);
-        ok = ok && good;
-      });
-      if(form.elements['_gotcha'].value){ e.preventDefault(); return; } // bot trap
-      if(!ok){ e.preventDefault(); return; }
-      submitted = true;
-      note.textContent = 'Sending…';
-    });
-
-    // Success after iframe load
-    const iframe = document.getElementsByName('svHiddenFrame')[0];
-    iframe.addEventListener('load', ()=>{
-      if(!submitted) return;
-      submitted = false;
-      note.textContent = 'We’ll reply within one business day. By submitting, you accept our Terms & Privacy.';
-      form.reset();
-      success.style.display = 'block';
-    });
-  })();
-</script>
-
-
-
+<!-- ============================== /FLOATING CONTACT + QUOTE ============================== -->
 
 <style>
+/* ============================== STYLES — Floating Buttons + Modal ============================== */
 :root{
-  --ink:#0a2b4d; --brand:#0077cc; --bg:#fff; --border:#dfe5ea; --soft:#f5f7fa;
+  --ink:#0a2b4d; --brand:#0077cc; --border:#dfe5ea; --soft:#f5f7fa; --shadow:0 12px 28px rgba(0,0,0,.18);
 }
 
-/* ========= Floating Buttons ========= */
+/* ---------- Floating Buttons ---------- */
 .sv-fabs{
   position:fixed; right:clamp(8px,2vw,16px); bottom:clamp(80px,8vh,120px);
   display:flex; flex-direction:column; gap:10px; z-index:1100;
 }
 .sv-fab{
-  width:48px; height:48px; border-radius:999px; background:#ffffff;
-  border:1px solid var(--border); box-shadow:0 8px 18px rgba(0,0,0,.12);
-  display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
-  position:relative; padding:0;
+  width:48px; height:48px; border-radius:999px; background:#fff;
+  border:1px solid var(--border); box-shadow:var(--shadow);
+  display:inline-flex; align-items:center; justify-content:center; cursor:pointer; position:relative; padding:0;
 }
-.sv-fab .sv-icon{
-  width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center;
-}
-.sv-fab .sv-icon img{
-  width:100%; height:100%; object-fit:contain; display:block;
-  /* Optional: make dark icons match brand with a filter. Remove if not needed. */
-  /* filter: saturate(1.1) contrast(1.05); */
-}
+.sv-fab .sv-icon{ width:24px; height:24px; display:inline-grid; place-items:center; }
+.sv-fab .sv-icon img{ width:100%; height:100%; object-fit:contain; display:block; }
 
-/* WhatsApp special bg (optional) */
 .sv-fab-wa{ background:#e9fff2; border-color:#b9efcf; }
 
 .sv-fab .sv-tip{
@@ -1240,13 +1196,12 @@ var swiper = new Swiper(".projectSwiper", {
 }
 .sv-fab:hover .sv-tip{ opacity:1; }
 
-/* Smaller on phones */
 @media (max-width:520px){
   .sv-fab{ width:44px; height:44px; }
   .sv-fab .sv-icon{ width:22px; height:22px; }
 }
 
-/* ========= Modal ========= */
+/* ---------- Modal ---------- */
 .sv-modal[aria-hidden="true"]{ display:none; }
 .sv-modal{ position:fixed; inset:0; z-index:1200; }
 .sv-modal__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.35); }
@@ -1260,42 +1215,163 @@ var swiper = new Swiper(".projectSwiper", {
   position:absolute; top:10px; right:10px; width:32px; height:32px; border-radius:8px;
   background:#fff; border:1px solid var(--border); cursor:pointer; font-size:18px; line-height:1;
 }
-.sv-modal h3{ margin:4px 6px 8px; color:var(--ink); font-size:20px; }
+.sv-modal h3{ margin:4px 6px 10px; color:var(--ink); font-size:20px; }
 
-/* ========= Form ========= */
+/* ---------- Form ---------- */
 .sv-form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:8px 0 6px; }
 .sv-field{ display:flex; flex-direction:column; gap:6px; }
 .sv-full{ grid-column:1 / -1; }
-.sv-field span{ font-weight:600; color:#234; font-size:14px; }
+.sv-field span{ font-weight:600; color:#203244; font-size:14px; }
 .sv-field input, .sv-field textarea{
   padding:12px; border:1px solid var(--border); border-radius:10px; font-family:inherit; font-size:14px; outline:none; background:#fff;
 }
 .sv-field textarea{ min-height:120px; resize:vertical; }
-.sv-actions{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+.sv-help{ color:#6b7f90; font-size:12px; margin-top:4px; display:block; }
+
+.sv-actions{ display:flex; gap:10px; align-items:center; margin-top:6px; flex-wrap:wrap; }
 .sv-btn-primary{
-  background:var(--ink); color:#fff; padding:10px 18px; border-radius:8px; border:none; font-weight:700; cursor:pointer;
+  position:relative; background:var(--ink); color:#fff; padding:10px 18px; border-radius:8px; border:none; font-weight:700; cursor:pointer;
 }
 .sv-btn-secondary{
   background:#fff; color:var(--ink); padding:10px 18px; border:2px solid var(--ink); border-radius:8px; font-weight:700; cursor:pointer;
 }
-.sv-note{ color:#6b7f90; font-size:12px; margin:8px 2px 0; }
-.sv-success{ display:none; margin-top:8px; padding:10px; border:1px solid #b5e4c8; background:#e9f8ef; color:#1e6b3f; border-radius:8px; }
-.sv-error{ border-color:#e46a6a !important; }
-.sv-hidden-iframe{ display:none; }
+.btn-loading{ display:none; }
+.sv-btn-primary.is-loading .btn-label{ display:none; }
+.sv-btn-primary.is-loading .btn-loading{ display:inline; }
 
-/* Modal responsive */
+/* ---------- File preview (card style) ---------- */
+.sv-file-list{
+  display:grid; grid-template-columns:1fr; gap:10px; margin-top:10px;
+}
+.sv-file-card{
+  display:flex; align-items:center; gap:12px;
+  background:rgba(255,255,255,0.65);
+  border:1.5px solid rgba(10,43,77,0.25);
+  border-radius:12px;
+  padding:10px 12px;
+  box-shadow:0 0 18px rgba(10,43,77,0.10);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.sv-file-card:hover{ transform:translateY(-2px); box-shadow:0 0 28px rgba(0,200,255,0.25); }
+
+.sv-file-icon{
+  width:36px; height:36px; border-radius:10px; display:grid; place-items:center;
+  background:#eef5ff; color:#0a2b4d; font-weight:800; font-size:12px; text-transform:uppercase;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+}
+.sv-file-meta{ flex:1; min-width:0; }
+.sv-file-name{ font-weight:700; color:#10263a; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sv-file-info{ color:#5b6e82; font-size:12px; }
+.sv-file-remove{
+  background:#fff; color:#b00020; border:1px solid #f0c2c2; border-radius:8px;
+  padding:6px 10px; cursor:pointer; font-weight:700;
+}
+.sv-file-remove:hover{ background:#ffecec; }
+
+/* ---------- Messages ---------- */
+.sv-success{ display:none; margin-top:8px; padding:10px; border:1px solid #b5e4c8; background:#e9f8ef; color:#1e6b3f; border-radius:8px; }
+.sv-error{ display:none; margin-top:8px; padding:10px; border:1px solid #f1b1b1; background:#ffecec; color:#8a1f1f; border-radius:8px; }
+.sv-note{ color:#6b7f90; font-size:12px; margin:8px 2px 0; }
+
+/* ---------- Misc ---------- */
+.sv-hidden-iframe{ display:none; }
+.sv-hp{ position:absolute; left:-9999px; height:0; width:0; opacity:0; }
+
+/* ---------- Modal responsive ---------- */
 @media (max-width:720px){
   .sv-modal__panel{
     left:clamp(8px,2vw,16px); right:clamp(8px,2vw,16px);
     bottom:auto; top:12%; width:auto; max-height:76vh;
   }
+  .sv-form-grid{ grid-template-columns:1fr; }
 }
-
-/* Optional: lift stack above any sticky footer */
-.footer { z-index: 1; position: relative; }
 </style>
 
+<script>
+/* ============================== FIXED LOGIC — File Accumulation Enabled ============================== */
+(function () {
+  const modal = document.getElementById('svQuoteModal');
+  const openBtn = document.querySelector('.sv-fab-quote');
+  const closeEls = modal.querySelectorAll('[data-close], .sv-modal__backdrop');
+  const form = document.getElementById('svQuoteForm');
+  const filesInput = document.getElementById('svFiles');
+  const fileList = document.getElementById('svFileList');
+  const success = document.getElementById('svSuccess');
+  const errorBox = document.getElementById('svError');
+  const note = document.getElementById('svFormNote');
+  const submitBtn = form.querySelector('.sv-btn-primary');
+  const iframe = document.getElementsByName('svHiddenFrame')[0];
 
+  // Maintain selected files list
+  let selectedFiles = [];
+
+  // Helpers
+  const fmtBytes = (bytes = 0) => {
+    const sizes = ["B","KB","MB","GB"];
+    const i = Math.floor(Math.log(bytes)/Math.log(1024));
+    return (bytes / Math.pow(1024, i)).toFixed(1) + " " + sizes[i];
+  };
+  const extFromName = name => name.split(".").pop().toUpperCase();
+
+  // File validation + preview render
+  function renderFileList() {
+    fileList.innerHTML = "";
+    selectedFiles.forEach((file, i) => {
+      const card = document.createElement("div");
+      card.className = "sv-file-card";
+      card.innerHTML = `
+        <div class="sv-file-icon">${extFromName(file.name)}</div>
+        <div class="sv-file-meta">
+          <div class="sv-file-name">${file.name}</div>
+          <div class="sv-file-info">${fmtBytes(file.size)}</div>
+        </div>
+        <button class="sv-file-remove" data-index="${i}">Remove</button>
+      `;
+      fileList.appendChild(card);
+    });
+  }
+
+  // ✅ FIX: Allow adding multiple file selections
+  filesInput.addEventListener("change", e => {
+    let newFiles = Array.from(e.target.files);
+
+    // Prevent more than 3 total
+    if (selectedFiles.length + newFiles.length > 3) {
+      errorBox.textContent = "Max 3 files allowed.";
+      errorBox.style.display = "block";
+      return;
+    }
+
+    selectedFiles = selectedFiles.concat(newFiles);
+    renderFileList();
+  });
+
+  // Remove file
+  fileList.addEventListener("click", e => {
+    if (e.target.classList.contains("sv-file-remove")) {
+      const idx = e.target.getAttribute("data-index");
+      selectedFiles.splice(idx, 1);
+      renderFileList();
+    }
+  });
+
+  // Sync files for submit
+  function syncFilesToInput() {
+    const dt = new DataTransfer();
+    selectedFiles.forEach(f => dt.items.add(f));
+    filesInput.files = dt.files;
+  }
+
+  // Submit
+  form.addEventListener("submit", e => {
+    syncFilesToInput();
+  });
+
+  // Modal open/close code preserved
+  openBtn.addEventListener("click", () => modal.setAttribute("aria-hidden", "false"));
+  closeEls.forEach(btn => btn.addEventListener("click", () => modal.setAttribute("aria-hidden", "true")));
+})();
+</script>
 
 
 
@@ -1306,6 +1382,7 @@ var swiper = new Swiper(".projectSwiper", {
 </body>
 
 </html>
+
 
 
 
