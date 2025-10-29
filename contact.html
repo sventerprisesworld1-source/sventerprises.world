@@ -186,23 +186,6 @@
       gap: 12px;
     }
 
-    /* HERO SLIDER */
-    .hero-slider img {
-      width: 100%;
-      height: 80vh;
-      object-fit: cover;
-    }
-
-    .hero-text {
-      position: absolute;
-      bottom: 20%;
-      left: 5%;
-      color: white;
-      font-size: 2rem;
-      font-weight: 700;
-      text-shadow: 2px 2px 10px black;
-    }
-
     /* ===== GST Number Styling ===== */
 .gst-box {
   font-size: 14px;
@@ -235,86 +218,9 @@
     
   </style>
 
-  <!-- Full-stretch, card-style video slider -->
-  <section class="edge-pad">
-    <div class="video-slider-card">
-      <div class="slide">
-        <video autoplay muted loop playsinline>
-          <source src="assets/contactvideos/video1.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="slide">
-        <video autoplay muted loop playsinline>
-          <source src="assets/contactvideos/video2.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="slide">
-        <video autoplay muted loop playsinline>
-          <source src="assets/contactvideos/video3.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="slide">
-        <video autoplay muted loop playsinline>
-          <source src="assets/contactvideos/video4.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </section>
 
-  <style>
-  /* Full-bleed padding so rounded corners show nicely against the page bg */
-  .edge-pad {
-    padding-inline: clamp(12px, 4vw, 32px);
-    padding-top: 20px;
-    padding-bottom: Auto;
-  }
 
-  /* Card-style, full-stretch slider */
-  .video-slider-card {
-    width: 100%;                 /* full stretch */
-    aspect-ratio: 16 / 9;        /* responsive height */
-    max-height: 76vh;            /* avoid too tall on big screens */
-    border-radius: 18px;         /* round edges */
-    overflow: hidden;            /* clip video to the rounded corners */
-    position: relative;
-    background: #000;            /* prevents flashes */
-    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
-  }
-
-  /* Slides stack on top of each other and fade in/out */
-  .video-slider-card .slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    animation: vsFade 30s infinite; /* 4 slides x 2.5s = 10s total loop */
-  }
-
-  /* Offsets so each slide shows for 2.5s */
-  .video-slider-card .slide:nth-child(1) { animation-delay: 0s; }
-  .video-slider-card .slide:nth-child(2) { animation-delay: 5s; }
-  .video-slider-card .slide:nth-child(3) { animation-delay: 10s; }
-  .video-slider-card .slide:nth-child(4) { animation-delay: 15s; }
-
-  @keyframes vsFade {
-    0%, 100% { opacity: 0; }
-    5%, 25%  { opacity: 1; }  /* visible for ~2s */
-    30%      { opacity: 0; }  /* transition out */
-  }
-
-  /* Make videos fill the card cleanly */
-  .video-slider-card video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* Accessibility: respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .video-slider-card .slide { animation: none; opacity: 1; }
-  }
-  </style>
-
+  
   <!-- ✅ CONTACT OVERVIEW SECTION (same layout as About overview) -->
   <section class="about-overview">
     <div class="about-container">
@@ -1115,4 +1021,5 @@
 
 </body>
 </html>
+
 
