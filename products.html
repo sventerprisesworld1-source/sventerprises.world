@@ -15,6 +15,18 @@
 </head>
 <body>
 
+  <!-- ✅ GST for Desktop -->
+<div class="gst-box desktop-only">
+  GSTIN: 37PPVPS6714C1Z0
+</div>
+
+<!-- ✅ GST Popup for Mobile -->
+<div class="gst-popup mobile-only">
+  GSTIN: 37PPVPS6714C1Z0
+  <span class="gst-close">✕</span>
+</div>
+
+
   <!-- ✅ Responsive Header (logo left, hamburger right) -->
   <header class="main-header responsive-header" role="banner">
     <div class="container header-wrapper">
@@ -23,10 +35,6 @@
         <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
         <span class="brand-name">SV Enterprises</span>
       </a>
-
-      <div class="gst-box">
-  <span>GSTIN37PPVPS6714C1Z0</span>
-      </div>
 
 
       <!-- Right: hamburger -->
@@ -187,38 +195,46 @@
     }
 
 
-    /* ===== GST Number Styling ===== */
+   /* ===== Desktop GST badge ===== */
 .gst-box {
+  text-align: right;
+  padding: 6px 12px;
   font-size: 14px;
   font-weight: 600;
-  color: #ffffff;
   background: #0a2b4d;
-  padding: 4px 10px;
-  border-radius: 6px;
-  letter-spacing: 0.3px;
+  color: white;
 }
+
+/* ===== Mobile GST popup ===== */
+.gst-popup {
+  display: none;
+  background: #0a2b4d;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
+
+.gst-popup .gst-close {
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Show / Hide based on device */
+.mobile-only { display: none; }
+.desktop-only { display: block; }
 
 @media (max-width: 768px) {
-  .gst-box {
-    font-size: 10px;
-    margin-top: 6px;
-  }
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+  body { padding-top: 36px; } /* adjust space for popup */
 }
-
-@media (min-width: 993px) {
-  .header-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-  }
-  .gst-box {
-    order: 2;
-  }
-}
-
-
-
 
     
   </style>
@@ -824,6 +840,7 @@
 </body>
 
 </html>
+
 
 
 
