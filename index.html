@@ -416,18 +416,30 @@
   position: absolute;
   inset: 0;
   opacity: 0;
-  animation: vsFade 12s infinite;
+  animation: vsFade 28s infinite; /* 7 images x 4 seconds each */
 }
 
+
+  
+  
 .video-slider-card .slide:nth-child(1) { animation-delay: 0s; }
 .video-slider-card .slide:nth-child(2) { animation-delay: 4s; }
 .video-slider-card .slide:nth-child(3) { animation-delay: 8s; }
+.video-slider-card .slide:nth-child(4) { animation-delay: 12s; }
+.video-slider-card .slide:nth-child(5) { animation-delay: 16s; }
+.video-slider-card .slide:nth-child(6) { animation-delay: 20s; }
+.video-slider-card .slide:nth-child(7) { animation-delay: 24s; }
 
+
+
+  
 @keyframes vsFade {
   0%,100% { opacity: 0; }
   5%,30% { opacity: 1; }
   35% { opacity: 0; }
 }
+
+  
 
 /* Image style exactly like video version */
 .image-slider-card img {
@@ -2501,6 +2513,7 @@ SPSR Nellore, AP, India-524121</a></p>
 
   </body>
 </html>
+
 
 
 
