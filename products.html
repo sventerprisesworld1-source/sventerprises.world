@@ -486,25 +486,27 @@
 
 
 
-<!-- Single Video Hero Card -->
+<!-- ✅ Image Slider Hero Section -->
 <section class="edge-pad">
-  <div class="video-card">
-    <video autoplay loop muted playsinline>
-      <source src="assets/productvideos/1video.mp4" type="video/mp4">
-    </video>
+  <div class="slider-card">
+    <div class="slider-track">
+      <img src="assets/productimages/slide1.jpg" alt="Slide 1">
+      <img src="assets/productimages/slide2.jpg" alt="Slide 2">
+      <img src="assets/productimages/slide3.jpg" alt="Slide 3">
+    </div>
   </div>
 </section>
 
 <style>
-/* Same padding style used earlier */
+/* ✅ Keep padding same as before */
 .edge-pad {
   padding-inline: clamp(12px, 4vw, 32px);
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-/* Card style like your previous layout */
-.video-card {
+/* ✅ Container with same layout and shadow */
+.slider-card {
   width: 100%;
   aspect-ratio: 16 / 9;
   max-height: 80vh;
@@ -515,14 +517,30 @@
   background: #000;
 }
 
-/* Video styling */
-.video-card video {
-  width: 100%;
+/* ✅ Track for sliding */
+.slider-track {
+  display: flex;
+  width: 300%; /* 3 slides */
   height: 100%;
+  animation: slide 6s infinite;
+}
+
+/* ✅ Each image */
+.slider-track img {
+  width: 100%;
   object-fit: cover;
-  display: block;
+  flex-shrink: 0;
+}
+
+/* ✅ Animation (2s per slide) */
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  33.33% { transform: translateX(-100%); }
+  66.66% { transform: translateX(-200%); }
+  100%  { transform: translateX(0); }
 }
 </style>
+
 
 
 
@@ -1253,6 +1271,7 @@ SPSR Nellore, AP, India-524121</a></p>
 </body>
 
 </html>
+
 
 
 
