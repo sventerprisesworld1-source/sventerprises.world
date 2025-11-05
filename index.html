@@ -110,7 +110,7 @@
     
 
   <!-- ✅ GST for Desktop -->
-<div class="gst-box desktop-only">
+<div class="gst-bar">
   GSTIN: 37PPVPS6714C1Z0
 </div>
 
@@ -133,8 +133,8 @@
 
     <!-- Nav -->
     <nav id="siteNav" class="navbar" role="navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
       <div class="dropdown">
       <a href="products.html" class="dropdown-toggle">Products</a>
       <div class="dropdown-menu">
@@ -277,45 +277,37 @@
 }
 
 
-
-
-  /* Sticky GST bar for mobile */
-.gst-popup {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #f3f3f3;
-  color: #000;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 2000;
-  border-bottom: 1px solid #ccc;
+  
+/* ✅ Unified GST bar - Desktop Right, Mobile Center */
+.gst-bar {
+  background-color: #0b243f;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 550;
+  padding: 8px 16px;
+  z-index: 999;
 }
 
-/* Close button styling */
-.gst-popup .gst-close {
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  color: #000;
-  margin-left: 10px;
-}
-
-/* Initially hidden on desktop */
-.mobile-only {
-  display: none;
-}
-
-@media (max-width: 992px) {
-  .mobile-only {
+/* ✅ Desktop: Align right using flex */
+@media (min-width: 993px) {
+  .gst-bar {
     display: flex;
+    justify-content: flex-end; /* Aligns text to right */
+    width: 100%;
+    text-align: right;
   }
 }
+
+/* ✅ Mobile & Tablet: Full width, centered text */
+@media (max-width: 992px) {
+  .gst-bar {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+
+ 
   
 </style>
 
@@ -2607,6 +2599,7 @@ SPSR Nellore, AP, India-524121</a></p>
 
   </body>
 </html>
+
 
 
 
