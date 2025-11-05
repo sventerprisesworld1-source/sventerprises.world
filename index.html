@@ -108,144 +108,153 @@
 <body>
 
     
-<!-- ✅ Add here -->
+
+  <!-- ✅ GST for Desktop -->
 <div class="gst-box desktop-only">
   GSTIN: 37PPVPS6714C1Z0
 </div>
+
+<!-- ✅ GST Popup for Mobile -->
 <div class="gst-popup mobile-only">
   GSTIN: 37PPVPS6714C1Z0
   <span class="gst-close">✕</span>
 </div>
 
-  
 
   <!-- ✅ Responsive Header (logo left, hamburger right) -->
-  <header class="main-header responsive-header" role="banner">
-    <div class="container header-wrapper">
-      <!-- Left: logo + brand -->
-      <a href="index.html" class="brand-wrap" aria-label="SV Enterprises Home">
-        <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
-        <span class="brand-name">SV Enterprises</span>
-      </a>
+<header class="main-header responsive-header" role="banner">
+  <div class="container header-wrapper">
+    <!-- Left: logo + brand -->
+    <a href="index.html" class="brand-wrap" aria-label="SV Enterprises Home">
+      <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
+      <span class="brand-name">SV Enterprises</span>
+    </a>
 
-      <!-- Right: hamburger -->
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
 
-      <!-- Nav -->
-     <!-- Nav -->
-<nav id="siteNav" class="navbar" role="navigation">
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
+    <!-- Right: hamburger -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
 
-  <!-- ✅ Dropdown Starts -->
-  <div class="dropdown">
-    <a href="products.html" class="dropdown-toggle">Products</a>
-    <div class="dropdown-menu">
+    <!-- Nav -->
+    <nav id="siteNav" class="navbar" role="navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <div class="dropdown">
+      <a href="products.html" class="dropdown-toggle">Products</a>
+      <div class="dropdown-menu">
       <a href="#">Industrial Electricals</a>
       <a href="#">Switch Gears</a>
       <a href="#">Pneumatics Spares</a>
-      <a href="#">Instrumentation & Automation Spares</a>
+      <a href="#">Industrial Instrumentation and Automation Spares</a>
       <a href="#">Packing Consumables</a>
       <a href="#">Bearings</a>
       <a href="#">Plumbing Materials</a>
-      <a href="#">HVAC – Chillers & Process Control</a>
-      <a href="#">Water Treatment Spares & Consumables</a>
+      <a href="#">HVAC – Chillers and Process Control Spares</a>
+      <a href="#">Water Treatment Equipment Spares and Consumables</a>
       <a href="#">Custom Spares</a>
+      </div>
+   </div>
+
+      <a href="services.html">Services</a>
+      <a href="clients.html">Clients</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
-  </div>
-  <!-- ✅ Dropdown Ends -->
+</header>
 
-  <a href="services.html">Services</a>
-  <a href="clients.html">Clients</a>
-  <a href="blogs.html">Blogs</a>
-  <a href="contact.html">Contact</a>
-  </nav>
-  </div>
-  </header>
 
-  
 
-  <style>
-  /* ============ Responsive Header Add-ons ============ */
-  .responsive-header .brand-wrap {
-    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+<style>
+/* ============ Responsive Header Add-ons ============ */
+.responsive-header .brand-wrap {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.responsive-header .brand-logo { height: 56px; width: auto; display: block; }
+.responsive-header .brand-name {
+  font-weight: 800; font-size: 18px; color: #0a2b4d; letter-spacing: .2px;
+}
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  appearance: none; background: #fff; border: 1px solid #d9d9d9; border-radius: 8px;
+  padding: 10px; display: inline-flex; flex-direction: column; gap: 4px;
+  cursor: pointer; line-height: 0;
+}
+.nav-toggle-bar { width: 22px; height: 2px; background: #0a2b4d; display: block; border-radius: 2px; }
+
+/* Mobile nav panel behavior */
+@media (max-width: 992px) {
+  /* keep header layout tidy */
+  .responsive-header .header-wrapper { gap: 12px; }
+
+  /* use dropdown panel instead of inline bar */
+  .responsive-header .navbar {
+    position: absolute; right: 4%; top: calc(100% + 8px);
+    background: #fff; border: 1px solid #dfe5ea; border-radius: 10px;
+    padding: 10px; display: none; /* hidden by default */
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    width: min(92vw, 360px); z-index: 1001;
   }
-  .responsive-header .brand-logo { height: 56px; width: auto; display: block; }
-  .responsive-header .brand-name {
-    font-weight: 800; font-size: 18px; color: #0a2b4d; letter-spacing: .2px;
+  /* remove the inline outline on mobile panel */
+  .responsive-header .navbar { border-width: 1px !important; }
+  .responsive-header .navbar a {
+    display: block; padding: 10px 12px; margin: 0; border-radius: 8px; color: #333;
   }
+  .responsive-header .navbar a:hover { background: #f5f7fa; color: #0077cc; }
+  .responsive-header .navbar[data-open="true"] { display: block; }
 
-  /* Hamburger button (hidden on desktop) */
-  .nav-toggle {
-    appearance: none; background: #fff; border: 1px solid #d9d9d9; border-radius: 8px;
-    padding: 10px; display: inline-flex; flex-direction: column; gap: 4px;
-    cursor: pointer; line-height: 0;
-  }
-  .nav-toggle-bar { width: 22px; height: 2px; background: #0a2b4d; display: block; border-radius: 2px; }
+  /* brand sizing on small screens */
+  .responsive-header .brand-logo { height: 48px; }
+  .responsive-header .brand-name { font-size: 16px; }
 
-  /* Mobile nav panel behavior */
-  @media (max-width: 992px) {
-    .responsive-header .header-wrapper { gap: 12px; }
-    .responsive-header .navbar {
-      position: absolute; right: 4%; top: calc(100% + 8px);
-      background: #fff; border: 1px solid #dfe5ea; border-radius: 10px;
-      padding: 10px; display: none; /* hidden by default */
-      box-shadow: 0 12px 28px rgba(0,0,0,.12);
-      width: min(92vw, 360px); z-index: 1001;
-    }
-    .responsive-header .navbar { border-width: 1px !important; }
-    .responsive-header .navbar a {
-      display: block; padding: 10px 12px; margin: 0; border-radius: 8px; color: #333;
-    }
-    .responsive-header .navbar a:hover { background: #f5f7fa; color: #0077cc; }
-    .responsive-header .navbar[data-open="true"] { display: block; }
-    .responsive-header .brand-logo { height: 48px; }
-    .responsive-header .brand-name { font-size: 16px; }
-    .nav-toggle { display: inline-flex; }
-  }
+  /* show hamburger on mobile */
+  .nav-toggle { display: inline-flex; }
+}
 
-  /* Desktop: keep your existing inline bar (with your border style) and hide hamburger */
-  @media (min-width: 993px) {
-    .responsive-header .navbar { display: inline-flex; align-items: center; gap: 12px; }
-    .nav-toggle { display: none; }
-  }
+/* Desktop: keep your existing inline bar (with your border style) and hide hamburger */
+@media (min-width: 993px) {
+  .responsive-header .navbar { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-toggle { display: none; }
+}
 
 
 
 
-/* ===== Dropdown Common ===== */
+/* Dropdown wrapper */
 .dropdown {
   position: relative;
 }
 
-.dropdown-toggle {
-  cursor: pointer;
+/* Dropdown toggle link */
+.dropdown-toggle::after {
+  content: " ▼";
+  font-size: 10px;
 }
 
+/* Dropdown menu (hidden by default) */
 .dropdown-menu {
-  display: none;
-  flex-direction: column;
-  background: #fff;
-  border: 1px solid #dfe5ea;
-  border-radius: 10px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.1);
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 100%; left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   min-width: 220px;
+  display: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   z-index: 1002;
-  overflow: hidden;
 }
 
+/* Dropdown links */
 .dropdown-menu a {
+  display: block;
   padding: 10px 15px;
   color: #333;
   text-decoration: none;
-  border-bottom: 1px solid #eee;
+  white-space: nowrap;
 }
 
 .dropdown-menu a:hover {
@@ -253,137 +262,75 @@
   color: #0077cc;
 }
 
-/* ===== Desktop Hover Dropdown ===== */
+/* Show dropdown on hover (desktop) */
 @media (min-width: 993px) {
   .dropdown:hover .dropdown-menu {
-    display: flex;
+    display: block;
   }
 }
 
-/* ===== Mobile Click Dropdown ===== */
+/* Mobile toggle behavior handled by existing script */
 @media (max-width: 992px) {
   .dropdown-menu {
     position: static;
-    border: none;
     box-shadow: none;
-    width: 100%;
+    border: none;
+    padding-left: 10px;
   }
 
-  .dropdown[data-open="true"] .dropdown-menu {
-    display: flex;
+  .dropdown-toggle::after {
+    content: none;
   }
 }
 
-    
-
-
   
-/* ===== Desktop GST badge ===== */
-.gst-box {
-  text-align: right;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: 600;
-  background: #0a2b4d;
-  color: white;
-}
-
-/* ===== Mobile GST popup ===== */
-.gst-popup {
-  display: none;
-  background: #0a2b4d;
-  color: white;
-  text-align: center;
-  font-size: 14px;
-  padding: 8px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 2000;
-  box-shadow: 0 2px 6px rgba(0,0,0,.2);
-}
-
-.gst-popup .gst-close {
-  margin-left: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Show / Hide based on device */
-.mobile-only { display: none; }
-.desktop-only { display: block; }
-
-@media (max-width: 768px) {
-  .desktop-only { display: none; }
-  .mobile-only { display: block; }
-  body { padding-top: 36px; } /* adjust space for popup */
-}
-
-  </style>
-
-
-
-  <script>
-  document.querySelector('.gst-close')?.addEventListener('click', function () {
-    document.querySelector('.gst-popup').style.display = 'none';
-  });
-  </script>
-
   
+</style>
 
-  <script>
-    (function () {
-      const toggle = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('siteNav');
 
-      function closeNav() {
-        nav?.setAttribute('data-open', 'false');
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
-      function openNav() {
-        nav?.setAttribute('data-open', 'true');
-        toggle?.setAttribute('aria-expanded', 'true');
-      }
 
-      toggle?.addEventListener('click', () => {
-        const isOpen = nav.getAttribute('data-open') === 'true';
-        isOpen ? closeNav() : openNav();
-      });
 
-      // Close on ESC
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeNav();
-      });
 
-      // Close when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
-      });
+<script>
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('siteNav');
 
-      // Close after clicking a link (mobile)
-      nav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => closeNav());
-      });
+    function closeNav() {
+      nav?.setAttribute('data-open', 'false');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+    function openNav() {
+      nav?.setAttribute('data-open', 'true');
+      toggle?.setAttribute('aria-expanded', 'true');
+    }
 
-      // Reset on resize to desktop
-      const mq = window.matchMedia('(min-width: 993px)');
-      mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
-    })();
-  </script>
+    toggle?.addEventListener('click', () => {
+      const isOpen = nav.getAttribute('data-open') === 'true';
+      isOpen ? closeNav() : openNav();
+    });
 
-  <script>
-    // Mobile: toggle dropdowns on tap
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(drop => {
-  const toggle = drop.querySelector('.dropdown-toggle');
-  toggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    const isOpen = drop.getAttribute('data-open') === 'true';
-    dropdowns.forEach(d => d.setAttribute('data-open', 'false')); // close others
-    drop.setAttribute('data-open', isOpen ? 'false' : 'true');
-  });
-});
-  </script>  
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
+    });
+
+    // Close after clicking a link (mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeNav());
+    });
+
+    // Reset on resize to desktop
+    const mq = window.matchMedia('(min-width: 993px)');
+    mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
+  })();
+</script>
+
 
   
   <style>
@@ -2612,6 +2559,7 @@ SPSR Nellore, AP, India-524121</a></p>
 
   </body>
 </html>
+
 
 
 
