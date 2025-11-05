@@ -283,6 +283,47 @@
   }
 }
 
+
+
+
+  /* Sticky GST bar for mobile */
+.gst-popup {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #f3f3f3;
+  color: #000;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2000;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Close button styling */
+.gst-popup .gst-close {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-left: 10px;
+}
+
+/* Initially hidden on desktop */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobile-only {
+    display: flex;
+  }
+}
+
   
   
 </style>
@@ -329,8 +370,24 @@
     const mq = window.matchMedia('(min-width: 993px)');
     mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
   })();
+  
 </script>
 
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const closeBtn = document.querySelector('.gst-popup .gst-close');
+    const gstBar = document.querySelector('.gst-popup');
+
+    closeBtn?.addEventListener('click', () => {
+      gstBar.style.display = 'none';
+    });
+  });
+</script>
+
+
+
+  
 
   
   <style>
@@ -2559,6 +2616,7 @@ SPSR Nellore, AP, India-524121</a></p>
 
   </body>
 </html>
+
 
 
 
