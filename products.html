@@ -531,11 +531,14 @@
 
 /* Images: perfect fit and no stretch */
 .step-slider-track img {
-  width: 50%;
-  height: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
+  width: 90%;            /* Shrink image width inside container */
+  height: 90%;           /* Shrink image height */
+  object-fit: contain;   /* Show full image without crop */
+  margin: auto;          /* Center the image horizontally */
+  display: block;        /* Ensure margin works */
+  border-radius: 12px;   /* Optional: make image corners round inside the block */
 }
+
 
 
   @keyframes slideSteps {
@@ -1275,6 +1278,7 @@ SPSR Nellore, AP, India-524121</a></p>
 </body>
 
 </html>
+
 
 
 
