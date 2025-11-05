@@ -122,133 +122,271 @@
 </head>
 <body>
 
+
+
   <!-- ✅ GST for Desktop -->
-<div class="gst-box desktop-only">
+<div class="gst-bar">
   GSTIN: 37PPVPS6714C1Z0
 </div>
-
-<!-- ✅ GST Popup for Mobile -->
-<div class="gst-popup mobile-only">
-  GSTIN: 37PPVPS6714C1Z0
-  <span class="gst-close">✕</span>
-</div>
-
 
   <!-- ✅ Responsive Header (logo left, hamburger right) -->
-  <header class="main-header responsive-header" role="banner">
-    <div class="container header-wrapper">
-      <!-- Left: logo + brand -->
-      <a href="index.html" class="brand-wrap" aria-label="SV Enterprises Home">
-        <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
-        <span class="brand-name">SV Enterprises</span>
-      </a>
+<header class="main-header responsive-header" role="banner">
+  <div class="container header-wrapper">
+    <!-- Left: logo + brand -->
+    <a href="index.html" class="brand-wrap" aria-label="SV Enterprises Home">
+      <img src="assets/images/logo.png" alt="SV Enterprises logo" class="brand-logo" />
+      <span class="brand-name">SV Enterprises</span>
+    </a>
 
 
-      <!-- Right: hamburger -->
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
+    <!-- Right: hamburger -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
 
-      <!-- Nav -->
-      <nav id="siteNav" class="navbar" role="navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="products.html" class="active">Products</a>
-        <a href="services.html">Services</a>
-        <a href="clients.html">Clients</a>
-        <a href="blogs.html">Blogs</a>
-        <a href="contact.html">Contac</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Nav -->
+    <nav id="siteNav" class="navbar" role="navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <div class="dropdown">
+      <a href="products.html" class="dropdown-toggle">Products</a>
+      <div class="dropdown">
+  <a href="products.html" class="dropdown-toggle">Products</a>
+  <div class="dropdown-menu">
+    <a href="products.html#industrial-electricals">Industrial Electricals</a>
+    <a href="products.html#switch-gears">Switch Gears</a>
+    <a href="products.html#pneumatics-spares">Pneumatics Spares</a>
+    <a href="products.html#instrumentation-automation">Instrumentation & Automation</a>
+    <a href="products.html#packing-consumables">Packing Consumables</a>
+    <a href="products.html#bearings">Bearings</a>
+    <a href="products.html#plumbing-materials">Plumbing Materials</a>
+    <a href="products.html#hvac-spares">HVAC – Chillers</a>
+    <a href="products.html#water-treatment">Water Treatment</a>
+    <a href="products.html#custom-spares">Custom Spares</a>
+  </div>
+</div>
 
-  <style>
-  /* ============ Responsive Header Add-ons ============ */
-  .responsive-header .brand-wrap {
-    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+      <a href="services.html">Services</a>
+      <a href="clients.html">Clients</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<style>
+/* ============ Responsive Header Add-ons ============ */
+.responsive-header .brand-wrap {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.responsive-header .brand-logo { height: 56px; width: auto; display: block; }
+.responsive-header .brand-name {
+  font-weight: 800; font-size: 18px; color: #0a2b4d; letter-spacing: .2px;
+}
+
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  appearance: none; background: #fff; border: 1px solid #d9d9d9; border-radius: 8px;
+  padding: 10px; display: inline-flex; flex-direction: column; gap: 4px;
+  cursor: pointer; line-height: 0;
+}
+.nav-toggle-bar { width: 22px; height: 2px; background: #0a2b4d; display: block; border-radius: 2px; }
+
+/* Mobile nav panel behavior */
+@media (max-width: 992px) {
+  /* keep header layout tidy */
+  .responsive-header .header-wrapper { gap: 12px; }
+
+  /* use dropdown panel instead of inline bar */
+  .responsive-header .navbar {
+    position: absolute; right: 4%; top: calc(100% + 8px);
+    background: #fff; border: 1px solid #dfe5ea; border-radius: 10px;
+    padding: 10px; display: none; /* hidden by default */
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    width: min(92vw, 360px); z-index: 1001;
   }
-  .responsive-header .brand-logo { height: 56px; width: auto; display: block; }
-  .responsive-header .brand-name {
-    font-weight: 800; font-size: 18px; color: #0a2b4d; letter-spacing: .2px;
+  /* remove the inline outline on mobile panel */
+  .responsive-header .navbar { border-width: 1px !important; }
+  .responsive-header .navbar a {
+    display: block; padding: 10px 12px; margin: 0; border-radius: 8px; color: #333;
+  }
+  .responsive-header .navbar a:hover { background: #f5f7fa; color: #0077cc; }
+  .responsive-header .navbar[data-open="true"] { display: block; }
+
+  /* brand sizing on small screens */
+  .responsive-header .brand-logo { height: 48px; }
+  .responsive-header .brand-name { font-size: 16px; }
+
+  /* show hamburger on mobile */
+  .nav-toggle { display: inline-flex; }
+}
+
+/* Desktop: keep your existing inline bar (with your border style) and hide hamburger */
+@media (min-width: 993px) {
+  .responsive-header .navbar { display: inline-flex; align-items: center; gap: 12px; }
+  .nav-toggle { display: none; }
+}
+
+
+
+
+/* Dropdown wrapper */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown toggle link */
+.dropdown-toggle::after {
+  content: " ▼";
+  font-size: 10px;
+}
+
+/* Dropdown menu (hidden by default) */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-width: 220px;
+  display: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  z-index: 1002;
+}
+
+/* Dropdown links */
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f7fa;
+  color: #0077cc;
+}
+
+/* Show dropdown on hover (desktop) */
+@media (min-width: 993px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Mobile toggle behavior handled by existing script */
+@media (max-width: 992px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding-left: 10px;
   }
 
-  /* Hamburger button (hidden on desktop) */
-  .nav-toggle {
-    appearance: none; background: #fff; border: 1px solid #d9d9d9; border-radius: 8px;
-    padding: 10px; display: inline-flex; flex-direction: column; gap: 4px;
-    cursor: pointer; line-height: 0;
+  .dropdown-toggle::after {
+    content: none;
   }
-  .nav-toggle-bar { width: 22px; height: 2px; background: #0a2b4d; display: block; border-radius: 2px; }
+}
 
-  /* Mobile nav panel behavior */
-  @media (max-width: 992px) {
-    .responsive-header .header-wrapper { gap: 12px; }
-    .responsive-header .navbar {
-      position: absolute; right: 4%; top: calc(100% + 8px);
-      background: #fff; border: 1px solid #dfe5ea; border-radius: 10px;
-      padding: 10px; display: none; /* hidden by default */
-      box-shadow: 0 12px 28px rgba(0,0,0,.12);
-      width: min(92vw, 360px); z-index: 1001;
+
+  
+/* ✅ Unified GST bar - Desktop Right, Mobile Center */
+.gst-bar {
+  background-color: #0b243f;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 550;
+  padding: 8px 16px;
+  z-index: 999;
+}
+
+/* ✅ Desktop: Align right using flex */
+@media (min-width: 993px) {
+  .gst-bar {
+    display: flex;
+    justify-content: flex-end; /* Aligns text to right */
+    width: 100%;
+    text-align: right;
+  }
+}
+
+/* ✅ Mobile & Tablet: Full width, centered text */
+@media (max-width: 992px) {
+  .gst-bar {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+
+ 
+  
+</style>
+
+
+
+
+
+<script>
+  (function () {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('siteNav');
+
+    function closeNav() {
+      nav?.setAttribute('data-open', 'false');
+      toggle?.setAttribute('aria-expanded', 'false');
     }
-    .responsive-header .navbar { border-width: 1px !important; }
-    .responsive-header .navbar a {
-      display: block; padding: 10px 12px; margin: 0; border-radius: 8px; color: #333;
+    function openNav() {
+      nav?.setAttribute('data-open', 'true');
+      toggle?.setAttribute('aria-expanded', 'true');
     }
-    .responsive-header .navbar a:hover { background: #f5f7fa; color: #0077cc; }
-    .responsive-header .navbar[data-open="true"] { display: block; }
-    .responsive-header .brand-logo { height: 48px; }
-    .responsive-header .brand-name { font-size: 16px; }
-    .nav-toggle { display: inline-flex; }
-  }
 
-  /* Desktop: keep your existing inline bar (with your border style) and hide hamburger */
-  @media (min-width: 993px) {
-    .responsive-header .navbar { display: inline-flex; align-items: center; gap: 12px; }
-    .nav-toggle { display: none; }
-  }
-  </style>
+    toggle?.addEventListener('click', () => {
+      const isOpen = nav.getAttribute('data-open') === 'true';
+      isOpen ? closeNav() : openNav();
+    });
 
-  <script>
-    (function () {
-      const toggle = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('siteNav');
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
 
-      function closeNav() {
-        nav?.setAttribute('data-open', 'false');
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
-      function openNav() {
-        nav?.setAttribute('data-open', 'true');
-        toggle?.setAttribute('aria-expanded', 'true');
-      }
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
+    });
 
-      toggle?.addEventListener('click', () => {
-        const isOpen = nav.getAttribute('data-open') === 'true';
-        isOpen ? closeNav() : openNav();
-      });
+    // Close after clicking a link (mobile)
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => closeNav());
+    });
 
-      // Close on ESC
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeNav();
-      });
+    // Reset on resize to desktop
+    const mq = window.matchMedia('(min-width: 993px)');
+    mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
+  })();
+  
+</script>
 
-      // Close when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !toggle.contains(e.target)) closeNav();
-      });
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const closeBtn = document.querySelector('.gst-popup .gst-close');
+    const gstBar = document.querySelector('.gst-popup');
 
-      // Close after clicking a link (mobile)
-      nav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => closeNav());
-      });
+    closeBtn?.addEventListener('click', () => {
+      gstBar.style.display = 'none';
+    });
+  });
+</script>
 
-      // Reset on resize to desktop
-      const mq = window.matchMedia('(min-width: 993px)');
-      mq.addEventListener?.('change', (e) => { if (e.matches) closeNav(); });
-    })();
-  </script>
+
+
 
   <style>
     /* home page header */
@@ -388,85 +526,165 @@
 </style>
 
 
-<section class="products-section">
-  <h2 class="products-heading">Our Products</h2>
+
+
+  
+<!-- 1. Industrial Electricals -->
+<section class="products-section" id="industrial-electricals">
+  <h2 class="products-heading">1. Industrial Electricals</h2>
   <div class="products-grid">
-
-    <!-- Product Card 1 -->
-    <div class="product-card">
-      <img src="assets/productimages/product1.jpg" alt="Cub Cadet Riding Lawn Mowers">
-      <h3>Cub Cadet Riding Lawn Mowers</h3>
-    </div>
-
-    <!-- Product Card 2 -->
-    <div class="product-card">
-      <img src="assets/productimages/product2.jpg" alt="Anchor Advance EFFR Wire 180Mtr">
-      <h3>Anchor Advance EFFR Wire 180Mtr</h3>
-    </div>
-
-    <!-- Product Card 3 -->
-    <div class="product-card">
-      <img src="assets/productimages/product3.jpg" alt="Anchor Advance EFFR Wire 200Mtr">
-      <h3>Anchor Advance EFFR Wire 200Mtr</h3>
-    </div>
-
-    <!-- Product Card 4 -->
-    <div class="product-card">
-      <img src="assets/productimages/product4.jpg" alt="Anchor Advance FR Wire 180Mtr">
-      <h3>Anchor Advance FR Wire 180Mtr</h3>
-    </div>
-
-    <!-- Product Card 5 -->
-    <div class="product-card">
-      <img src="assets/productimages/product5.jpg" alt="Cub Cadet Riding Lawn Mowers">
-      <h3>Cub Cadet Riding Lawn Mowers</h3>
-    </div>
-
-    <!-- Product Card 6 -->
-    <div class="product-card">
-      <img src="assets/productimages/product6.jpg" alt="Anchor Advance EFFR Wire 180Mtr">
-      <h3>Anchor Advance EFFR Wire 180Mtr</h3>
-    </div>
-
-    <!-- Product Card 7 -->
-    <div class="product-card">
-      <img src="assets/productimages/product7.jpg" alt="Anchor Advance EFFR Wire 200Mtr">
-      <h3>Anchor Advance EFFR Wire 200Mtr</h3>
-    </div>
-
-    <!-- Product Card 8 -->
-    <div class="product-card">
-      <img src="assets/productimages/product8.jpg" alt="Anchor Advance FR Wire 180Mtr">
-      <h3>Anchor Advance FR Wire 180Mtr</h3>
-    </div>
-
-    <!-- Product Card 9 -->
-    <div class="product-card">
-      <img src="assets/productimages/product9.jpg" alt="Cub Cadet Riding Lawn Mowers">
-      <h3>Cub Cadet Riding Lawn Mowers</h3>
-    </div>
-
-    <!-- Product Card 10 -->
-    <div class="product-card">
-      <img src="assets/productimages/product10.jpg" alt="Anchor Advance EFFR Wire 180Mtr">
-      <h3>Anchor Advance EFFR Wire 180Mtr</h3>
-    </div>
-
-    <!-- Product Card 11 -->
-    <div class="product-card">
-      <img src="assets/productimages/product11.jpg" alt="Anchor Advance EFFR Wire 200Mtr">
-      <h3>Anchor Advance EFFR Wire 200Mtr</h3>
-    </div>
-
-    <!-- Product Card 12 -->
-    <div class="product-card">
-      <img src="assets/productimages/product12.jpg" alt="Anchor Advance FR Wire 180Mtr">
-      <h3>Anchor Advance FR Wire 180Mtr</h3>
-    </div>
-
+    <div class="product-card"><img src="assets/productimages/led-flood.jpg" alt="LED Flood Light"><h3>LED Flood Light</h3></div>
+    <div class="product-card"><img src="assets/productimages/mcb.jpg" alt="MCB"><h3>Miniature Circuit Breaker</h3></div>
+    <div class="product-card"><img src="assets/productimages/wires.jpg" alt="Copper Wires"><h3>Copper Wiring Roll</h3></div>
+    <div class="product-card"><img src="assets/productimages/conduit-box.jpg" alt="Conduit Box"><h3>Conduit Junction Box</h3></div>
+    <div class="product-card"><img src="assets/productimages/panel.jpg" alt="Panel"><h3>Control Panel</h3></div>
+    <div class="product-card"><img src="assets/productimages/fan.jpg" alt="Industrial Fan"><h3>Industrial Fan</h3></div>
+    <div class="product-card"><img src="assets/productimages/cable.jpg" alt="Cable"><h3>Armoured Cable</h3></div>
+    <div class="product-card"><img src="assets/productimages/switch.jpg" alt="Switch"><h3>Heavy Duty Switch</h3></div>
   </div>
 </section>
 
+<!-- 2. Switch Gears -->
+<section class="products-section" id="switch-gears">
+  <h2 class="products-heading">2. Switch Gears</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/mccb.jpg" alt="MCCB"><h3>MCCB</h3></div>
+    <div class="product-card"><img src="assets/productimages/contactor.jpg" alt="Contactor"><h3>Contactor</h3></div>
+    <div class="product-card"><img src="assets/productimages/relay.jpg" alt="Relay"><h3>Overload Relay</h3></div>
+    <div class="product-card"><img src="assets/productimages/fuse.jpg" alt="HRC Fuse"><h3>HRC Fuse</h3></div>
+    <div class="product-card"><img src="assets/productimages/busbar.jpg" alt="Busbar"><h3>Busbar</h3></div>
+    <div class="product-card"><img src="assets/productimages/timer.jpg" alt="Timer"><h3>Electronic Timer</h3></div>
+    <div class="product-card"><img src="assets/productimages/isolator.jpg" alt="Isolator"><h3>Isolator</h3></div>
+    <div class="product-card"><img src="assets/productimages/indicator.jpg" alt="Indicator"><h3>Panel Indicator</h3></div>
+  </div>
+</section>
+
+<!-- 3. Pneumatics Spares -->
+<section class="products-section" id="pneumatics-spares">
+  <h2 class="products-heading">3. Pneumatics Spares</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/cylinder.jpg" alt="Air Cylinder"><h3>Pneumatic Cylinder</h3></div>
+    <div class="product-card"><img src="assets/productimages/valve.jpg" alt="Solenoid Valve"><h3>Solenoid Valve</h3></div>
+    <div class="product-card"><img src="assets/productimages/airline.jpg" alt="Air Line"><h3>Air Line Fittings</h3></div>
+    <div class="product-card"><img src="assets/productimages/regulator.jpg" alt="Air Regulator"><h3>Air Regulator</h3></div>
+    <div class="product-card"><img src="assets/productimages/filter.jpg" alt="FRL Unit"><h3>FRL Unit</h3></div>
+    <div class="product-card"><img src="assets/productimages/silencer.jpg" alt="Silencer"><h3>Exhaust Silencer</h3></div>
+    <div class="product-card"><img src="assets/productimages/pressure.jpg" alt="Pressure Gauge"><h3>Pressure Gauge</h3></div>
+    <div class="product-card"><img src="assets/productimages/quickcoupler.jpg" alt="Quick Coupler"><h3>Quick Coupler</h3></div>
+  </div>
+</section>
+
+
+
+<section class="products-section" id="instrumentation-automation">
+  <h2 class="products-heading">4. Industrial Instrumentation and Automation Spares</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/sensor.jpg" alt="Sensor"><h3>Proximity Sensor</h3></div>
+    <div class="product-card"><img src="assets/productimages/thermocouple.jpg" alt="Thermocouple"><h3>Thermocouple</h3></div>
+    <div class="product-card"><img src="assets/productimages/transmitter.jpg" alt="Transmitter"><h3>Pressure Transmitter</h3></div>
+    <div class="product-card"><img src="assets/productimages/display.jpg" alt="Display Unit"><h3>Digital Display Unit</h3></div>
+    <div class="product-card"><img src="assets/productimages/controller.jpg" alt="Controller"><h3>PID Controller</h3></div>
+    <div class="product-card"><img src="assets/productimages/encoder.jpg" alt="Encoder"><h3>Rotary Encoder</h3></div>
+    <div class="product-card"><img src="assets/productimages/loadcell.jpg" alt="Load Cell"><h3>Load Cell</h3></div>
+    <div class="product-card"><img src="assets/productimages/hmi.jpg" alt="HMI"><h3>HMI Display</h3></div>
+  </div>
+</section>
+
+
+  
+<section class="products-section" id="packing-consumables">
+  <h2 class="products-heading">5. Packing Consumables</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/tape.jpg" alt="Packing Tape"><h3>Packing Tape</h3></div>
+    <div class="product-card"><img src="assets/productimages/stretchfilm.jpg" alt="Stretch Film"><h3>Stretch Film Roll</h3></div>
+    <div class="product-card"><img src="assets/productimages/bubble.jpg" alt="Bubble Wrap"><h3>Bubble Wrap</h3></div>
+    <div class="product-card"><img src="assets/productimages/strap.jpg" alt="Strapping Roll"><h3>PP Strapping Roll</h3></div>
+    <div class="product-card"><img src="assets/productimages/box.jpg" alt="Corrugated Box"><h3>Corrugated Box</h3></div>
+    <div class="product-card"><img src="assets/productimages/label.jpg" alt="Label"><h3>Adhesive Labels</h3></div>
+    <div class="product-card"><img src="assets/productimages/glue.jpg" alt="Hot Glue"><h3>Hot Glue Sticks</h3></div>
+    <div class="product-card"><img src="assets/productimages/sealer.jpg" alt="Sealer"><h3>Manual Sealer</h3></div>
+  </div>
+</section>
+
+
+
+<section class="products-section" id="bearings">
+  <h2 class="products-heading">6. Bearings</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/bearing1.jpg" alt="Ball Bearing"><h3>Ball Bearing</h3></div>
+    <div class="product-card"><img src="assets/productimages/bearing2.jpg" alt="Tapered Bearing"><h3>Tapered Roller Bearing</h3></div>
+    <div class="product-card"><img src="assets/productimages/bearing3.jpg" alt="Thrust Bearing"><h3>Thrust Bearing</h3></div>
+    <div class="product-card"><img src="assets/productimages/bearing4.jpg" alt="Pillow Block"><h3>Pillow Block</h3></div>
+    <div class="product-card"><img src="assets/productimages/bearing5.jpg" alt="Needle Bearing"><h3>Needle Bearing</h3></div>
+    <div class="product-card"><img src="assets/productimages/bearing6.jpg" alt="Spherical Bearing"><h3>Spherical Roller Bearing</h3></div>
+    <div class="product-card"><img src="assets/productimages/bearing7.jpg" alt="Linear Bearing"><h3>Linear Bearing</h3></div>
+    <div class="product-card"><img src="assets/productimages/bearing8.jpg" alt="Flange Bearing"><h3>Flange Bearing</h3></div>
+  </div>
+</section>
+
+
+
+<section class="products-section" id="plumbing-materials">
+  <h2 class="products-heading">7. Plumbing Materials</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/pipe.jpg" alt="PVC Pipe"><h3>PVC Pipe</h3></div>
+    <div class="product-card"><img src="assets/productimages/fitting.jpg" alt="Fitting"><h3>Pipe Fitting</h3></div>
+    <div class="product-card"><img src="assets/productimages/tap.jpg" alt="Tap"><h3>Ball Valve</h3></div>
+    <div class="product-card"><img src="assets/productimages/ptfe.jpg" alt="Teflon Tape"><h3>PTFE Tape</h3></div>
+    <div class="product-card"><img src="assets/productimages/clamp.jpg" alt="Pipe Clamp"><h3>Pipe Clamp</h3></div>
+    <div class="product-card"><img src="assets/productimages/faucet.jpg" alt="Faucet"><h3>Brass Faucet</h3></div>
+    <div class="product-card"><img src="assets/productimages/connector.jpg" alt="Connector"><h3>Push-Fit Connector</h3></div>
+    <div class="product-card"><img src="assets/productimages/elbow.jpg" alt="Elbow Joint"><h3>Elbow Joint</h3></div>
+  </div>
+</section>
+
+
+<section class="products-section" id="hvac-spares">
+  <h2 class="products-heading">8. HVAC – Chillers and Process Control Spares</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/compressor.jpg" alt="Compressor"><h3>Air Compressor</h3></div>
+    <div class="product-card"><img src="assets/productimages/evaporator.jpg" alt="Evaporator Coil"><h3>Evaporator Coil</h3></div>
+    <div class="product-card"><img src="assets/productimages/valve-hvac.jpg" alt="Expansion Valve"><h3>Expansion Valve</h3></div>
+    <div class="product-card"><img src="assets/productimages/filter-dryer.jpg" alt="Filter Dryer"><h3>Filter Dryer</h3></div>
+    <div class="product-card"><img src="assets/productimages/thermostat.jpg" alt="Thermostat"><h3>Thermostat</h3></div>
+    <div class="product-card"><img src="assets/productimages/temp-sensor.jpg" alt="Temperature Sensor"><h3>Temperature Sensor</h3></div>
+    <div class="product-card"><img src="assets/productimages/actuator.jpg" alt="Valve Actuator"><h3>Valve Actuator</h3></div>
+    <div class="product-card"><img src="assets/productimages/condensor.jpg" alt="Condenser Coil"><h3>Condenser Coil</h3></div>
+  </div>
+</section>
+
+
+<section class="products-section" id="water-treatment">
+  <h2 class="products-heading">9. Water Treatment Equipment Spares and Consumables</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/membrane.jpg" alt="RO Membrane"><h3>RO Membrane</h3></div>
+    <div class="product-card"><img src="assets/productimages/cartridge.jpg" alt="Filter Cartridge"><h3>Filter Cartridge</h3></div>
+    <div class="product-card"><img src="assets/productimages/uv-lamp.jpg" alt="UV Lamp"><h3>UV Sterilizer Lamp</h3></div>
+    <div class="product-card"><img src="assets/productimages/dosing-pump.jpg" alt="Dosing Pump"><h3>Dosing Pump</h3></div>
+    <div class="product-card"><img src="assets/productimages/resin.jpg" alt="Resin"><h3>Ion Exchange Resin</h3></div>
+    <div class="product-card"><img src="assets/productimages/pump.jpg" alt="Transfer Pump"><h3>Transfer Pump</h3></div>
+    <div class="product-card"><img src="assets/productimages/ph-meter.jpg" alt="pH Meter"><h3>Digital pH Meter</h3></div>
+    <div class="product-card"><img src="assets/productimages/chemical.jpg" alt="Treatment Chemicals"><h3>Treatment Chemicals</h3></div>
+  </div>
+</section>
+
+
+<section class="products-section" id="custom-spares">
+  <h2 class="products-heading">10. Custom Spares</h2>
+  <div class="products-grid">
+    <div class="product-card"><img src="assets/productimages/gasket.jpg" alt="Gasket"><h3>Custom Rubber Gasket</h3></div>
+    <div class="product-card"><img src="assets/productimages/flange.jpg" alt="Flange"><h3>Flange (Custom Size)</h3></div>
+    <div class="product-card"><img src="assets/productimages/seal-ring.jpg" alt="Seal Ring"><h3>Non-Standard Seal Ring</h3></div>
+    <div class="product-card"><img src="assets/productimages/fabrication.jpg" alt="Fabricated Spare"><h3>Fabricated Machine Spare</h3></div>
+    <div class="product-card"><img src="assets/productimages/gripper.jpg" alt="Gripper"><h3>Pneumatic Gripper</h3></div>
+    <div class="product-card"><img src="assets/productimages/prototype.jpg" alt="Prototype Part"><h3>Prototype Part</h3></div>
+    <div class="product-card"><img src="assets/productimages/metal.jpg" alt="Metal Spare"><h3>Custom Metal Spare</h3></div>
+    <div class="product-card"><img src="assets/productimages/custom-tool.jpg" alt="Tool"><h3>Special Tool Bit</h3></div>
+  </div>
+</section>
+
+
+  
 
 <style>
 .products-section {
@@ -523,6 +741,30 @@
     height: 200px;
   }
 }
+
+/* Product Section Headings */
+.products-heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: #051b4b;
+  margin: 40px 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 8px;
+}
+
+/* Optional: Adjust on mobile */
+@media (max-width: 768px) {
+  .products-heading {
+    font-size: 20px;
+    text-align: center;
+    margin: 32px 0 16px;
+  }
+}
+
+  
+  
 </style>
 
 
@@ -1012,6 +1254,7 @@ SPSR Nellore, AP, India-524121</a></p>
 </body>
 
 </html>
+
 
 
 
