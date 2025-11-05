@@ -136,17 +136,38 @@
       </button>
 
       <!-- Nav -->
-      <nav id="siteNav" class="navbar" role="navigation">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="services.html">Services</a>
-        <a href="clients.html">Clients</a>
-        <a href="blogs.html">Blogs</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+     <!-- Nav -->
+<nav id="siteNav" class="navbar" role="navigation">
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+
+  <!-- ✅ Dropdown Starts -->
+  <div class="dropdown">
+    <a href="products.html" class="dropdown-toggle">Products</a>
+    <div class="dropdown-menu">
+      <a href="#">Industrial Electricals</a>
+      <a href="#">Switch Gears</a>
+      <a href="#">Pneumatics Spares</a>
+      <a href="#">Instrumentation & Automation Spares</a>
+      <a href="#">Packing Consumables</a>
+      <a href="#">Bearings</a>
+      <a href="#">Plumbing Materials</a>
+      <a href="#">HVAC – Chillers & Process Control</a>
+      <a href="#">Water Treatment Spares & Consumables</a>
+      <a href="#">Custom Spares</a>
+  </div>
+  </div>
+  <!-- ✅ Dropdown Ends -->
+
+  <a href="services.html">Services</a>
+  <a href="clients.html">Clients</a>
+  <a href="blogs.html">Blogs</a>
+  <a href="contact.html">Contact</a>
+  </nav>
+  </div>
   </header>
+
+  
 
   <style>
   /* ============ Responsive Header Add-ons ============ */
@@ -194,6 +215,69 @@
   }
 
 
+
+
+/* ===== Dropdown Common ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #dfe5ea;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  z-index: 1002;
+  overflow: hidden;
+}
+
+.dropdown-menu a {
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f7fa;
+  color: #0077cc;
+}
+
+/* ===== Desktop Hover Dropdown ===== */
+@media (min-width: 993px) {
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+}
+
+/* ===== Mobile Click Dropdown ===== */
+@media (max-width: 992px) {
+  .dropdown-menu {
+    position: static;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .dropdown[data-open="true"] .dropdown-menu {
+    display: flex;
+  }
+}
+
+    
+
+
+  
 /* ===== Desktop GST badge ===== */
 .gst-box {
   text-align: right;
@@ -287,6 +371,21 @@
     })();
   </script>
 
+  <script>
+    // Mobile: toggle dropdowns on tap
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(drop => {
+  const toggle = drop.querySelector('.dropdown-toggle');
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = drop.getAttribute('data-open') === 'true';
+    dropdowns.forEach(d => d.setAttribute('data-open', 'false')); // close others
+    drop.setAttribute('data-open', isOpen ? 'false' : 'true');
+  });
+});
+  </script>  
+
+  
   <style>
     /* home page header */
     body {
@@ -486,7 +585,7 @@
         <p>
           With high-quality vendor networks and reliable sourcing channels, we deliver genuine materials
           with <strong>assured quality, competitive pricing, and fast delivery</strong> across India.
-          We support manufacturing, automation, energy, and construction industries with full operational support.
+          We support Manufacturing, Automation, Energy, Construction, Food, FMCG, Beverages, pharmaceutical with full operational support.
         </p>
         <a href="about.html" class="about-btn">Learn More</a>
       </div>
@@ -2513,6 +2612,7 @@ SPSR Nellore, AP, India-524121</a></p>
 
   </body>
 </html>
+
 
 
 
